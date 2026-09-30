@@ -16,6 +16,7 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
 
@@ -141,6 +142,18 @@
       </section>
 
     </div>
+
+    <!-- Mobile Sticky Checkout Bar -->
+    <aside class="mobile-cart-sticky-bar" id="mobileCartStickyBar">
+      <div class="mobile-cart-sticky-total">
+        <span class="mobile-cart-sticky-label">Grand Total</span>
+        <span class="mobile-cart-sticky-amount" id="mobileStickyTotal">₹0</span>
+      </div>
+      <button class="btn-checkout-sticky" id="btnStickyCheckout" aria-label="Proceed to Checkout">
+        <span>Checkout</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </aside>
   </main>
 
   <!-- Injected Footer Container -->
@@ -249,6 +262,17 @@
         }
 
         if (grandTotalEl) grandTotalEl.textContent = `₹${final.toLocaleString('en-IN')}`;
+
+        const stickyBar = document.getElementById('mobileCartStickyBar');
+        const stickyTotal = document.getElementById('mobileStickyTotal');
+        if (stickyTotal) stickyTotal.textContent = `₹${final.toLocaleString('en-IN')}`;
+        if (stickyBar) {
+          if (summary.items.length === 0) {
+            stickyBar.classList.add('is-hidden');
+          } else {
+            stickyBar.classList.remove('is-hidden');
+          }
+        }
       }
 
       function renderWishlist() {
@@ -325,6 +349,19 @@
           });
 
           window.open(`https://wa.me/918606647777?text=${encodedMsg}`, '_blank');
+        });
+      }
+
+      // Mobile Sticky Checkout Scroll Listener
+      const btnStickyCheckout = document.getElementById('btnStickyCheckout');
+      if (btnStickyCheckout) {
+        btnStickyCheckout.addEventListener('click', () => {
+          const summaryBox = document.getElementById('orderSummaryBox');
+          if (summaryBox) {
+            summaryBox.scrollIntoView({ behavior: 'smooth' });
+            const nameInput = document.getElementById('custName');
+            if (nameInput) setTimeout(() => nameInput.focus(), 400);
+          }
         });
       }
 

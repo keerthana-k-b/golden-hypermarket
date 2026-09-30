@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCategoryCarouselScroll();
   initCarouselsFromData();
   initHeaderSearchForm();
+  initFooterAccordion();
 });
 
 /* ================= HERO SLIDER LOGIC ================= */
@@ -84,23 +85,29 @@ function initHeroSlider() {
     sliderWrapper.addEventListener('mouseleave', startAutoplay);
   }
 
-  // Touch Swipe for Mobile
+  // Touch Swipe for Mobile (support left/right swipe)
   let touchStartX = 0;
   let touchEndX = 0;
 
   if (sliderWrapper) {
     sliderWrapper.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
+      if (e.changedTouches && e.changedTouches.length) {
+        touchStartX = e.changedTouches[0].clientX;
+      }
     }, { passive: true });
 
     sliderWrapper.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      if (touchStartX - touchEndX > 50) {
-        showSlide(currentSlide + 1);
-        startAutoplay();
-      } else if (touchEndX - touchStartX > 50) {
-        showSlide(currentSlide - 1);
-        startAutoplay();
+      if (e.changedTouches && e.changedTouches.length) {
+        touchEndX = e.changedTouches[0].clientX;
+        const diffX = touchStartX - touchEndX;
+        if (Math.abs(diffX) > 40) {
+          if (diffX > 0) {
+            showSlide(currentSlide + 1);
+          } else {
+            showSlide(currentSlide - 1);
+          }
+          startAutoplay();
+        }
       }
     }, { passive: true });
   }
@@ -269,3 +276,18 @@ function setupTrackArrowNav(prevId, nextId, trackId) {
     });
   }
 }
+
+/* ================= FOOTER ACCORDION FOR MOBILE ================= */
+function initFooterAccordion() {
+  document.querySelectorAll('.footer-heading').forEach(heading => {
+    heading.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        const col = heading.closest('.footer-col');
+        if (col && !col.classList.contains('brand-col')) {
+          col.classList.toggle('open');
+        }
+      }
+    });
+  });
+}
+

@@ -18,6 +18,7 @@ const LucideIcons = {
   layoutGrid: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>`,
   flame: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"/></svg>`,
   ticket: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>`,
+  home: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
   x: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`
 };
 
@@ -35,6 +36,16 @@ const SiteComponents = {
     this.renderMobileNav();
     this.setupInteractions();
     
+    // Set page class and sticky bar helper on body
+    document.body.classList.add(`page-${this.currentPage}`);
+    if (this.currentPage === 'product' || this.currentPage === 'cart') {
+      document.body.classList.add('has-bottom-sticky-bar');
+    }
+
+    // Apply saved language state on load
+    const savedLang = localStorage.getItem('golden_hypermarket_lang') || 'EN';
+    document.body.classList.toggle('lang-malayalam', savedLang === 'ML');
+
     // Sync cart & wishlist badges
     if (window.CartManager) {
       window.CartManager.syncBadges();
@@ -469,30 +480,35 @@ const SiteComponents = {
     nav.setAttribute('aria-label', 'Mobile Navigation Quick Bar');
 
     const p = this.currentPage;
+    const isCartActive = p === 'cart';
+    const isHomeActive = p === 'home';
+    const isCatActive = p === 'category';
+    const isSearchActive = p === 'search';
+    const isAccountActive = window.location.hash === '#account';
 
     nav.innerHTML = `
-      <a href="index.html" class="mob-nav-item ${p === 'home' ? 'active' : ''}">
-        <span class="hdr-icon">${LucideIcons.layoutGrid}</span>
+      <a href="index.html" class="mob-tab-item ${isHomeActive ? 'active' : ''}" aria-label="Home">
+        <span class="mob-tab-icon">${LucideIcons.home}</span>
         <span>Home</span>
       </a>
-      <a href="category.html?cat=grocery" class="mob-nav-item ${p === 'category' ? 'active' : ''}">
-        <span class="hdr-icon">${LucideIcons.layoutGrid}</span>
+      <button type="button" class="mob-tab-item ${isCatActive ? 'active' : ''}" id="mobTabCategories" aria-label="Categories">
+        <span class="mob-tab-icon">${LucideIcons.layoutGrid}</span>
         <span>Categories</span>
+      </button>
+      <a href="search.html" class="mob-tab-item ${isSearchActive ? 'active' : ''}" id="mobTabSearch" aria-label="Search">
+        <span class="mob-tab-icon">${LucideIcons.search}</span>
+        <span>Search</span>
       </a>
-      <a href="category.html?cat=all&deals=1" class="mob-nav-item highlight-item">
-        <span class="hdr-icon">${LucideIcons.flame}</span>
-        <span>Deals</span>
-      </a>
-      <a href="https://wa.me/918606647777" target="_blank" rel="noopener noreferrer" class="mob-nav-item">
-        <span class="hdr-icon hdr-whatsapp-color">${LucideIcons.messageCircle}</span>
-        <span>Order</span>
-      </a>
-      <a href="cart.html" class="mob-nav-item ${p === 'cart' ? 'active' : ''}" id="mobileCartBtn">
+      <a href="cart.html" class="mob-tab-item ${isCartActive ? 'active' : ''}" id="mobileCartBtn" aria-label="Shopping Cart">
         <div class="mob-cart-icon">
-          <span class="hdr-icon">${LucideIcons.shoppingCart}</span>
+          <span class="mob-tab-icon">${LucideIcons.shoppingCart}</span>
           <span class="badge-count cart-badge-count mob-badge is-hidden">0</span>
         </div>
         <span>Cart</span>
+      </a>
+      <a href="cart.html#account" class="mob-tab-item ${isAccountActive ? 'active' : ''}" id="mobTabAccount" aria-label="Account">
+        <span class="mob-tab-icon">${LucideIcons.user}</span>
+        <span>Account</span>
       </a>
     `;
 
@@ -514,6 +530,7 @@ const SiteComponents = {
     drawer.setAttribute('aria-label', 'Mobile Navigation Menu');
 
     const categories = (typeof siteData !== 'undefined' && siteData.categories) ? siteData.categories : [];
+    const savedLang = localStorage.getItem('golden_hypermarket_lang') || 'EN';
 
     drawer.innerHTML = `
       <div class="hdr-drawer-header">
@@ -530,7 +547,8 @@ const SiteComponents = {
       </div>
 
       <div class="hdr-drawer-body">
-        <div class="hdr-utility-item hdr-loc-trigger hdr-mob-loc-trigger" id="mobileLocationTrigger">
+        <!-- Delivery Location Trigger -->
+        <div class="hdr-utility-item hdr-loc-trigger hdr-mob-loc-trigger" id="mobileLocationTrigger" role="button" tabindex="0">
           <span class="hdr-flex-gap-6">
             <span class="hdr-icon hdr-gold-color">${LucideIcons.mapPin}</span>
             <span>Pala & Surrounding Areas</span>
@@ -538,31 +556,69 @@ const SiteComponents = {
           <span class="hdr-icon">${LucideIcons.chevronDown}</span>
         </div>
 
-        <div class="hdr-drawer-section-title">Shop by Department</div>
-        <ul class="hdr-drawer-menu">
-          ${categories.map(c => `
-            <li>
-              <a href="category.html?cat=${c.id}">
-                <span class="hdr-icon hdr-gold-color">${LucideIcons.layoutGrid}</span>
-                <span>${c.name}</span>
-              </a>
-            </li>
-          `).join('')}
-          <li>
-            <a href="category.html?cat=all&deals=1" class="hdr-deal-color">
-              <span class="hdr-icon hdr-deal-color">${LucideIcons.flame}</span>
-              <span>Weekend Deals Flyer</span>
-            </a>
-          </li>
-        </ul>
+        <!-- Coupon Chip (Moved into Drawer) -->
+        <div class="drawer-coupon-chip">
+          <span class="coupon-tag">PALA SAVER</span>
+          <span class="coupon-text">Get <strong>₹100 OFF</strong> Code: <strong>PALA100</strong></span>
+        </div>
 
-        <div class="hdr-drawer-section-title">Quick Customer Care</div>
-        <div class="hdr-drawer-actions">
-          <a href="https://wa.me/918606647777" target="_blank" rel="noopener noreferrer" class="hdr-drawer-act-btn wa">
-            <span class="hdr-icon">${LucideIcons.messageCircle}</span> Order on WhatsApp
+        <!-- Category Accordion Section -->
+        <div class="hdr-drawer-section-title">Shop by Department</div>
+        <div class="drawer-accordion" id="drawerAccordion">
+          ${categories.map(c => `
+            <div class="drawer-accordion-item" data-cat-id="${c.id}">
+              <button class="drawer-accordion-header" type="button" aria-expanded="false">
+                <div class="drawer-accordion-title-wrap">
+                  <i class="fa-solid ${c.icon || 'fa-store'} drawer-dept-icon"></i>
+                  <span>${c.name}</span>
+                  ${c.nameMl ? `<span class="drawer-accordion-ml">(${c.nameMl})</span>` : ''}
+                </div>
+                <span class="drawer-chevron">${LucideIcons.chevronDown}</span>
+              </button>
+              <div class="drawer-accordion-content">
+                <div class="drawer-sub-list">
+                  ${(c.subcategories || []).map(sub => `
+                    <a href="category.html?cat=${c.id}&sub=${encodeURIComponent(sub)}" class="drawer-sub-link">
+                      <i class="fa-solid ${this.getSubcategoryIcon(sub)} drawer-sub-icon"></i>
+                      <span>${sub}</span>
+                    </a>
+                  `).join('')}
+                  <a href="category.html?cat=${c.id}" class="drawer-browse-all-btn">
+                    <span>Browse All ${c.name}</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+          <div class="drawer-accordion-item">
+            <a href="category.html?cat=all&deals=1" class="drawer-accordion-header drawer-deals-item-link">
+              <div class="drawer-accordion-title-wrap">
+                <span class="hdr-icon drawer-deals-flame">${LucideIcons.flame}</span>
+                <span>Weekend Deals Flyer</span>
+              </div>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Drawer Footer: Language Toggle & Account Links -->
+        <div class="drawer-footer-box">
+          <button type="button" class="drawer-lang-btn" id="drawerLangBtn" aria-label="Toggle Language">
+            <span class="hdr-icon">${LucideIcons.globe}</span>
+            <span id="drawerLangLabel">${savedLang === 'ML' ? 'Switch to English' : 'മലയാളത്തിലേക്ക് മാറ്റുക (ML)'}</span>
+          </button>
+          <a href="cart.html#account" class="drawer-link-btn" id="drawerAccountBtn">
+            <span class="hdr-icon">${LucideIcons.user}</span>
+            <span>My Account & Orders</span>
           </a>
-          <a href="tel:+918606647777" class="hdr-drawer-act-btn call">
-            <span class="hdr-icon">${LucideIcons.phone}</span> Call Store (+91 86066 47777)
+          <a href="cart.html#wishlist" class="drawer-link-btn" id="drawerWishlistBtn">
+            <span class="hdr-icon">${LucideIcons.heart}</span>
+            <span>My Saved Wishlist</span>
+          </a>
+          <a href="https://wa.me/918606647777" target="_blank" rel="noopener noreferrer" class="drawer-link-btn wa-link">
+            <span class="hdr-icon">${LucideIcons.messageCircle}</span>
+            <span>WhatsApp Order (+91 86066 47777)</span>
           </a>
         </div>
       </div>
@@ -674,6 +730,52 @@ const SiteComponents = {
   // SETUP HEADER INTERACTIONS
   // ===================================================
   setupInteractions() {
+    // Sticky Header Scroll Behavior (Hide utility bar on scroll down past 80px, show on scroll up/top)
+    if (!this._stickyScrollInitialized) {
+      this._stickyScrollInitialized = true;
+      let lastScrollY = window.scrollY;
+      let isTicking = false;
+
+      const updateStickyScroll = () => {
+        const currentScrollY = window.scrollY;
+        const headerContainer = document.getElementById('site-header-container');
+        const headerWrapper = document.querySelector('.site-header-wrapper');
+        const targets = [headerContainer, headerWrapper].filter(Boolean);
+
+        if (!targets.length) {
+          isTicking = false;
+          return;
+        }
+
+        if (currentScrollY > 80) {
+          targets.forEach(el => el.classList.add('header-scrolled'));
+
+          if (currentScrollY > lastScrollY + 4) {
+            // Scrolling down past 80px -> collapse utility bar
+            targets.forEach(el => el.classList.add('hide-utility'));
+          } else if (currentScrollY < lastScrollY - 4) {
+            // Scrolling up -> reveal utility bar
+            targets.forEach(el => el.classList.remove('hide-utility'));
+          }
+        } else {
+          // At or near top (<= 80px) -> restore utility bar & remove shadow
+          targets.forEach(el => el.classList.remove('header-scrolled', 'hide-utility'));
+        }
+
+        lastScrollY = currentScrollY;
+        isTicking = false;
+      };
+
+      window.addEventListener('scroll', () => {
+        if (!isTicking) {
+          window.requestAnimationFrame(updateStickyScroll);
+          isTicking = true;
+        }
+      }, { passive: true });
+
+      updateStickyScroll();
+    }
+
     // Mega Menu Left Pane Hover & Click Handlers
     const megaLeftPane = document.getElementById('megaLeftPane');
     if (megaLeftPane) {
@@ -705,6 +807,12 @@ const SiteComponents = {
     const megaMenuDropdown = document.getElementById('megaMenuDropdown');
     if (allCategoriesBtn && megaMenuDropdown) {
       allCategoriesBtn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.stopPropagation();
+          openDrawer();
+          return;
+        }
         e.stopPropagation();
         const isOpen = megaMenuDropdown.classList.contains('show');
         megaMenuDropdown.classList.toggle('show');
@@ -744,6 +852,47 @@ const SiteComponents = {
     if (mobileMenuOpen) mobileMenuOpen.addEventListener('click', openDrawer);
     if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeDrawer);
     if (mobileDrawerOverlay) mobileDrawerOverlay.addEventListener('click', closeDrawer);
+
+    // Mobile Bottom Tab "Categories" opens Drawer
+    const mobTabCategories = document.getElementById('mobTabCategories');
+    if (mobTabCategories) {
+      mobTabCategories.addEventListener('click', (e) => {
+        e.preventDefault();
+        openDrawer();
+      });
+    }
+
+    // Mobile Bottom Tab "Search" focuses input on mobile
+    const mobTabSearch = document.getElementById('mobTabSearch');
+    if (mobTabSearch) {
+      mobTabSearch.addEventListener('click', (e) => {
+        const searchInput = document.getElementById('mainSearchInput');
+        if (searchInput && window.innerWidth <= 768 && !window.location.pathname.includes('search.html')) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          searchInput.focus();
+        }
+      });
+    }
+
+    // Drawer Category Accordion Items
+    const accordionHeaders = document.querySelectorAll('.drawer-accordion-header');
+    accordionHeaders.forEach(hdr => {
+      hdr.addEventListener('click', (e) => {
+        const item = hdr.closest('.drawer-accordion-item');
+        if (!item || !item.querySelector('.drawer-accordion-content')) return;
+        const isCurrentlyExpanded = item.classList.contains('expanded');
+        document.querySelectorAll('.drawer-accordion-item.expanded').forEach(other => {
+          if (other !== item) {
+            other.classList.remove('expanded');
+            const otherBtn = other.querySelector('.drawer-accordion-header');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+        item.classList.toggle('expanded', !isCurrentlyExpanded);
+        hdr.setAttribute('aria-expanded', !isCurrentlyExpanded);
+      });
+    });
 
     // Location Modal Toggle
     const locTrigger = document.getElementById('locationSelector');
@@ -785,21 +934,26 @@ const SiteComponents = {
       });
     });
 
-    // Language switcher toggle
+    // Language switcher toggle (Synchronized between Desktop and Mobile Drawer)
     const langBtn = document.getElementById('langSwitchBtn');
     const langLabel = document.getElementById('langLabel');
-    if (langBtn) {
-      langBtn.addEventListener('click', () => {
-        const current = localStorage.getItem('golden_hypermarket_lang') || 'EN';
-        const next = current === 'EN' ? 'ML' : 'EN';
-        localStorage.setItem('golden_hypermarket_lang', next);
-        if (langLabel) langLabel.textContent = next === 'ML' ? 'English' : 'മലയാളം';
-        if (window.CartManager) {
-          CartManager.showToast(`Language switched to ${next === 'ML' ? 'Malayalam (മലയാളം)' : 'English'}`, 'info');
-        }
-        document.body.classList.toggle('lang-malayalam', next === 'ML');
-      });
-    }
+    const drawerLangBtn = document.getElementById('drawerLangBtn');
+    const drawerLangLabel = document.getElementById('drawerLangLabel');
+
+    const toggleLang = () => {
+      const current = localStorage.getItem('golden_hypermarket_lang') || 'EN';
+      const next = current === 'EN' ? 'ML' : 'EN';
+      localStorage.setItem('golden_hypermarket_lang', next);
+      if (langLabel) langLabel.textContent = next === 'ML' ? 'English' : 'മലയാളം';
+      if (drawerLangLabel) drawerLangLabel.textContent = next === 'ML' ? 'Switch to English' : 'മലയാളത്തിലേക്ക് മാറ്റുക (ML)';
+      if (window.CartManager) {
+        CartManager.showToast(`Language switched to ${next === 'ML' ? 'Malayalam (മലയാളം)' : 'English'}`, 'info');
+      }
+      document.body.classList.toggle('lang-malayalam', next === 'ML');
+    };
+
+    if (langBtn) langBtn.addEventListener('click', toggleLang);
+    if (drawerLangBtn) drawerLangBtn.addEventListener('click', toggleLang);
 
     // Search Autocomplete
     const searchInput = document.getElementById('mainSearchInput');
@@ -870,6 +1024,18 @@ const SiteComponents = {
         }
       }, { passive: true });
     }
+
+    // Footer Accordion on mobile (<768px)
+    document.querySelectorAll('.footer-heading').forEach(heading => {
+      heading.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          const col = heading.closest('.footer-col');
+          if (col && !col.classList.contains('brand-col')) {
+            col.classList.toggle('open');
+          }
+        }
+      });
+    });
   },
 
   quickSearch(term) {

@@ -16,6 +16,7 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
 
@@ -62,11 +63,15 @@
       <!-- Catalog Layout Grid (Sidebar + Products) -->
       <div class="catalog-layout-grid">
         
-        <!-- Filter Sidebar -->
+        <!-- Bottom Sheet Backdrop for Mobile -->
+        <div class="filters-sheet-backdrop" id="filtersBackdrop"></div>
+
+        <!-- Filter Sidebar (Becomes Bottom Sheet on Mobile) -->
         <aside class="filter-sidebar" id="filterSidebar">
           <div class="filter-header">
             <h3><i class="fa-solid fa-sliders"></i> Filters</h3>
             <button class="clear-filters-btn" id="resetFiltersBtn">Reset All</button>
+            <button type="button" class="btn-close-sheet" id="closeFiltersBtn" aria-label="Close Filters">&times;</button>
           </div>
 
           <!-- Deals Only Filter -->
@@ -135,13 +140,24 @@
             </label>
           </div>
 
+          <!-- Sticky Sheet Footer with Apply & Reset -->
+          <div class="filter-sheet-footer">
+            <button type="button" class="btn-sheet-reset" id="sheetResetBtn">Reset</button>
+            <button type="button" class="btn-sheet-apply" id="sheetApplyBtn">Apply Filters</button>
+          </div>
+
         </aside>
 
         <!-- Main Product Catalog Content -->
         <section class="catalog-main">
           
-          <!-- Toolbar (Count & Sort) -->
+          <!-- Toolbar (Filters Trigger on Mobile + Count & Sort Beside It) -->
           <div class="catalog-toolbar">
+            <button type="button" class="btn-open-mobile-filters" id="openFiltersBtn">
+              <i class="fa-solid fa-sliders"></i>
+              <span>Filters</span>
+              <span class="active-filter-badge is-hidden" id="activeFilterBadge">0</span>
+            </button>
             <div class="toolbar-count">
               Showing <strong id="visibleCount">12</strong> products
             </div>
@@ -317,7 +333,9 @@
         const href = link.getAttribute('href') || '';
         if (href.includes(`cat=${currentCategory.id}`)) {
           link.classList.add('active');
-          try { link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); } catch(e){}
+          if (window.innerWidth <= 768) {
+            try { link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); } catch(e){}
+          }
         } else {
           link.classList.remove('active');
         }
@@ -567,6 +585,46 @@
           document.querySelectorAll('.brand-filter-input').forEach(cb => cb.checked = false);
           
           setSubcategory('');
+        });
+      }
+
+      // Mobile Bottom Sheet Handlers
+      const openFiltersBtn = document.getElementById('openFiltersBtn');
+      const closeFiltersBtn = document.getElementById('closeFiltersBtn');
+      const sheetApplyBtn = document.getElementById('sheetApplyBtn');
+      const sheetResetBtn = document.getElementById('sheetResetBtn');
+      const filterSidebar = document.getElementById('filterSidebar');
+      const filtersBackdrop = document.getElementById('filtersBackdrop');
+
+      const openSheet = () => {
+        if (filterSidebar && filtersBackdrop) {
+          filterSidebar.classList.add('open');
+          filtersBackdrop.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+
+      const closeSheet = () => {
+        if (filterSidebar && filtersBackdrop) {
+          filterSidebar.classList.remove('open');
+          filtersBackdrop.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      };
+
+      if (openFiltersBtn) openFiltersBtn.addEventListener('click', openSheet);
+      if (closeFiltersBtn) closeFiltersBtn.addEventListener('click', closeSheet);
+      if (filtersBackdrop) filtersBackdrop.addEventListener('click', closeSheet);
+      if (sheetApplyBtn) {
+        sheetApplyBtn.addEventListener('click', () => {
+          applyFilters();
+          closeSheet();
+        });
+      }
+      if (sheetResetBtn) {
+        sheetResetBtn.addEventListener('click', () => {
+          if (resetBtn) resetBtn.click();
+          closeSheet();
         });
       }
 

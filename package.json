@@ -1,0 +1,24 @@
+{
+  "name": "golden-hypermarket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keerthana-k-b/golden-hypermarket.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/keerthana-k-b/golden-hypermarket/issues"
+  },
+  "homepage": "https://github.com/keerthana-k-b/golden-hypermarket#readme",
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}
