@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart & Checkout | Golden Hypermarket Pala</title>
+  <meta name="description" content="Review your shopping cart and place express home delivery orders in Pala via WhatsApp or Cash on Delivery.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Injected Header Container -->
+  <div id="site-header-container"></div>
+
+  <main class="main-content">
+    <div class="container cart-page-section">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs-bar" aria-label="Breadcrumb">
+        <ul class="breadcrumbs-list">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="sep"><i class="fa-solid fa-chevron-right"></i></li>
+          <li class="current">Shopping Cart & Checkout</li>
+        </ul>
+      </nav>
+
+      <!-- Cart Page Grid -->
+      <div class="cart-page-grid" id="cartContentWrapper">
+        
+        <!-- Left: Cart Items List -->
+        <div class="cart-items-card">
+          <div class="cart-card-header">
+            <h2><i class="fa-solid fa-cart-shopping"></i> My Shopping Bag (<span id="cartItemsTotalHeader">0</span>)</h2>
+            <button class="cart-clear-all is-hidden" id="btnClearCart">Clear Bag</button>
+          </div>
+
+          <!-- Items Container -->
+          <div id="cartItemsList">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+        <!-- Right: Order Summary & Express Checkout -->
+        <aside class="order-summary-card" id="orderSummaryBox">
+          <h3 class="summary-title"><i class="fa-solid fa-receipt"></i> Order Summary</h3>
+          
+          <div class="summary-row">
+            <span>Items Subtotal:</span>
+            <strong id="summarySubtotal">₹0</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Pala Delivery Fee:</span>
+            <strong id="summaryDelivery">₹0</strong>
+          </div>
+
+          <div class="summary-row savings is-hidden" id="summarySavingsRow">
+            <span>Special Savings:</span>
+            <strong id="summarySavings">-₹0</strong>
+          </div>
+
+          <div class="summary-row savings is-hidden" id="couponSavingsRow">
+            <span>Coupon Discount (PALA100):</span>
+            <strong id="couponSavings">-₹100</strong>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-total-row">
+            <span>Grand Total:</span>
+            <span class="summary-grand-total" id="summaryGrandTotal">₹0</span>
+          </div>
+
+          <!-- Coupon Box -->
+          <div class="coupon-input-box">
+            <input type="text" id="couponInput" placeholder="Coupon Code (e.g. PALA100)">
+            <button class="btn-apply-coupon" id="btnApplyCoupon">Apply</button>
+          </div>
+
+          <!-- Checkout Form -->
+          <div class="checkout-fields-box">
+            <h4 class="checkout-title">
+              <i class="fa-solid fa-truck-ramp-box"></i> Delivery Details in Pala
+            </h4>
+            
+            <label class="checkout-field-label" for="custName">Your Full Name:</label>
+            <input type="text" id="custName" class="checkout-input" placeholder="e.g. George Thomas">
+
+            <label class="checkout-field-label" for="custPhone">WhatsApp Phone Number:</label>
+            <input type="tel" id="custPhone" class="checkout-input" placeholder="e.g. 98470 12345">
+
+            <label class="checkout-field-label" for="custAddress">Delivery Address / Landmark in Pala:</label>
+            <input type="text" id="custAddress" class="checkout-input" placeholder="e.g. Near St. George Church, Lalam, Pala">
+
+            <label class="checkout-field-label" for="deliverySlot">Preferred Delivery Slot:</label>
+            <select id="deliverySlot" class="checkout-input">
+              <option value="Express (Within 2 Hours)">⚡ Express 2-Hour Delivery</option>
+              <option value="Morning (8:00 AM - 11:00 AM)">🌅 Morning (8:00 AM - 11:00 AM)</option>
+              <option value="Afternoon (1:00 PM - 4:00 PM)">☀️ Afternoon (1:00 PM - 4:00 PM)</option>
+              <option value="Evening (5:00 PM - 8:30 PM)">🌙 Evening (5:00 PM - 8:30 PM)</option>
+            </select>
+          </div>
+
+          <!-- WhatsApp Checkout Action -->
+          <button class="btn-whatsapp-checkout" id="btnPlaceOrderWhatsApp">
+            <i class="fa-brands fa-whatsapp cart-wa-icon"></i>
+            <span>Place Order via WhatsApp</span>
+          </button>
+
+          <p class="checkout-secure-note">
+            <i class="fa-solid fa-shield-halved"></i> Pay via Cash on Delivery or GPay / PhonePe upon delivery.
+          </p>
+        </aside>
+
+      </div>
+
+      <!-- Wishlist Section on Same Page -->
+      <section class="wishlist-section-cart" id="wishlist">
+        <div class="section-header-flex wishlist-header-flex">
+          <div>
+            <span class="sub-heading wishlist-sub-heading">Saved for Later</span>
+            <h2 class="wishlist-heading">
+              <i class="fa-regular fa-heart"></i> My Wishlist (<span id="wishlistCountNum">0</span>)
+            </h2>
+          </div>
+        </div>
+
+        <div class="products-catalog-grid" id="wishlistGrid">
+          <!-- Injected via JS -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Injected Footer Container -->
+  <div id="site-footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize components
+      SiteComponents.init({ page: 'cart' });
+
+      let appliedCoupon = null;
+
+      function renderCart() {
+        const summary = CartManager.getSummary();
+        const container = document.getElementById('cartItemsList');
+        const clearBtn = document.getElementById('btnClearCart');
+        const summaryBox = document.getElementById('orderSummaryBox');
+        const countHeader = document.getElementById('cartItemsTotalHeader');
+
+        if (countHeader) countHeader.textContent = summary.totalItems;
+
+        if (summary.items.length === 0) {
+          if (clearBtn) clearBtn.classList.add('is-hidden');
+          if (summaryBox) summaryBox.classList.add('is-muted');
+
+          container.innerHTML = `
+            <div class="empty-cart-state">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <h3>Your Shopping Bag is Empty</h3>
+              <p>Looks like you haven't added any fresh groceries or Pala specials to your cart yet.</p>
+              <a href="category.html?cat=grocery" class="btn-primary-add-cart cart-empty-btn">
+                <i class="fa-solid fa-arrow-left"></i> Start Shopping Now
+              </a>
+            </div>
+          `;
+          updateSummary(summary);
+          return;
+        }
+
+        if (clearBtn) clearBtn.classList.remove('is-hidden');
+        if (summaryBox) summaryBox.classList.remove('is-muted');
+
+        container.innerHTML = summary.items.map(item => `
+          <div class="cart-item-row" data-id="${item.id}">
+            <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+            <div class="cart-item-details">
+              <h4><a href="product.html?id=${item.id}">${item.name}</a></h4>
+              <div class="item-ml">${item.nameMl || ''}</div>
+              <div class="item-weight">${item.weight} • ${item.brand || 'Golden Fresh'}</div>
+            </div>
+            <div class="cart-item-unit-price">
+              ₹${item.price} each
+            </div>
+            <div class="stepper-btn-group">
+              <button class="btn-step-minus" onclick="CartManager.setQty(${item.id}, ${item.qty - 1}); renderCart();" aria-label="Decrease quantity">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <span class="stepper-qty">${item.qty}</span>
+              <button class="btn-step-plus" onclick="CartManager.setQty(${item.id}, ${item.qty + 1}); renderCart();" aria-label="Increase quantity">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div class="cart-item-line-price">
+              ₹${item.lineTotal}
+            </div>
+            <button class="cart-item-remove-btn" onclick="CartManager.removeItem(${item.id}); renderCart();" title="Remove Item">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        `).join('');
+
+        updateSummary(summary);
+      }
+
+      function updateSummary(summary) {
+        const subtotalEl = document.getElementById('summarySubtotal');
+        const deliveryEl = document.getElementById('summaryDelivery');
+        const savingsRow = document.getElementById('summarySavingsRow');
+        const savingsEl = document.getElementById('summarySavings');
+        const couponRow = document.getElementById('couponSavingsRow');
+        const grandTotalEl = document.getElementById('summaryGrandTotal');
+
+        let sub = summary.subtotal;
+        let delivery = summary.deliveryFee;
+        let couponDiscount = (appliedCoupon === 'PALA100' || appliedCoupon === 'GOLDEN100') && sub > 0 ? 100 : 0;
+        let final = Math.max(0, sub + delivery - couponDiscount);
+
+        if (subtotalEl) subtotalEl.textContent = `₹${sub.toLocaleString('en-IN')}`;
+        if (deliveryEl) deliveryEl.textContent = delivery === 0 ? 'FREE (Orders ₹499+)' : `₹${delivery}`;
+        
+        if (summary.discountSavings > 0) {
+          savingsRow.classList.remove('is-hidden');
+          savingsEl.textContent = `-₹${summary.discountSavings.toLocaleString('en-IN')}`;
+        } else {
+          savingsRow.classList.add('is-hidden');
+        }
+
+        if (couponDiscount > 0) {
+          couponRow.classList.remove('is-hidden');
+        } else {
+          couponRow.classList.add('is-hidden');
+        }
+
+        if (grandTotalEl) grandTotalEl.textContent = `₹${final.toLocaleString('en-IN')}`;
+      }
+
+      function renderWishlist() {
+        const listIds = CartManager.getWishlist();
+        const grid = document.getElementById('wishlistGrid');
+        const countNum = document.getElementById('wishlistCountNum');
+
+        if (countNum) countNum.textContent = listIds.length;
+        if (!grid) return;
+
+        if (listIds.length === 0) {
+          grid.innerHTML = `
+            <div class="no-products-box wishlist-empty-box">
+              <i class="fa-regular fa-heart wishlist-empty-icon"></i>
+              <p class="wishlist-empty-text">You haven't saved any products to your wishlist yet.</p>
+              <a href="category.html?cat=grocery" class="wishlist-empty-link">Explore Categories</a>
+            </div>
+          `;
+          return;
+        }
+
+        const products = listIds.map(id => siteData.getProductById(id)).filter(Boolean);
+        grid.innerHTML = products.map(p => CartManager.renderProductCard(p)).join('');
+        CartManager.syncBadges();
+      }
+
+      // Clear Cart Listener
+      const btnClear = document.getElementById('btnClearCart');
+      if (btnClear) {
+        btnClear.addEventListener('click', () => {
+          if (confirm('Are you sure you want to empty your shopping cart?')) {
+            CartManager.clearCart();
+            renderCart();
+          }
+        });
+      }
+
+      // Coupon Apply
+      const btnApplyCoupon = document.getElementById('btnApplyCoupon');
+      const couponInput = document.getElementById('couponInput');
+      if (btnApplyCoupon && couponInput) {
+        btnApplyCoupon.addEventListener('click', () => {
+          const code = couponInput.value.trim().toUpperCase();
+          if (code === 'PALA100' || code === 'GOLDEN100') {
+            appliedCoupon = code;
+            CartManager.showToast('Coupon <strong>' + code + '</strong> applied! ₹100 discount added.', 'success');
+            renderCart();
+          } else if (code) {
+            CartManager.showToast('Invalid coupon code. Try <strong>PALA100</strong> for ₹100 OFF.', 'error');
+          }
+        });
+      }
+
+      // WhatsApp Checkout
+      const btnCheckout = document.getElementById('btnPlaceOrderWhatsApp');
+      if (btnCheckout) {
+        btnCheckout.addEventListener('click', () => {
+          const summary = CartManager.getSummary();
+          if (summary.items.length === 0) {
+            CartManager.showToast('Your cart is empty! Add items first.', 'error');
+            return;
+          }
+
+          const name = document.getElementById('custName').value.trim();
+          const phone = document.getElementById('custPhone').value.trim();
+          const address = document.getElementById('custAddress').value.trim();
+          const slot = document.getElementById('deliverySlot').value;
+
+          const encodedMsg = CartManager.generateWhatsAppOrderMessage({
+            name: name || 'Valued Pala Customer',
+            phone: phone || '',
+            address: address || 'Pala Town',
+            slot: slot
+          });
+
+          window.open(`https://wa.me/918606647777?text=${encodedMsg}`, '_blank');
+        });
+      }
+
+      // Initial Cart & Wishlist render
+      renderCart();
+      renderWishlist();
+
+      // Listen for updates
+      window.addEventListener('golden:cart-updated', () => {
+        renderCart();
+      });
+      window.addEventListener('golden:wishlist-updated', () => {
+        renderWishlist();
+      });
+    });
+  </script>
+</body>
+</html>

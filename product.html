@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Golden Hypermarket Pala</title>
+  <meta name="description" content="View product specifications, fresh pricing, and order online with fast home delivery in Pala, Kottayam from Golden Hypermarket.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Injected Header Container -->
+  <div id="site-header-container"></div>
+
+  <main class="main-content">
+    <div class="container product-detail-section">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs-bar" aria-label="Breadcrumb">
+        <ul class="breadcrumbs-list">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="sep"><i class="fa-solid fa-chevron-right"></i></li>
+          <li><a href="category.html?cat=grocery" id="breadcrumbCatLink">Category</a></li>
+          <li class="sep"><i class="fa-solid fa-chevron-right"></i></li>
+          <li class="current" id="breadcrumbProductName">Product Name</li>
+        </ul>
+      </nav>
+
+      <!-- Main Product Detail Card Grid -->
+      <div class="product-detail-grid" id="productDetailMain">
+        
+        <!-- Left: Product Image Gallery -->
+        <div class="product-gallery-container">
+          <div class="product-main-view">
+            <span class="gallery-badge is-hidden" id="productDiscountBadge">20% OFF</span>
+            <img src="" alt="Product Image" id="productDetailImg">
+          </div>
+        </div>
+
+        <!-- Right: Buy Box & Details -->
+        <div class="product-info-box">
+          <span class="product-detail-brand" id="productDetailBrand">Golden Fresh</span>
+          <h1 class="product-detail-title" id="productDetailTitle">Product Name</h1>
+          <p class="product-detail-title-ml" id="productDetailTitleMl">ഉൽപ്പന്നത്തിന്റെ പേര്</p>
+          
+          <div class="product-rating-row">
+            <span class="stars-pill" id="productDetailRating"><i class="fa-solid fa-star"></i> 4.8</span>
+            <span class="rating-reviews-text" id="productDetailReviews">(120 customer reviews in Pala)</span>
+            <span class="stock-status-tag"><i class="fa-solid fa-circle-check"></i> <span id="productDetailStock">In Stock</span></span>
+          </div>
+
+          <!-- Price Box -->
+          <div class="detail-price-box">
+            <span class="detail-curr-price" id="productDetailPrice">₹0</span>
+            <span class="detail-old-price is-hidden" id="productDetailOldPrice">₹0</span>
+            <span class="detail-save-badge is-hidden" id="productDetailSaveBadge">Save ₹0</span>
+          </div>
+
+          <!-- Pack Size / Weight Selector -->
+          <div class="variant-selector-box">
+            <span class="variant-label">Net Quantity / Pack Size:</span>
+            <div class="variant-chips" id="weightChips">
+              <button class="variant-chip-btn active" id="primaryWeightChip">1 kg</button>
+            </div>
+          </div>
+
+          <!-- Action Stepper and Buttons -->
+          <div class="detail-actions-row">
+            <div class="detail-qty-stepper">
+              <button id="btnDetailMinus" aria-label="Decrease quantity"><i class="fa-solid fa-minus"></i></button>
+              <span id="detailQtyDisplay">1</span>
+              <button id="btnDetailPlus" aria-label="Increase quantity"><i class="fa-solid fa-plus"></i></button>
+            </div>
+
+            <button class="btn-primary-add-cart" id="btnDetailAddToCart">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+
+            <a href="https://wa.me/918606647777" target="_blank" class="btn-whatsapp-instant" id="btnDetailWhatsApp">
+              <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+            </a>
+
+            <button class="btn-wishlist-toggle-round" id="btnDetailWishlist" aria-label="Add to Wishlist">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+
+          <!-- Delivery Assurances in Pala -->
+          <div class="pala-delivery-badge-box">
+            <div class="pala-badge-item">
+              <i class="fa-solid fa-truck-fast"></i>
+              <div>
+                <strong>Express 2-Hr Delivery</strong>
+                <span>Pala & Surrounding Areas</span>
+              </div>
+            </div>
+            <div class="pala-badge-item">
+              <i class="fa-solid fa-seedling"></i>
+              <div>
+                <strong>100% Farm Fresh</strong>
+                <span>Direct daily morning sourcing</span>
+              </div>
+            </div>
+            <div class="pala-badge-item">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+              <div>
+                <strong>Cash on Delivery / UPI</strong>
+                <span>Pay when you receive</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Description & Specifications Tabs -->
+      <div class="product-tabs-wrapper">
+        <div class="product-tabs-header">
+          <button class="tab-btn active" data-tab="descTab">Product Description</button>
+          <button class="tab-btn" data-tab="specsTab">Specifications & Origin</button>
+        </div>
+
+        <div class="tab-pane active" id="descTab">
+          <p id="productLongDesc" class="product-long-desc">
+            Loading product details...
+          </p>
+          <div class="product-promise-box">
+            <strong class="product-promise-title"><i class="fa-solid fa-circle-info"></i> Pala Quality Promise:</strong>
+            <p class="product-promise-text">
+              All items are strictly inspected at our central receiving hub in Pala. If you are not 100% satisfied with the quality or freshness, we offer instant doorstep replacement or refund.
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-pane is-hidden" id="specsTab">
+          <table class="specs-table">
+            <tbody>
+              <tr>
+                <td>Product Code / SKU</td>
+                <td id="specSku">GH-PALA-001</td>
+              </tr>
+              <tr>
+                <td>Brand / Manufacturer</td>
+                <td id="specBrand">Golden Hypermarket</td>
+              </tr>
+              <tr>
+                <td>Net Weight / Volume</td>
+                <td id="specWeight">1 kg</td>
+              </tr>
+              <tr>
+                <td>Category Department</td>
+                <td id="specCat">Grocery</td>
+              </tr>
+              <tr>
+                <td>Sourced From</td>
+                <td>Pala & Central Travancore Region, Kerala</td>
+              </tr>
+              <tr>
+                <td>Storage Instructions</td>
+                <td>Store in a cool, dry and hygienic place away from direct sunlight.</td>
+              </tr>
+              <tr>
+                <td>Customer Support</td>
+                <td>Golden Hypermarket Helpdesk: +91 86066 47777</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Related Kerala Products Carousel / Grid -->
+      <div class="related-products-section related-products-wrap">
+        <div class="section-header-flex related-header-flex">
+          <div>
+            <span class="sub-heading related-sub-heading">You Might Also Need</span>
+            <h2 class="related-title">Frequently Bought Together</h2>
+          </div>
+          <a href="category.html?cat=grocery" id="viewAllRelatedLink" class="view-all-link related-view-all">
+            View All Department <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="products-catalog-grid" id="relatedProductsGrid">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Injected Footer Container -->
+  <div id="site-footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const productId = parseInt(params.get('id'), 10) || 1;
+
+      const product = siteData.getProductById(productId) || siteData.products[0];
+      const category = siteData.getCategoryById(product.category);
+
+      // Initialize components
+      SiteComponents.init({ page: 'product', category: product.category });
+
+      // Page Title
+      document.title = `${product.name} | Golden Hypermarket Pala`;
+
+      // Update Breadcrumbs
+      const breadcrumbCatLink = document.getElementById('breadcrumbCatLink');
+      const breadcrumbProductName = document.getElementById('breadcrumbProductName');
+      if (breadcrumbCatLink) {
+        breadcrumbCatLink.href = `category.html?cat=${category.id}`;
+        breadcrumbCatLink.textContent = category.name;
+      }
+      if (breadcrumbProductName) breadcrumbProductName.textContent = product.name;
+
+      // Populate Product Info
+      document.getElementById('productDetailImg').src = product.image;
+      document.getElementById('productDetailImg').alt = product.name;
+      document.getElementById('productDetailBrand').textContent = product.brand || 'Golden Fresh';
+      document.getElementById('productDetailTitle').textContent = product.name;
+      document.getElementById('productDetailTitleMl').textContent = product.nameMl || '';
+      document.getElementById('productDetailRating').innerHTML = `<i class="fa-solid fa-star"></i> ${product.rating || 4.8}`;
+      document.getElementById('productDetailReviews').textContent = `(${product.reviews || 95} verified reviews in Pala)`;
+      document.getElementById('productDetailStock').textContent = product.stock || 'In Stock';
+      document.getElementById('productDetailPrice').textContent = `₹${product.price}`;
+      document.getElementById('primaryWeightChip').textContent = product.weight;
+      document.getElementById('productLongDesc').textContent = product.description;
+
+      // Old price and discounts
+      if (product.oldPrice && product.oldPrice > product.price) {
+        const discount = Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100);
+        const savings = product.oldPrice - product.price;
+        
+        const oldPriceEl = document.getElementById('productDetailOldPrice');
+        const saveBadgeEl = document.getElementById('productDetailSaveBadge');
+        const discountBadgeEl = document.getElementById('productDiscountBadge');
+
+        oldPriceEl.textContent = `₹${product.oldPrice}`;
+        oldPriceEl.classList.remove('is-hidden');
+
+        saveBadgeEl.textContent = `Save ₹${savings}`;
+        saveBadgeEl.classList.remove('is-hidden');
+
+        discountBadgeEl.textContent = `${discount}% OFF`;
+        discountBadgeEl.classList.remove('is-hidden');
+      }
+
+      // Specs
+      document.getElementById('specSku').textContent = `GH-PALA-${String(product.id).padStart(4, '0')}`;
+      document.getElementById('specBrand').textContent = product.brand || 'Golden Hypermarket';
+      document.getElementById('specWeight').textContent = product.weight;
+      document.getElementById('specCat').textContent = category.name;
+
+      // WhatsApp Buy Link
+      const waMsg = encodeURIComponent(`Hi Golden Hypermarket Pala, I would like to order: *${product.name}* (${product.weight}) - ₹${product.price}. Please deliver to my address in Pala.`);
+      document.getElementById('btnDetailWhatsApp').href = `https://wa.me/918606647777?text=${waMsg}`;
+
+      // Quantity Stepper Logic
+      let currentQty = CartManager.getItemQty(product.id) || 1;
+      const qtyDisplay = document.getElementById('detailQtyDisplay');
+      const btnMinus = document.getElementById('btnDetailMinus');
+      const btnPlus = document.getElementById('btnDetailPlus');
+      const btnAddToCart = document.getElementById('btnDetailAddToCart');
+      const btnWishlist = document.getElementById('btnDetailWishlist');
+
+      qtyDisplay.textContent = currentQty;
+
+      btnMinus.addEventListener('click', () => {
+        if (currentQty > 1) {
+          currentQty--;
+          qtyDisplay.textContent = currentQty;
+        }
+      });
+
+      btnPlus.addEventListener('click', () => {
+        currentQty++;
+        qtyDisplay.textContent = currentQty;
+      });
+
+      btnAddToCart.addEventListener('click', () => {
+        CartManager.setQty(product.id, currentQty);
+        CartManager.showToast(`Updated <strong>${product.name}</strong> (${currentQty} items) in cart!`, 'success');
+      });
+
+      // Wishlist toggle
+      const syncWishlistBtn = () => {
+        const inWishlist = CartManager.isInWishlist(product.id);
+        if (inWishlist) {
+          btnWishlist.classList.add('active');
+          btnWishlist.innerHTML = '<i class="fa-solid fa-heart"></i>';
+        } else {
+          btnWishlist.classList.remove('active');
+          btnWishlist.innerHTML = '<i class="fa-regular fa-heart"></i>';
+        }
+      };
+      syncWishlistBtn();
+
+      btnWishlist.addEventListener('click', () => {
+        CartManager.toggleWishlist(product.id);
+        syncWishlistBtn();
+      });
+
+      // Tab switching
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const target = btn.getAttribute('data-tab');
+          document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('is-hidden'));
+          document.getElementById(target).classList.remove('is-hidden');
+        });
+      });
+
+      // Related Products
+      const relatedGrid = document.getElementById('relatedProductsGrid');
+      const viewAllRelated = document.getElementById('viewAllRelatedLink');
+      if (viewAllRelated) viewAllRelated.href = `category.html?cat=${category.id}`;
+
+      if (relatedGrid) {
+        const related = siteData.getProductsByCategory(category.id).filter(p => p.id !== product.id).slice(0, 4);
+        relatedGrid.innerHTML = related.map(p => CartManager.renderProductCard(p)).join('');
+        CartManager.syncBadges();
+      }
+    });
+  </script>
+</body>
+</html>

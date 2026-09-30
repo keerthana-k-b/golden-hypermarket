@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop by Category | Golden Hypermarket Pala</title>
+  <meta name="description" content="Explore fresh groceries, farm produce, fish, meat, and home essentials at Golden Hypermarket Pala. Fast 2-hour home delivery in Pala.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Injected Header Container -->
+  <div id="site-header-container"></div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs-bar" aria-label="Breadcrumb">
+        <ul class="breadcrumbs-list" id="breadcrumbList">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="sep"><i class="fa-solid fa-chevron-right"></i></li>
+          <li><a href="category.html?cat=grocery">Categories</a></li>
+          <li class="sep"><i class="fa-solid fa-chevron-right"></i></li>
+          <li class="current" id="breadcrumbCategoryName">Grocery & Staples</li>
+        </ul>
+      </nav>
+
+      <!-- Category Hero Banner -->
+      <div class="category-hero-banner" id="categoryHeroBanner">
+        <div class="category-hero-content">
+          <div class="category-badge-chip">
+            <i class="fa-solid fa-store"></i>
+            <span id="catItemCountBadge">12 Items Available in Pala</span>
+          </div>
+          <h1 class="category-hero-title" id="catTitle">Grocery & Staples</h1>
+          <p class="category-hero-title-ml" id="catTitleMl">പലചരക്ക് സാധനങ്ങൾ</p>
+          <p class="category-hero-desc" id="catDesc">
+            Authentic Kerala Matta rice, premium biryani grains, pure cooking oils, organic pulses, flours and traditional masalas.
+          </p>
+        </div>
+        <div class="category-hero-icon-box" id="catHeroIconBox">
+          <i class="fa-solid fa-wheat-awn" id="catHeroIcon"></i>
+        </div>
+      </div>
+
+      <!-- Subcategories Chips Strip -->
+      <div class="subcategory-chips-strip" id="subcategoryChips">
+        <!-- Injected via JS -->
+      </div>
+
+      <!-- Catalog Layout Grid (Sidebar + Products) -->
+      <div class="catalog-layout-grid">
+        
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar" id="filterSidebar">
+          <div class="filter-header">
+            <h3><i class="fa-solid fa-sliders"></i> Filters</h3>
+            <button class="clear-filters-btn" id="resetFiltersBtn">Reset All</button>
+          </div>
+
+          <!-- Deals Only Filter -->
+          <div class="filter-group">
+            <label class="filter-checkbox-label filter-deals-label">
+              <input type="checkbox" id="filterDealsOnly">
+              <span><i class="fa-solid fa-fire"></i> Hot Deals Only</span>
+            </label>
+          </div>
+
+          <!-- Subcategories Filter -->
+          <div class="filter-group" id="sidebarSubcatGroup">
+            <h4 class="filter-group-title">Subcategory</h4>
+            <div class="filter-options-list" id="sidebarSubcatList">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Price Range (₹)</h4>
+            <div class="price-range-inputs">
+              <input type="number" id="priceMin" class="price-input-box" placeholder="Min (₹)" min="0">
+              <span>-</span>
+              <input type="number" id="priceMax" class="price-input-box" placeholder="Max (₹)" min="0">
+            </div>
+          </div>
+
+          <!-- Customer Rating Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Customer Rating</h4>
+            <div class="filter-options-list" id="ratingFiltersList">
+              <label class="filter-checkbox-label">
+                <input type="radio" name="ratingFilter" value="0" class="rating-filter-input" checked>
+                <span>All Ratings</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="radio" name="ratingFilter" value="4.8" class="rating-filter-input">
+                <span>⭐ 4.8 & above</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="radio" name="ratingFilter" value="4.5" class="rating-filter-input">
+                <span>⭐ 4.5 & above</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="radio" name="ratingFilter" value="4.0" class="rating-filter-input">
+                <span>⭐ 4.0 & above</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Brands Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Brands</h4>
+            <div class="filter-options-list" id="brandFiltersList">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+          <!-- Stock Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Availability</h4>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="filterInStock" checked>
+              <span>In Stock in Pala Store</span>
+            </label>
+          </div>
+
+        </aside>
+
+        <!-- Main Product Catalog Content -->
+        <section class="catalog-main">
+          
+          <!-- Toolbar (Count & Sort) -->
+          <div class="catalog-toolbar">
+            <div class="toolbar-count">
+              Showing <strong id="visibleCount">12</strong> products
+            </div>
+            <div class="toolbar-actions">
+              <div class="sort-select-wrapper">
+                <label for="sortBySelect"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort:</label>
+                <select id="sortBySelect" class="sort-select">
+                  <option value="featured">Featured & Best Matches</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="rating">Highest Rated</option>
+                  <option value="discount">Biggest Discount</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="products-catalog-grid" id="categoryProductsGrid">
+            <!-- Populated via JS -->
+          </div>
+
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Injected Footer Container -->
+  <div id="site-footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    const productSubcategoryMap = {
+      // grocery
+      1: 'Rice & Grains', 2: 'Edible Oils & Ghee', 3: 'Spices & Masalas', 4: 'Flours & Podi', 5: 'Rice & Grains', 6: 'Rice & Grains', 7: 'Spices & Masalas', 8: 'Edible Oils & Ghee', 9: 'Sugar & Jaggery', 10: 'Spices & Masalas', 11: 'Flours & Podi', 12: 'Flours & Podi',
+      // produce
+      101: 'Gourds & Coconuts', 102: 'Gourds & Coconuts', 103: 'Salad Veggies', 104: 'Roots & Tubers', 105: 'Roots & Tubers', 106: 'Roots & Tubers', 107: 'Roots & Tubers', 108: 'Local Kerala Veggies', 109: 'Salad Veggies', 110: 'Local Kerala Veggies', 111: 'Local Kerala Veggies', 112: 'Gourds & Coconuts',
+      // fruits
+      201: 'Kerala Bananas (Nendran, Robusta)', 202: 'Citrus & Melons', 203: 'Citrus & Melons', 204: 'Tropical & Seasonal', 205: 'Apples & Pears', 206: 'Kerala Bananas (Nendran, Robusta)', 207: 'Tropical & Seasonal', 208: 'Tropical & Seasonal', 209: 'Tropical & Seasonal', 210: 'Tropical & Seasonal', 211: 'Dry Fruits & Nuts', 212: 'Dry Fruits & Nuts',
+      // meat-fish
+      301: 'Fresh Marine Fish', 302: 'Tender Farm Chicken', 303: 'Fresh Marine Fish', 304: 'Fresh Marine Fish', 305: 'Ready to Cook', 306: 'Fresh Mutton Cuts', 307: 'Fresh Marine Fish', 308: 'Fresh Marine Fish', 309: 'Tender Farm Chicken', 310: 'Ready to Cook', 311: 'Fresh Marine Fish', 312: 'Tender Farm Chicken',
+      // dairy
+      401: 'Pure Desi Ghee', 402: 'Fresh Paneer', 403: 'Farm & Country Eggs', 404: 'Butter & Cheese', 405: 'Milk & Curd', 406: 'Butter & Cheese', 407: 'Milk & Curd', 408: 'Butter & Cheese', 409: 'Farm & Country Eggs', 410: 'Butter & Cheese', 411: 'Flavoured Milk', 412: 'Butter & Cheese',
+      // bakery
+      501: 'Kerala Crisps & Chips', 502: 'Fresh Breads & Buns', 503: 'Traditional Sweets', 504: 'Rusks & Cookies', 505: 'Namkeens & Mixtures', 506: 'Cakes & Pastries', 507: 'Rusks & Cookies', 508: 'Rusks & Cookies', 509: 'Fresh Breads & Buns', 510: 'Kerala Crisps & Chips', 511: 'Traditional Sweets', 512: 'Cakes & Pastries',
+      // household
+      601: 'Detergents & Fabric Care', 602: 'Dishwash & Kitchen Cleaners', 603: 'Floor & Surface Cleaners', 604: 'Floor & Surface Cleaners', 605: 'Detergents & Fabric Care', 606: 'Floor & Surface Cleaners', 607: 'Floor & Surface Cleaners', 608: 'Dishwash & Kitchen Cleaners', 609: 'Insect Repellents', 610: 'Pooja Needs', 611: 'Paper & Tissues', 612: 'Dishwash & Kitchen Cleaners',
+      // beverages
+      701: 'Kerala Dust Tea', 702: 'Kerala Dust Tea', 703: 'Filter & Instant Coffee', 704: 'Health & Malt Drinks', 705: 'Health & Malt Drinks', 706: 'Filter & Instant Coffee', 707: 'Packaged Juices', 708: 'Packaged Juices', 709: 'Packaged Juices', 710: 'Bottled Waters', 711: 'Kerala Dust Tea', 712: 'Syrups & Squashes',
+      // electronics
+      801: 'Mixer Grinders & Blenders', 802: 'Pressure Cookers', 803: 'Mixer Grinders & Blenders', 804: 'Electric Kettles & Stoves', 805: 'Fans & Irons', 806: 'Electric Kettles & Stoves', 807: 'Pressure Cookers', 808: 'Fans & Irons', 809: 'Audio & Accessories', 810: 'Personal Grooming', 811: 'Mixer Grinders & Blenders', 812: 'Pressure Cookers',
+      // fashion
+      901: 'Kerala Traditional Mundu', 902: 'Women Sarees & Kurtis', 903: 'Men Cotton Wear', 904: 'Towels & Bath Linens', 905: 'Footwear & Umbrellas', 906: 'Women Sarees & Kurtis', 907: 'Kidswear & Toys', 908: 'Towels & Bath Linens', 909: 'Men Cotton Wear', 910: 'Footwear & Umbrellas', 911: 'Towels & Bath Linens', 912: 'Kidswear & Toys'
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const rawCat = params.get('cat');
+      const dealsOnlyParam = params.get('deals') === '1';
+      const subcategoryParam = params.get('sub') || '';
+
+      // Fallback: If cat is omitted from query string entirely, default to 'grocery'
+      const catId = (rawCat !== null && rawCat.trim() !== '') ? rawCat.trim().toLowerCase() : 'grocery';
+
+      let currentCategory = null;
+      if (catId === 'all') {
+        currentCategory = {
+          id: 'all',
+          name: dealsOnlyParam ? 'Weekend Hot Deals' : 'All Products Catalog',
+          nameMl: dealsOnlyParam ? 'പ്രത്യേക ഓഫറുകൾ' : 'എല്ലാ ഉൽപ്പന്നങ്ങളും',
+          icon: 'fa-tags',
+          description: 'Explore the full range of authentic Kerala products, fresh produce, and special deals available at Golden Hypermarket Pala.',
+          subcategories: ['Top Offers', 'Kerala Specials', 'Daily Essentials', 'High Range Fresh']
+        };
+      } else {
+        currentCategory = siteData.getCategoryById(catId);
+      }
+
+      // ==========================================
+      // UNKNOWN CATEGORY: FRIENDLY NOT FOUND STATE
+      // ==========================================
+      if (!currentCategory) {
+        // Init header without active tab
+        SiteComponents.init({ page: 'category', category: '' });
+
+        // Document Title & Breadcrumbs
+        document.title = 'Category Not Found | Golden Hypermarket Pala';
+        const breadcrumbName = document.getElementById('breadcrumbCategoryName');
+        if (breadcrumbName) breadcrumbName.textContent = 'Category Not Found';
+
+        // Hero Banner Not Found State
+        const catBadge = document.getElementById('catItemCountBadge');
+        if (catBadge) {
+          catBadge.textContent = '0 Items Available';
+          catBadge.parentElement.style.background = 'rgba(239, 68, 68, 0.2)';
+          catBadge.parentElement.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+          catBadge.parentElement.style.color = '#fca5a5';
+        }
+        const catTitle = document.getElementById('catTitle');
+        const catTitleMl = document.getElementById('catTitleMl');
+        const catDesc = document.getElementById('catDesc');
+        const catHeroIcon = document.getElementById('catHeroIcon');
+        if (catTitle) catTitle.textContent = 'Category Not Found';
+        if (catTitleMl) catTitleMl.textContent = 'വിഭാഗം കണ്ടെത്താനായില്ല';
+        if (catDesc) {
+          const displayCat = rawCat ? `"${escapeHtml(rawCat)}"` : '';
+          catDesc.textContent = `We couldn't find the category ${displayCat}. Explore our 10 fresh store departments below or return to the store homepage.`;
+        }
+        if (catHeroIcon) catHeroIcon.className = 'fa-solid fa-triangle-exclamation';
+
+        // Hide subcategory chips strip & sidebar
+        const subChipsContainer = document.getElementById('subcategoryChips');
+        if (subChipsContainer) subChipsContainer.classList.add('is-hidden');
+
+        const sidebar = document.getElementById('filterSidebar');
+        if (sidebar) sidebar.classList.add('is-hidden');
+
+        // Friendly Not Found Card inside Main Catalog
+        const catalogMain = document.querySelector('.catalog-main');
+        if (catalogMain) {
+          catalogMain.classList.add('catalog-main-full');
+          catalogMain.innerHTML = `
+            <div class="category-not-found-card">
+              <div class="cat-not-found-icon">
+                <i class="fa-solid fa-store-slash"></i>
+              </div>
+              <h2 class="cat-not-found-title">
+                Department Not Found
+              </h2>
+              <p class="cat-not-found-desc">
+                The category "<strong>${escapeHtml(rawCat || '')}</strong>" does not exist in our store inventory. Please choose one of our active departments below:
+              </p>
+              <div class="cat-not-found-pills">
+                ${siteData.categories.map(c => `
+                  <a href="category.html?cat=${c.id}" class="cat-pill-link">
+                    <i class="fa-solid ${c.icon}"></i>
+                    <span>${c.name}</span>
+                  </a>
+                `).join('')}
+              </div>
+              <div class="cat-not-found-actions">
+                <a href="index.html" class="btn-primary-add-cart btn-store-home">
+                  <i class="fa-solid fa-house"></i> Return to Store Home
+                </a>
+                <a href="category.html?cat=grocery" class="btn-primary-add-cart btn-browse-grocery">
+                  <i class="fa-solid fa-wheat-awn"></i> Browse Grocery & Staples
+                </a>
+              </div>
+            </div>
+          `;
+        }
+        return;
+      }
+
+      // ==========================================
+      // VALID CATEGORY RENDERING
+      // ==========================================
+      // Initialize components
+      SiteComponents.init({ page: 'category', category: currentCategory.id });
+
+      // Highlight active nav tab in header and scroll it into view if needed
+      document.querySelectorAll('.hdr-nav-link').forEach(link => {
+        const href = link.getAttribute('href') || '';
+        if (href.includes(`cat=${currentCategory.id}`)) {
+          link.classList.add('active');
+          try { link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); } catch(e){}
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      // Update Hero and Breadcrumbs
+      const breadcrumbName = document.getElementById('breadcrumbCategoryName');
+      if (breadcrumbName) breadcrumbName.textContent = currentCategory.name;
+      document.title = `${currentCategory.name} | Golden Hypermarket Pala`;
+
+      const catTitle = document.getElementById('catTitle');
+      const catTitleMl = document.getElementById('catTitleMl');
+      const catDesc = document.getElementById('catDesc');
+      const catHeroIcon = document.getElementById('catHeroIcon');
+
+      if (catTitle) catTitle.textContent = currentCategory.name;
+      if (catTitleMl) catTitleMl.textContent = currentCategory.nameMl || '';
+      if (catDesc) catDesc.textContent = currentCategory.description || '';
+      if (catHeroIcon && currentCategory.icon) catHeroIcon.className = `fa-solid ${currentCategory.icon}`;
+
+      // Get category products & map subcategories
+      let allCategoryProducts = (catId === 'all') ? siteData.products : siteData.getProductsByCategory(currentCategory.id);
+      allCategoryProducts.forEach(p => {
+        if (!p.subcategory && productSubcategoryMap[p.id]) {
+          p.subcategory = productSubcategoryMap[p.id];
+        }
+      });
+
+      const catBadge = document.getElementById('catItemCountBadge');
+      if (catBadge) catBadge.textContent = `${allCategoryProducts.length} Items Available in Pala`;
+
+      // Render Subcategory Chips & Sidebar Subcategories
+      const subChipsContainer = document.getElementById('subcategoryChips');
+      const sidebarSubcatList = document.getElementById('sidebarSubcatList');
+      let activeSub = subcategoryParam;
+
+      if (currentCategory.subcategories && currentCategory.subcategories.length > 0) {
+        // Top Chips Strip
+        if (subChipsContainer) {
+          subChipsContainer.innerHTML = `
+            <button class="subcategory-chip ${!activeSub ? 'active' : ''}" data-sub="">All ${currentCategory.name}</button>
+            ${currentCategory.subcategories.map(sub => `
+              <button class="subcategory-chip ${activeSub === sub ? 'active' : ''}" data-sub="${sub}">
+                <i class="fa-solid ${SiteComponents.getSubcategoryIcon ? SiteComponents.getSubcategoryIcon(sub) : 'fa-circle'}"></i> ${sub}
+              </button>
+            `).join('')}
+          `;
+
+          subChipsContainer.querySelectorAll('.subcategory-chip').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const sub = btn.getAttribute('data-sub');
+              setSubcategory(sub);
+            });
+          });
+        }
+
+        // Sidebar Subcategories List
+        if (sidebarSubcatList) {
+          sidebarSubcatList.innerHTML = `
+            <label class="filter-checkbox-label">
+              <input type="radio" name="sidebarSubcat" value="" class="subcat-filter-input" ${!activeSub ? 'checked' : ''}>
+              <span>All Subcategories</span>
+            </label>
+            ${currentCategory.subcategories.map(sub => `
+              <label class="filter-checkbox-label">
+                <input type="radio" name="sidebarSubcat" value="${sub}" class="subcat-filter-input" ${activeSub === sub ? 'checked' : ''}>
+                <span>${sub}</span>
+              </label>
+            `).join('')}
+          `;
+
+          sidebarSubcatList.querySelectorAll('.subcat-filter-input').forEach(radio => {
+            radio.addEventListener('change', () => {
+              if (radio.checked) {
+                setSubcategory(radio.value);
+              }
+            });
+          });
+        }
+      } else {
+        const subGroup = document.getElementById('sidebarSubcatGroup');
+        if (subGroup) subGroup.style.display = 'none';
+        if (subChipsContainer) subChipsContainer.style.display = 'none';
+      }
+
+      function setSubcategory(sub) {
+        activeSub = sub;
+        if (subChipsContainer) {
+          subChipsContainer.querySelectorAll('.subcategory-chip').forEach(b => {
+            b.classList.toggle('active', b.getAttribute('data-sub') === sub);
+          });
+        }
+        if (sidebarSubcatList) {
+          const targetRadio = sidebarSubcatList.querySelector(`.subcat-filter-input[value="${sub}"]`);
+          if (targetRadio) targetRadio.checked = true;
+        }
+        applyFilters();
+      }
+
+      // Populate Brand Checkboxes
+      const brands = [...new Set(allCategoryProducts.map(p => p.brand).filter(Boolean))].sort();
+      const brandListContainer = document.getElementById('brandFiltersList');
+      if (brandListContainer) {
+        brandListContainer.innerHTML = brands.map(b => `
+          <label class="filter-checkbox-label">
+            <input type="checkbox" value="${b}" class="brand-filter-input">
+            <span>${b}</span>
+          </label>
+        `).join('');
+      }
+
+      // Filter & Sort Controls
+      const dealsCheckbox = document.getElementById('filterDealsOnly');
+      if (dealsCheckbox && dealsOnlyParam) {
+        dealsCheckbox.checked = true;
+      }
+
+      const minPriceInput = document.getElementById('priceMin');
+      const maxPriceInput = document.getElementById('priceMax');
+      const inStockCheckbox = document.getElementById('filterInStock');
+      const sortSelect = document.getElementById('sortBySelect');
+      const resetBtn = document.getElementById('resetFiltersBtn');
+
+      // Set price placeholders based on current category
+      const prices = allCategoryProducts.map(p => p.price);
+      if (prices.length > 0) {
+        const minP = Math.min(...prices);
+        const maxP = Math.max(...prices);
+        if (minPriceInput) minPriceInput.placeholder = `Min (₹${minP})`;
+        if (maxPriceInput) maxPriceInput.placeholder = `Max (₹${maxP})`;
+      }
+
+      function applyFilters() {
+        let filtered = [...allCategoryProducts];
+
+        // 1. Subcategory Filter
+        if (activeSub) {
+          const s = activeSub.toLowerCase();
+          filtered = filtered.filter(p => {
+            if (p.subcategory && p.subcategory.toLowerCase() === s) return true;
+            const text = `${p.name} ${p.description || ''} ${p.nameMl || ''} ${p.brand || ''}`.toLowerCase();
+            return text.includes(s);
+          });
+        }
+
+        // 2. Deals Filter
+        if (dealsCheckbox && dealsCheckbox.checked) {
+          filtered = filtered.filter(p => p.isDeal || (p.oldPrice && p.oldPrice > p.price));
+        }
+
+        // 3. Price Filter
+        const minP = parseFloat(minPriceInput.value);
+        const maxP = parseFloat(maxPriceInput.value);
+        if (!isNaN(minP)) filtered = filtered.filter(p => p.price >= minP);
+        if (!isNaN(maxP)) filtered = filtered.filter(p => p.price <= maxP);
+
+        // 4. Rating Filter
+        const ratingRadio = document.querySelector('input[name="ratingFilter"]:checked');
+        const minRating = ratingRadio ? parseFloat(ratingRadio.value) : 0;
+        if (minRating > 0) {
+          filtered = filtered.filter(p => (p.rating || 0) >= minRating);
+        }
+
+        // 5. Brands Filter
+        const selectedBrands = Array.from(document.querySelectorAll('.brand-filter-input:checked')).map(cb => cb.value);
+        if (selectedBrands.length > 0) {
+          filtered = filtered.filter(p => selectedBrands.includes(p.brand));
+        }
+
+        // 6. In Stock Filter
+        if (inStockCheckbox && inStockCheckbox.checked) {
+          filtered = filtered.filter(p => p.stock && p.stock.toLowerCase().includes('in stock'));
+        }
+
+        // 7. Sorting
+        const sortVal = sortSelect ? sortSelect.value : 'featured';
+        if (sortVal === 'price-asc') {
+          filtered.sort((a, b) => a.price - b.price);
+        } else if (sortVal === 'price-desc') {
+          filtered.sort((a, b) => b.price - a.price);
+        } else if (sortVal === 'rating') {
+          filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+        } else if (sortVal === 'discount') {
+          filtered.sort((a, b) => {
+            const discA = a.oldPrice ? (a.oldPrice - a.price) / a.oldPrice : 0;
+            const discB = b.oldPrice ? (b.oldPrice - b.price) / b.oldPrice : 0;
+            return discB - discA;
+          });
+        }
+
+        renderGrid(filtered);
+      }
+
+      function renderGrid(products) {
+        const grid = document.getElementById('categoryProductsGrid');
+        const countEl = document.getElementById('visibleCount');
+        const badgeCount = document.getElementById('catItemCountBadge');
+
+        if (countEl) countEl.textContent = products.length;
+        if (badgeCount) badgeCount.textContent = `${products.length} Items Available in Pala`;
+
+        if (!grid) return;
+
+        if (products.length === 0) {
+          grid.innerHTML = `
+            <div class="no-products-box">
+              <i class="fa-solid fa-basket-shopping no-products-icon"></i>
+              <h3 class="no-products-title">No products match your filters</h3>
+              <p class="no-products-desc">Try resetting your filters or adjusting your price/rating criteria.</p>
+              <button class="btn-primary-add-cart no-products-btn" onclick="document.getElementById('resetFiltersBtn').click();">Reset All Filters</button>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = products.map(p => CartManager.renderProductCard(p)).join('');
+        CartManager.syncBadges();
+      }
+
+      // Bind Filter Events
+      [dealsCheckbox, minPriceInput, maxPriceInput, inStockCheckbox, sortSelect].forEach(el => {
+        if (el) {
+          el.addEventListener('input', applyFilters);
+          el.addEventListener('change', applyFilters);
+        }
+      });
+
+      document.querySelectorAll('input[name="ratingFilter"]').forEach(radio => {
+        radio.addEventListener('change', applyFilters);
+      });
+
+      document.querySelectorAll('.brand-filter-input').forEach(cb => {
+        cb.addEventListener('change', applyFilters);
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (dealsCheckbox) dealsCheckbox.checked = false;
+          if (minPriceInput) minPriceInput.value = '';
+          if (maxPriceInput) maxPriceInput.value = '';
+          if (inStockCheckbox) inStockCheckbox.checked = true;
+          if (sortSelect) sortSelect.value = 'featured';
+          
+          const defaultRating = document.querySelector('input[name="ratingFilter"][value="0"]');
+          if (defaultRating) defaultRating.checked = true;
+
+          document.querySelectorAll('.brand-filter-input').forEach(cb => cb.checked = false);
+          
+          setSubcategory('');
+        });
+      }
+
+      // Initial Render
+      applyFilters();
+    });
+  </script>
+</body>
+</html>
