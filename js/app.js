@@ -175,7 +175,7 @@ function initCategoryCarouselScroll() {
   }
 }
 
-/* ================= POPULATE 3 PRODUCT CAROUSELS ================= */
+/* ================= POPULATE 8 PRODUCT CAROUSELS ================= */
 function initCarouselsFromData() {
   if (typeof siteData === 'undefined') return;
 
@@ -196,14 +196,54 @@ function initCarouselsFromData() {
   // 3. Kerala Special Staples Carousel
   const staplesTrack = document.getElementById('keralaStaplesTrack');
   if (staplesTrack) {
-    const staplesItems = siteData.products.filter(p => p.category === 'grocery' || p.category === 'dairy').slice(0, 8);
+    const staplesItems = siteData.getProductsByCategory('grocery').slice(0, 8);
     staplesTrack.innerHTML = staplesItems.map(p => CartManager.renderProductCard(p)).join('');
   }
 
-  // Setup carousel arrows for all 3 carousels
+  // 4. Fresh Meat & Seafood Carousel
+  const meatFishTrack = document.getElementById('meatFishTrack');
+  if (meatFishTrack) {
+    const meatItems = siteData.getProductsByCategory('meat-fish').slice(0, 8);
+    meatFishTrack.innerHTML = meatItems.map(p => CartManager.renderProductCard(p)).join('');
+  }
+
+  // 5. Dairy, Butter & Farm Eggs Carousel
+  const dairyTrack = document.getElementById('dairyTrack');
+  if (dairyTrack) {
+    const dairyItems = siteData.getProductsByCategory('dairy').slice(0, 8);
+    dairyTrack.innerHTML = dairyItems.map(p => CartManager.renderProductCard(p)).join('');
+  }
+
+  // 6. Bakery & Traditional Snacks Carousel
+  const bakeryTrack = document.getElementById('bakeryTrack');
+  if (bakeryTrack) {
+    const bakeryItems = siteData.getProductsByCategory('bakery').slice(0, 8);
+    bakeryTrack.innerHTML = bakeryItems.map(p => CartManager.renderProductCard(p)).join('');
+  }
+
+  // 7. Kitchen Appliances & Electronics Carousel
+  const electronicsTrack = document.getElementById('electronicsTrack');
+  if (electronicsTrack) {
+    const electronicsItems = siteData.getProductsByCategory('electronics').slice(0, 8);
+    electronicsTrack.innerHTML = electronicsItems.map(p => CartManager.renderProductCard(p)).join('');
+  }
+
+  // 8. Household & Cleaning Essentials Carousel
+  const householdTrack = document.getElementById('householdTrack');
+  if (householdTrack) {
+    const householdItems = siteData.getProductsByCategory('household').slice(0, 8);
+    householdTrack.innerHTML = householdItems.map(p => CartManager.renderProductCard(p)).join('');
+  }
+
+  // Setup carousel arrows for all 8 carousels
   setupTrackArrowNav('weeklyDealsPrev', 'weeklyDealsNext', 'weeklyDealsTrack');
   setupTrackArrowNav('freshProducePrev', 'freshProduceNext', 'freshProduceTrack');
   setupTrackArrowNav('keralaStaplesPrev', 'keralaStaplesNext', 'keralaStaplesTrack');
+  setupTrackArrowNav('meatFishPrev', 'meatFishNext', 'meatFishTrack');
+  setupTrackArrowNav('dairyPrev', 'dairyNext', 'dairyTrack');
+  setupTrackArrowNav('bakeryPrev', 'bakeryNext', 'bakeryTrack');
+  setupTrackArrowNav('electronicsPrev', 'electronicsNext', 'electronicsTrack');
+  setupTrackArrowNav('householdPrev', 'householdNext', 'householdTrack');
 
   // Sync cart buttons
   CartManager.syncBadges();

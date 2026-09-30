@@ -391,23 +391,23 @@
             </div>
           </div>
 
-          <!-- Promo 3: Soft Coral / Cream Tint -->
-          <div class="promo-tile-card promo-tile-coral">
+          <!-- Promo 3: Soft Sky Blue Tint -->
+          <div class="promo-tile-card promo-tile-sky">
             <div class="promo-content">
-              <span class="promo-chip coral-chip">DAIRY & GHEE</span>
-              <h3 class="promo-headline">Pure Malanadu Desi Ghee & Milk</h3>
-              <p class="promo-subtext">Traditional golden cow ghee, farm fresh milk, butter & country eggs</p>
+              <span class="promo-chip sky-chip">HOME & KITCHEN</span>
+              <h3 class="promo-headline">Kitchenware & Appliances</h3>
+              <p class="promo-subtext">Preethi mixer grinders, cookware, kettles & daily kitchen essentials</p>
               <div class="promo-deal-tag">
-                <span class="tag-bold">FLAT 15% OFF</span>
-                <span class="tag-sub">Pure Malanadu Cow Ghee</span>
+                <span class="tag-bold">UP TO 40% OFF</span>
+                <span class="tag-sub">Pala Mega Kitchen Fest</span>
               </div>
-              <a href="category.html?cat=dairy" class="btn promo-btn promo-btn-coral">
+              <a href="category.html?cat=electronics" class="btn promo-btn promo-btn-sky">
                 <span>Shop Now</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
             <div class="promo-visual">
-              <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=320&q=80" alt="Dairy & Ghee" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=320&q=80" alt="Kitchenware & Appliances" loading="lazy">
             </div>
           </div>
 
@@ -420,7 +420,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-pill-tag red-tag"><i class="fa-solid fa-fire"></i> HOT OFFERS</div>
+            <div class="section-badge deal-badge-pill"><i class="fa-solid fa-fire"></i> WEEKLY DEALS</div>
             <h2 class="section-title">Weekly Super Deals</h2>
             <p class="section-subtitle">Handpicked highest discount deals on Kerala favorites in Pala</p>
           </div>
@@ -435,7 +435,7 @@
           </div>
         </div>
 
-        <div class="product-carousel-track" id="weeklyDealsTrack">
+        <div class="products-carousel-track product-carousel-track" id="weeklyDealsTrack">
           <!-- Populated from data.js -->
         </div>
       </div>
@@ -446,7 +446,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-pill-tag green-tag"><i class="fa-solid fa-seedling"></i> 100% FARM FRESH</div>
+            <div class="section-badge green-badge-pill"><i class="fa-solid fa-seedling"></i> 100% FARM FRESH</div>
             <h2 class="section-title">Fresh Fruits & Vegetables</h2>
             <p class="section-subtitle">Locally harvested from Pala, Meenachil and Idukki high ranges every morning</p>
           </div>
@@ -461,7 +461,7 @@
           </div>
         </div>
 
-        <div class="product-carousel-track" id="freshProduceTrack">
+        <div class="products-carousel-track product-carousel-track" id="freshProduceTrack">
           <!-- Populated from data.js -->
         </div>
       </div>
@@ -472,7 +472,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-pill-tag gold-tag"><i class="fa-solid fa-award"></i> TRADITION OF PALA</div>
+            <div class="section-badge gold-badge-pill"><i class="fa-solid fa-award"></i> TRADITION OF PALA</div>
             <h2 class="section-title">Kerala Special Staples</h2>
             <p class="section-subtitle">Authentic Matta rice, fragrant biryani grains, spices, podis and pure coconut oils</p>
           </div>
@@ -487,105 +487,252 @@
           </div>
         </div>
 
-        <div class="product-carousel-track" id="keralaStaplesTrack">
+        <div class="products-carousel-track product-carousel-track" id="keralaStaplesTrack">
           <!-- Populated from data.js -->
         </div>
       </div>
     </section>
 
-    <!-- ================= BRAND LOGO STRIP ================= -->
-    <section class="section brands-strip-section" aria-label="Trusted Brands">
+    <!-- ================= CAROUSEL 4: FRESH MEAT & SEAFOOD ================= -->
+    <section class="section product-carousel-section" id="meatFishSection" aria-label="Fresh Meat and Seafood">
       <div class="container">
-        <div class="brands-header">
-          <span class="sub-title">100% GENUINE & FRESH</span>
-          <h3 class="brands-headline">Brands Trusted by Pala Families for Decades</h3>
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <div class="section-badge deal-badge-pill"><i class="fa-solid fa-fish"></i> DAILY FRESH CATCH</div>
+            <h2 class="section-title">Fresh Meat & Seafood</h2>
+            <p class="section-subtitle">Cleaned, sliced, chemical-free marine fish, freshwater fish, tender chicken & mutton</p>
+          </div>
+          <div class="section-actions">
+            <button class="carousel-nav-btn prev" id="meatFishPrev" aria-label="Previous Meat and Fish">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav-btn next" id="meatFishNext" aria-label="Next Meat and Fish">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <a href="category.html?cat=meat-fish" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="products-carousel-track product-carousel-track" id="meatFishTrack">
+          <!-- Populated from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CAROUSEL 5: DAIRY & FARM FRESH EGGS ================= -->
+    <section class="section product-carousel-section" id="dairySection" aria-label="Dairy and Farm Fresh Eggs">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <div class="section-badge green-badge-pill"><i class="fa-solid fa-cow"></i> PURE & NOURISHING</div>
+            <h2 class="section-title">Dairy, Butter & Farm Fresh Eggs</h2>
+            <p class="section-subtitle">Pure Malanadu ghee, Milma milk, artisan butter, paneer, and local country eggs</p>
+          </div>
+          <div class="section-actions">
+            <button class="carousel-nav-btn prev" id="dairyPrev" aria-label="Previous Dairy">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav-btn next" id="dairyNext" aria-label="Next Dairy">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <a href="category.html?cat=dairy" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="products-carousel-track product-carousel-track" id="dairyTrack">
+          <!-- Populated from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CAROUSEL 6: BAKERY & SNACKS ================= -->
+    <section class="section product-carousel-section" id="bakerySection" aria-label="Fresh Bakery and Traditional Snacks">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <div class="section-badge gold-badge-pill"><i class="fa-solid fa-bread-slice"></i> OVEN FRESH DAILY</div>
+            <h2 class="section-title">Bakery, Sweets & Traditional Snacks</h2>
+            <p class="section-subtitle">Crispy Kerala banana chips, freshly baked wholewheat breads, cakes and tea snacks</p>
+          </div>
+          <div class="section-actions">
+            <button class="carousel-nav-btn prev" id="bakeryPrev" aria-label="Previous Bakery">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav-btn next" id="bakeryNext" aria-label="Next Bakery">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <a href="category.html?cat=bakery" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="products-carousel-track product-carousel-track" id="bakeryTrack">
+          <!-- Populated from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CAROUSEL 7: KITCHEN APPLIANCES & ELECTRONICS ================= -->
+    <section class="section product-carousel-section" id="electronicsSection" aria-label="Kitchen Appliances and Electronics">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <div class="section-badge gold-badge-pill"><i class="fa-solid fa-blender"></i> HOME ESSENTIALS</div>
+            <h2 class="section-title">Kitchen Appliances & Electronics</h2>
+            <p class="section-subtitle">Preethi mixer grinders, induction cookers, electric kettles and trusted brands</p>
+          </div>
+          <div class="section-actions">
+            <button class="carousel-nav-btn prev" id="electronicsPrev" aria-label="Previous Electronics">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav-btn next" id="electronicsNext" aria-label="Next Electronics">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <a href="category.html?cat=electronics" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="products-carousel-track product-carousel-track" id="electronicsTrack">
+          <!-- Populated from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CAROUSEL 8: HOUSEHOLD & CLEANING ESSENTIALS ================= -->
+    <section class="section product-carousel-section" id="householdSection" aria-label="Household and Cleaning Essentials">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <div class="section-badge green-badge-pill"><i class="fa-solid fa-pump-soap"></i> HOME CARE</div>
+            <h2 class="section-title">Household & Cleaning Essentials</h2>
+            <p class="section-subtitle">Top detergents, dishwashers, surface cleaners, paper napkins and home storage</p>
+          </div>
+          <div class="section-actions">
+            <button class="carousel-nav-btn prev" id="householdPrev" aria-label="Previous Household">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav-btn next" id="householdNext" aria-label="Next Household">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <a href="category.html?cat=household" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="products-carousel-track product-carousel-track" id="householdTrack">
+          <!-- Populated from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 8. TOP BRAND LOGOS STRIP ================= -->
+    <section class="section brands-strip-section" aria-label="Top Brand Partners">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2 class="section-title">Top Trusted Brands</h2>
+            <p class="section-subtitle">Official partners bringing authentic Kerala quality straight to Pala</p>
+          </div>
         </div>
         <div class="brands-grid">
-          <div class="brand-item-box">
-            <span class="brand-title-badge">Pavizham</span>
-            <span class="brand-sub">Kerala Rice & Flours</span>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Double Horse</span>
           </div>
-          <div class="brand-item-box">
-            <span class="brand-title-badge">Double Horse</span>
-            <span class="brand-sub">Puttu Podi & Ready Foods</span>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Kitchen Treasures</span>
           </div>
-          <div class="brand-item-box">
-            <span class="brand-title-badge">Kitchen Treasures</span>
-            <span class="brand-sub">Pure Kerala Spices</span>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Kera Drops</span>
           </div>
-          <div class="brand-item-box">
-            <span class="brand-title-badge">Eastern</span>
-            <span class="brand-sub">Traditional Masalas</span>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Pavizham</span>
           </div>
-          <div class="brand-item-box">
-            <span class="brand-title-badge">Nirapara</span>
-            <span class="brand-sub">Rice & Spice Mixes</span>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Eastern Spices</span>
           </div>
-          <div class="brand-item-box">
-            <span class="brand-title-badge">Malanadu</span>
-            <span class="brand-sub">Pure Cow Ghee</span>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Malanadu Ghee</span>
           </div>
-          <div class="brand-item-box">
-            <span class="brand-title-badge">Milma</span>
-            <span class="brand-sub">Fresh Dairy & Butter</span>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Milky Mist</span>
           </div>
-          <div class="brand-item-box">
-            <span class="brand-title-badge">Preethi</span>
-            <span class="brand-sub">Kitchen Appliances</span>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Brahmins</span>
+          </div>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Kellogg's</span>
+          </div>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Britannia</span>
+          </div>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Amul</span>
+          </div>
+          <div class="brand-badge-card">
+            <span class="brand-tag">Nirapara</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= ORDER ON WHATSAPP & APP BANNER ================= -->
-    <section class="section app-banner-section" aria-label="WhatsApp and App Ordering">
+    <!-- ================= 9. WHATSAPP & APP DOWNLOAD BANNER ================= -->
+    <section class="section app-order-banner-section" aria-label="WhatsApp and Mobile App Ordering">
       <div class="container">
         <div class="app-banner-card">
           <div class="app-banner-content">
-            <span class="app-badge"><i class="fa-brands fa-whatsapp"></i> FAST PALA DELIVERY</span>
-            <h2 class="app-headline">Order Groceries in Seconds via WhatsApp!</h2>
-            <p class="app-desc">
-              Just snap a photo of your shopping list or text your items to our dedicated Pala customer desk. We pack and deliver directly to your home within 2 hours.
-            </p>
-            <div class="app-steps-row">
-              <div class="app-step">
-                <span class="step-num">1</span>
-                <span>Send list to WhatsApp</span>
-              </div>
-              <div class="app-step">
-                <span class="step-num">2</span>
-                <span>Get itemized bill & confirmation</span>
-              </div>
-              <div class="app-step">
-                <span class="step-num">3</span>
-                <span>Pay Cash or UPI on Delivery</span>
-              </div>
+            <div class="app-badge">
+              <i class="fa-brands fa-whatsapp"></i> PALA EXPRESS WHATSAPP SHOPPING
             </div>
-            <div class="app-buttons-group">
-              <a href="https://wa.me/918606647777?text=Hi%20Golden%20Hypermarket%20Pala,%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-large">
+            <h2 class="app-headline">Just Send Your Grocery List On WhatsApp!</h2>
+            <p class="app-subtext">
+              Type or snap a photo of your handwritten grocery list and send it to our Pala store team. We pack the freshest items and deliver right to your doorstep in Pala within 2 hours.
+            </p>
+            <div class="app-features-list">
+              <div class="app-feat-item"><i class="fa-solid fa-check"></i> Free doorstep delivery on orders above ₹499</div>
+              <div class="app-feat-item"><i class="fa-solid fa-check"></i> Cash / UPI on delivery across Pala</div>
+              <div class="app-feat-item"><i class="fa-solid fa-check"></i> Same-day fresh fish, chicken & meat cuts</div>
+            </div>
+            <div class="app-btn-group">
+              <a href="https://wa.me/918606647777?text=Hi%20Golden%20Hypermarket%20Pala,%20I%20would%20like%20to%20place%20an%20order" target="_blank" rel="noopener noreferrer" class="btn btn-wa-large">
                 <i class="fa-brands fa-whatsapp"></i>
-                <div>
-                  <span class="btn-sub">Instant Order</span>
-                  <strong class="btn-main">+91 86066 47777</strong>
+                <div class="btn-text">
+                  <span class="sub">Order Now on WhatsApp</span>
+                  <span class="main">+91 86066 47777</span>
                 </div>
               </a>
-              <a href="tel:+918606647777" class="btn btn-call-large">
-                <i class="fa-solid fa-phone"></i>
-                <div>
-                  <span class="btn-sub">Call Helpdesk</span>
-                  <strong class="btn-main">04822 212345</strong>
+              <a href="#app-download" class="btn btn-store-badge">
+                <i class="fa-brands fa-google-play"></i>
+                <div class="btn-text">
+                  <span class="sub">Get it on</span>
+                  <span class="main">Google Play</span>
+                </div>
+              </a>
+              <a href="#app-download" class="btn btn-store-badge">
+                <i class="fa-brands fa-apple"></i>
+                <div class="btn-text">
+                  <span class="sub">Download on</span>
+                  <span class="main">App Store</span>
                 </div>
               </a>
             </div>
           </div>
           <div class="app-banner-visual">
-            <div class="app-phone-mockup">
-              <div class="mockup-header">
-                <i class="fa-brands fa-whatsapp"></i> Golden Hypermarket Pala
-              </div>
-              <div class="mockup-chat">
-                <div class="chat-msg user">Hi, please send 5kg Pavizham Matta Rice, 1L Coconut Oil, 1kg Tomato & 500g Chicken to Lalam, Pala.</div>
-                <div class="chat-msg store">Order confirmed! Your fresh items are packed and our delivery partner is on the way (Est. 45 mins). Total: ₹620.</div>
+            <div class="phone-mockup-wrap">
+              <div class="mockup-header-notch"></div>
+              <div class="mockup-screen">
+                <div class="mockup-chat-header">
+                  <img src="assets/images/logo.png" alt="Golden Logo" class="chat-avatar">
+                  <div>
+                    <strong>Golden Hypermarket Pala</strong>
+                    <span class="online-status">Online • Typically replies in 2 mins</span>
+                  </div>
+                </div>
+                <div class="chat-bubble-user">
+                  <p>Hi! Please send: 10kg Pavizham Jaya rice, 1L Kera Drops coconut oil, 1kg Kumbalanga & 2 fresh coconuts to Lalam Puthenpally.</p>
+                  <span class="chat-time">10:15 AM <i class="fa-solid fa-check-double"></i></span>
+                </div>
+                <div class="chat-bubble-store">
+                  <p>Order confirmed! Your items are handpicked and out for delivery in 25 mins with ₹100 Pala Saver discount applied! 🛒⚡</p>
+                  <span class="chat-time">10:17 AM</span>
+                </div>
               </div>
             </div>
           </div>
@@ -593,73 +740,89 @@
       </div>
     </section>
 
-    <!-- ================= STORE INFO & LOCATION SECTION ================= -->
-    <section class="section store-info-section" id="storeInfo" aria-label="Store Location and Hours">
+    <!-- ================= 10. VISIT GOLDEN HYPERMARKET PALA (STORE INFO & MAP) ================= -->
+    <section class="section store-info-section" id="storeInfo" aria-label="Visit Golden Hypermarket Pala">
       <div class="container">
+        <div class="section-header text-center">
+          <div class="section-title-wrap">
+            <div class="section-badge gold-badge-pill center-pill">
+              <i class="fa-solid fa-building"></i> PALA'S PRIDE SINCE 1964
+            </div>
+            <h2 class="section-title">Visit Golden Hypermarket, Pala</h2>
+            <p class="section-subtitle">Experience spacious, modern shopping across 3 expansive floors with multi-level parking</p>
+          </div>
+        </div>
+
         <div class="store-info-grid">
+          <!-- Info Cards Column -->
           <div class="store-details-col">
-            <span class="sub-title"><i class="fa-solid fa-building-flag"></i> VISIT OUR SUPERSTORE</span>
-            <h2 class="store-title">Golden Hypermarket, Pala</h2>
-            <p class="store-tagline">
-              Serving the people of Pala, Meenachil, Ramapuram and across Central Travancore with premium quality and unmatched savings since 1964.
-            </p>
-            
-            <div class="info-items-list">
-              <div class="info-item">
-                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <div>
-                  <h4>Store Address</h4>
-                  <p>Main Central Road, Opp. St. George's Church, Lalam Puthenpally, Pala, Kottayam, Kerala 686575</p>
-                </div>
+            <div class="store-info-card">
+              <div class="info-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-card-content">
+                <h4>Store Address</h4>
+                <p>Opp. St. George's Church, Lalam Puthenpally, Pala, Kottayam District, Kerala - 686575</p>
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="info-link">
+                  <span>Get Directions on Map</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
               </div>
+            </div>
 
-              <div class="info-item">
-                <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
-                <div>
-                  <h4>Store Timings</h4>
-                  <p>Open 7 Days a Week: <strong>8:00 AM – 10:00 PM</strong> (No lunch break)</p>
-                </div>
+            <div class="store-info-card">
+              <div class="info-card-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="info-card-content">
+                <h4>Operating Hours</h4>
+                <p><strong>Monday to Sunday:</strong> 8:00 AM – 10:00 PM</p>
+                <span class="badge-open"><i class="fa-solid fa-circle"></i> Open 7 Days a Week</span>
               </div>
+            </div>
 
-              <div class="info-item">
-                <div class="info-icon"><i class="fa-solid fa-phone-volume"></i></div>
-                <div>
-                  <h4>Contact & Support</h4>
-                  <p>Mobile: <a href="tel:+918606647777">+91 86066 47777</a> | Landline: <a href="tel:04822212345">04822 212345</a></p>
-                </div>
+            <div class="store-info-card">
+              <div class="info-card-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div class="info-card-content">
+                <h4>Contact & Customer Care</h4>
+                <p>Phone / WhatsApp: <strong>+91 86066 47777</strong></p>
+                <p>Landline: <strong>04822 212345</strong></p>
+                <p>Email: <a href="mailto:care@goldenhypermarketpala.com">care@goldenhypermarketpala.com</a></p>
               </div>
             </div>
 
             <div class="store-amenities-row">
-              <div class="amenity-chip"><i class="fa-solid fa-square-parking"></i> Free Customer Parking</div>
+              <div class="amenity-chip"><i class="fa-solid fa-square-parking"></i> Multi-level Parking</div>
               <div class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Fully Air Conditioned</div>
-              <div class="amenity-chip"><i class="fa-solid fa-credit-card"></i> Card / UPI / Sodexo</div>
-              <div class="amenity-chip"><i class="fa-solid fa-wheelchair"></i> Wheelchair Accessible</div>
+              <div class="amenity-chip"><i class="fa-solid fa-fish"></i> Fresh Fish Cleaning</div>
+              <div class="amenity-chip"><i class="fa-solid fa-credit-card"></i> UPI & Card Billing</div>
             </div>
           </div>
 
-          <!-- Location Map Visual -->
+          <!-- Map / Visual Col -->
           <div class="store-map-col">
             <div class="map-container-box">
-              <div class="map-overlay-card">
-                <h4><i class="fa-solid fa-map-pin"></i> Golden Hypermarket</h4>
-                <p>Lalam Puthenpally, Pala, Kerala</p>
-                <a href="https://maps.google.com/?q=Pala+Kerala+Golden+Hypermarket" target="_blank" rel="noopener noreferrer" class="btn-get-directions">
-                  <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
-                </a>
+              <div class="map-overlay-header">
+                <div class="map-pin-indicator">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div>
+                    <strong>Golden Hypermarket</strong>
+                    <span>Lalam Puthenpally, Pala</span>
+                  </div>
+                </div>
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">Navigate</a>
               </div>
-              <div class="map-graphic">
-                <svg viewBox="0 0 400 300" class="map-vector" preserveAspectRatio="none" aria-label="Stylized map showing Golden Hypermarket Pala">
-                  <rect width="400" height="300" fill="#e8f0eb" />
-                  <path d="M 50 0 Q 80 150 120 300" stroke="#cbd5e1" stroke-width="12" fill="none" />
-                  <path d="M 0 160 Q 200 130 400 190" stroke="#cbd5e1" stroke-width="16" fill="none" />
-                  <path d="M 120 300 Q 250 200 400 80" stroke="#94a3b8" stroke-width="10" fill="none" />
-                  <circle cx="210" cy="145" r="28" fill="rgba(11, 70, 51, 0.2)" />
-                  <circle cx="210" cy="145" r="14" fill="#0B4633" />
-                  <circle cx="210" cy="145" r="6" fill="#F5B82E" />
-                  <text x="210" y="195" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#0B4633" text-anchor="middle">Golden Hypermarket Pala</text>
-                  <text x="70" y="240" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748b">Meenachil River</text>
-                </svg>
+              <div class="map-visual-placeholder">
+                <div class="map-grid-bg">
+                  <div class="landmark-pin church-pin" title="St. George's Church">
+                    <i class="fa-solid fa-cross"></i> St. George's Church
+                  </div>
+                  <div class="landmark-pin river-pin" title="Meenachil River">
+                    <i class="fa-solid fa-water"></i> Meenachil River
+                  </div>
+                  <div class="landmark-pin store-main-pin" title="Golden Hypermarket Pala">
+                    <div class="pulse-ring"></div>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <strong>Golden Hypermarket</strong>
+                  </div>
+                  <div class="road road-main">Main Highway (Pala - Erattupetta Road)</div>
+                  <div class="road road-cross">Lalam Bridge Rd</div>
+                </div>
               </div>
             </div>
           </div>
@@ -669,16 +832,14 @@
 
   </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer" id="mainFooter">
-    <!-- Footer Newsletter Strip -->
-    <div class="footer-newsletter-strip">
+  <!-- ================= 11. NEWSLETTER & FOOTER ================= -->
+  <footer class="main-footer" id="mainFooter" aria-label="Site Footer">
+    <!-- Newsletter Bar -->
+    <div class="newsletter-strip">
       <div class="container newsletter-container">
-        <div class="newsletter-content">
-          <div class="newsletter-icon">
-            <i class="fa-solid fa-envelope-open-text"></i>
-          </div>
-          <div class="newsletter-text">
+        <div class="newsletter-left">
+          <i class="fa-solid fa-envelope-open-text newsletter-icon"></i>
+          <div>
             <h3>Subscribe to Pala Weekly Specials</h3>
             <p>Get exclusive weekend discounts, festival offers, and fresh arrival alerts.</p>
           </div>
@@ -724,10 +885,10 @@
             <li><a href="category.html?cat=produce">Fresh Farm Vegetables</a></li>
             <li><a href="category.html?cat=fruits">High Range Fruits</a></li>
             <li><a href="category.html?cat=meat-fish">Fresh Marine Fish & Meat</a></li>
-            <li><a href="category.html?cat=dairy">Dairy, Ghee & Bakery</a></li>
-            <li><a href="category.html?cat=household">Household & Cleaning</a></li>
-            <li><a href="category.html?cat=beverages">Kerala Tea & Beverages</a></li>
+            <li><a href="category.html?cat=dairy">Dairy & Farm Eggs</a></li>
+            <li><a href="category.html?cat=bakery">Bakery & Snacks</a></li>
             <li><a href="category.html?cat=electronics">Home Appliances & Electronics</a></li>
+            <li><a href="category.html?cat=household">Household & Cleaning</a></li>
           </ul>
         </div>
 
@@ -736,7 +897,7 @@
           <h4 class="footer-heading">Customer Care</h4>
           <ul class="footer-link-list">
             <li><a href="https://wa.me/918606647777" target="_blank" rel="noopener noreferrer">Track Pala Delivery</a></li>
-            <li><a href="index.html#storeInfo">Store Timings & Location</a></li>
+            <li><a href="#storeInfo">Store Timings & Location</a></li>
             <li><a href="category.html?cat=all&deals=1">Weekend Deals Flyer</a></li>
             <li><a href="cart.html">View Shopping Cart</a></li>
             <li><a href="tel:+918606647777">Helpdesk: +91 86066 47777</a></li>
