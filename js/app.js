@@ -4,116 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.SiteComponents) {
     SiteComponents.init({ page: 'home' });
   }
-  initHeroSlider();
+
   initStickyHeader();
-  initCategoryCarouselScroll();
-  initCarouselsFromData();
+  initCarouselsFromData(); // Renders product cards into DOM tracks
+
+  // Initialize unified carousel system (Hero, Category, and all Product carousels)
+  if (window.initAllCarousels) {
+    window.initAllCarousels();
+  }
+
   initHeaderSearchForm();
   initFooterAccordion();
 });
-
-/* ================= HERO SLIDER LOGIC ================= */
-function initHeroSlider() {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.slider-dot');
-  const prevBtn = document.getElementById('heroPrevBtn');
-  const nextBtn = document.getElementById('heroNextBtn');
-  const sliderWrapper = document.getElementById('heroSlider');
-
-  if (!slides.length) return;
-
-  let currentSlide = 0;
-  let autoplayTimer = null;
-  const AUTOPLAY_INTERVAL = 5500;
-
-  function showSlide(index) {
-    if (index < 0) {
-      currentSlide = slides.length - 1;
-    } else if (index >= slides.length) {
-      currentSlide = 0;
-    } else {
-      currentSlide = index;
-    }
-
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === currentSlide);
-    });
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentSlide);
-    });
-  }
-
-  function startAutoplay() {
-    stopAutoplay();
-    autoplayTimer = setInterval(() => {
-      showSlide(currentSlide + 1);
-    }, AUTOPLAY_INTERVAL);
-  }
-
-  function stopAutoplay() {
-    if (autoplayTimer) {
-      clearInterval(autoplayTimer);
-      autoplayTimer = null;
-    }
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      showSlide(currentSlide + 1);
-      startAutoplay();
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      showSlide(currentSlide - 1);
-      startAutoplay();
-    });
-  }
-
-  dots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      const index = parseInt(dot.getAttribute('data-index'), 10);
-      showSlide(index);
-      startAutoplay();
-    });
-  });
-
-  if (sliderWrapper) {
-    sliderWrapper.addEventListener('mouseenter', stopAutoplay);
-    sliderWrapper.addEventListener('mouseleave', startAutoplay);
-  }
-
-  // Touch Swipe for Mobile (support left/right swipe)
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  if (sliderWrapper) {
-    sliderWrapper.addEventListener('touchstart', (e) => {
-      if (e.changedTouches && e.changedTouches.length) {
-        touchStartX = e.changedTouches[0].clientX;
-      }
-    }, { passive: true });
-
-    sliderWrapper.addEventListener('touchend', (e) => {
-      if (e.changedTouches && e.changedTouches.length) {
-        touchEndX = e.changedTouches[0].clientX;
-        const diffX = touchStartX - touchEndX;
-        if (Math.abs(diffX) > 40) {
-          if (diffX > 0) {
-            showSlide(currentSlide + 1);
-          } else {
-            showSlide(currentSlide - 1);
-          }
-          startAutoplay();
-        }
-      }
-    }, { passive: true });
-  }
-
-  startAutoplay();
-}
 
 /* ================= STICKY HEADER ELEVATION ================= */
 function initStickyHeader() {
@@ -156,28 +58,6 @@ function initHeaderSearchForm() {
         e.preventDefault();
         doSearch();
       }
-    });
-  }
-}
-
-/* ================= CATEGORY CAROUSEL SCROLL LOGIC ================= */
-function initCategoryCarouselScroll() {
-  const container = document.getElementById('categoryTilesRow');
-  const prevBtn = document.getElementById('catScrollPrev');
-  const nextBtn = document.getElementById('catScrollNext');
-
-  if (!container) return;
-  const scrollAmount = 320;
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
   }
 }
@@ -242,39 +122,8 @@ function initCarouselsFromData() {
     householdTrack.innerHTML = householdItems.map(p => CartManager.renderProductCard(p)).join('');
   }
 
-  // Setup carousel arrows for all 8 carousels
-  setupTrackArrowNav('weeklyDealsPrev', 'weeklyDealsNext', 'weeklyDealsTrack');
-  setupTrackArrowNav('freshProducePrev', 'freshProduceNext', 'freshProduceTrack');
-  setupTrackArrowNav('keralaStaplesPrev', 'keralaStaplesNext', 'keralaStaplesTrack');
-  setupTrackArrowNav('meatFishPrev', 'meatFishNext', 'meatFishTrack');
-  setupTrackArrowNav('dairyPrev', 'dairyNext', 'dairyTrack');
-  setupTrackArrowNav('bakeryPrev', 'bakeryNext', 'bakeryTrack');
-  setupTrackArrowNav('electronicsPrev', 'electronicsNext', 'electronicsTrack');
-  setupTrackArrowNav('householdPrev', 'householdNext', 'householdTrack');
-
   // Sync cart buttons
   CartManager.syncBadges();
-}
-
-function setupTrackArrowNav(prevId, nextId, trackId) {
-  const prev = document.getElementById(prevId);
-  const next = document.getElementById(nextId);
-  const track = document.getElementById(trackId);
-
-  if (!track) return;
-  const step = 280;
-
-  if (prev) {
-    prev.addEventListener('click', () => {
-      track.scrollBy({ left: -step, behavior: 'smooth' });
-    });
-  }
-
-  if (next) {
-    next.addEventListener('click', () => {
-      track.scrollBy({ left: step, behavior: 'smooth' });
-    });
-  }
 }
 
 /* ================= FOOTER ACCORDION FOR MOBILE ================= */
@@ -290,4 +139,3 @@ function initFooterAccordion() {
     });
   });
 }
-

@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/keerthana-k-b/golden-hypermarket#readme",
   "devDependencies": {
-    "playwright": "^1.63.0"
+    "playwright": "^1.63.0",
+    "sharp": "^0.35.5",
+    "to-ico": "^1.1.5"
   }
 }

@@ -205,6 +205,7 @@ const SiteComponents = {
 
                   <!-- Text Input -->
                   <div class="hdr-search-input-wrap">
+                    <span class="hdr-search-icon-inside" aria-hidden="true">${LucideIcons.search}</span>
                     <input 
                       type="text" 
                       name="q"

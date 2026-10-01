@@ -1,0 +1,702 @@
+[
+  {
+    "page": "index",
+    "width": 320,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 172,
+        "height": 172,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": true,
+      "passed": true,
+      "detail": "Hero slide: 0 -> 1 (Advanced)"
+    }
+  },
+  {
+    "page": "category",
+    "width": 320,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 172,
+        "height": 172,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "product",
+    "width": 320,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 172,
+        "height": 172,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "cart",
+    "width": 320,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 172,
+        "height": 172,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "search",
+    "width": 320,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 172,
+        "height": 172,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "index",
+    "width": 390,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 174,
+        "height": 174,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": true,
+      "passed": true,
+      "detail": "Hero slide: 0 -> 1 (Advanced)"
+    }
+  },
+  {
+    "page": "category",
+    "width": 390,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 174,
+        "height": 174,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "product",
+    "width": 390,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 174,
+        "height": 174,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "cart",
+    "width": 390,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 174,
+        "height": 174,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "search",
+    "width": 390,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 174,
+        "height": 174,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "index",
+    "width": 768,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 174,
+        "height": 174,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": true,
+      "passed": true,
+      "detail": "Hero slide: 0 -> 1 (Advanced)"
+    }
+  },
+  {
+    "page": "category",
+    "width": 768,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 174,
+        "height": 174,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "product",
+    "width": 768,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 174,
+        "height": 174,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "cart",
+    "width": 768,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 174,
+        "height": 174,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "search",
+    "width": 768,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 174,
+        "height": 174,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "index",
+    "width": 1366,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 121,
+        "height": 121,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": true,
+      "passed": true,
+      "detail": "Hero slide: 0 -> 1 (Advanced)"
+    }
+  },
+  {
+    "page": "category",
+    "width": 1366,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 121,
+        "height": 121,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "product",
+    "width": 1366,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 121,
+        "height": 121,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "cart",
+    "width": 1366,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 121,
+        "height": 121,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  },
+  {
+    "page": "search",
+    "width": 1366,
+    "overflow": {
+      "passed": true,
+      "diff": 0,
+      "offenders": []
+    },
+    "sticky": {
+      "passed": true,
+      "detail": {
+        "top": 0,
+        "bottom": 121,
+        "height": 121,
+        "stickyStyle": "sticky",
+        "isAtTop": true,
+        "isVisible": true
+      }
+    },
+    "favicon": {
+      "passed": true,
+      "detail": {
+        "failedRequests": [],
+        "faviconFetchStatus": {
+          "ico": 200,
+          "manifest": 200
+        }
+      }
+    },
+    "carousel": {
+      "tested": false,
+      "passed": true,
+      "detail": "N/A"
+    }
+  }
+]
