@@ -2342,29 +2342,61 @@ button {
   background: #ffffff;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 1.1rem 0.75rem;
+  height: 76px;
+  min-height: 76px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .brand-badge-card:hover {
   transform: translateY(-4px);
-  border-color: var(--gold-primary);
-  box-shadow: 0 8px 20px rgba(11, 70, 51, 0.1);
-  background: var(--gold-gradient-subtle);
+  border-color: var(--primary-green, #2A7F4F);
+  box-shadow: 0 10px 24px rgba(42, 127, 79, 0.12);
+  background: #ffffff;
+}
+
+.brand-badge-card img {
+  height: 44px;
+  max-height: 44px;
+  width: auto;
+  max-width: 124px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.72;
+  transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.brand-badge-card img[alt="Double Horse"] {
+  height: 52px;
+  max-height: 52px;
+}
+
+.brand-badge-card:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.06);
 }
 
 .brand-tag {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.92rem;
-  font-weight: 800;
-  color: var(--primary-green-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #64748b;
   letter-spacing: 0.3px;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.brand-badge-card:hover .brand-tag {
+  color: var(--primary-green, #2A7F4F);
+  transform: scale(1.05);
 }
 
 /* ================= 9. WHATSAPP & APP DOWNLOAD BANNER ================= */
@@ -6510,15 +6542,27 @@ footer {
   }
 
   .brand-badge-card {
-    min-height: 52px !important;
-    padding: 8px !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    padding: 6px 8px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
   }
 
+  .brand-badge-card img {
+    height: 36px !important;
+    max-height: 36px !important;
+    max-width: 85px !important;
+  }
+
+  .brand-badge-card img[alt="Double Horse"] {
+    height: 42px !important;
+    max-height: 42px !important;
+  }
+
   .brand-tag {
-    font-size: 0.78rem !important;
+    font-size: 0.8rem !important;
     text-align: center !important;
   }
 
