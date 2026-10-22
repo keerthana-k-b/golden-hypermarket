@@ -115,7 +115,7 @@ const SiteComponents = {
               <!-- Left Utility Group -->
               <div class="hdr-utility-left">
                 <!-- Store Location Link -->
-                <a href="index.html#storeInfo" class="hdr-utility-item hdr-loc-link" id="locationSelector" title="Visit us: Pala, Kottayam">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer" class="hdr-utility-item hdr-loc-link" id="locationSelector" title="Visit us: Pala, Kottayam (Get Directions)">
                   <span class="hdr-icon loc-pin-icon">${LucideIcons.mapPin}</span>
                   <span>Visit us: <strong id="currentLocationText">Pala, Kottayam</strong></span>
                 </a>
@@ -414,7 +414,8 @@ const SiteComponents = {
             <div class="footer-col">
               <h4 class="footer-heading">Customer Care</h4>
               <ul class="footer-link-list">
-                <li><a href="index.html#storeInfo">Visit Store & Timings</a></li>
+                <li><a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer">Get Directions & Map</a></li>
+                <li><a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer">Visit Us in Pala</a></li>
                 <li><a href="category.html?cat=grocery">Catalogue Overview</a></li>
                 <li><a href="category.html?cat=all&deals=1">Weekend Deals</a></li>
                 <li><a href="tel:+918606647777">Helpdesk: +91 86066 47777</a></li>
@@ -427,12 +428,12 @@ const SiteComponents = {
             <div class="footer-col" id="storeInfo">
               <h4 class="footer-heading">Pala Store Hub</h4>
               <div class="footer-contact-info">
-                <p><i class="fa-solid fa-location-dot"></i> Opp. St. George's Church, Lalam Puthenpally, Pala, Kerala 686575</p>
+                <p><a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-location-dot"></i> Opp. St. George's Church, Lalam Puthenpally, Pala, Kerala 686575</a></p>
                 <p><i class="fa-solid fa-clock"></i> 8:00 AM – 10:00 PM (Daily)</p>
                 <p><i class="fa-solid fa-envelope"></i> care@goldenhypermarketpala.com</p>
               </div>
               <div class="footer-pickup-tags">
-                <span class="del-tag"><i class="fa-solid fa-store"></i> Quick Store Pickup</span>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer" class="del-tag" style="text-decoration:none;"><i class="fa-solid fa-diamond-turn-right"></i> Get Directions</a>
                 <span class="del-tag"><i class="fa-solid fa-shield-halved"></i> 100% Quality Assured</span>
               </div>
             </div>
@@ -534,7 +535,7 @@ const SiteComponents = {
 
       <div class="hdr-drawer-body">
         <!-- Store Location Link -->
-        <a href="index.html#storeInfo" class="hdr-utility-item hdr-loc-trigger hdr-mob-loc-trigger" id="mobileLocationTrigger" style="text-decoration:none;color:inherit;">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer" class="hdr-utility-item hdr-loc-trigger hdr-mob-loc-trigger" id="mobileLocationTrigger" style="text-decoration:none;color:inherit;">
           <span class="hdr-flex-gap-6">
             <span class="hdr-icon hdr-gold-color">${LucideIcons.mapPin}</span>
             <span>Visit us: Pala, Kottayam</span>
@@ -912,23 +913,9 @@ const SiteComponents = {
       if (locModal) locModal.classList.add('is-hidden');
     };
 
-    if (locTrigger) {
-      locTrigger.addEventListener('click', (e) => {
-        const storeInfoEl = document.getElementById('storeInfo');
-        if (storeInfoEl) {
-          e.preventDefault();
-          storeInfoEl.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    }
     if (mobileLocTrigger) {
-      mobileLocTrigger.addEventListener('click', (e) => {
+      mobileLocTrigger.addEventListener('click', () => {
         closeDrawer();
-        const storeInfoEl = document.getElementById('storeInfo');
-        if (storeInfoEl) {
-          e.preventDefault();
-          storeInfoEl.scrollIntoView({ behavior: 'smooth' });
-        }
       });
     }
     if (closeLocBtn) closeLocBtn.addEventListener('click', closeLocModal);
