@@ -200,7 +200,6 @@
 
   <!-- Scripts -->
   <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
   <script src="js/components.js"></script>
   <script>
     function escapeHtml(str) {
@@ -317,10 +316,10 @@
                 `).join('')}
               </div>
               <div class="cat-not-found-actions">
-                <a href="index.html" class="btn-primary-add-cart btn-store-home">
+                <a href="index.html" class="btn-primary-action btn-store-home">
                   <i class="fa-solid fa-house"></i> Return to Store Home
                 </a>
-                <a href="category.html?cat=grocery" class="btn-primary-add-cart btn-browse-grocery">
+                <a href="category.html?cat=grocery" class="btn-primary-action btn-browse-grocery">
                   <i class="fa-solid fa-wheat-awn"></i> Browse Grocery & Staples
                 </a>
               </div>
@@ -553,15 +552,14 @@
               <i class="fa-solid fa-basket-shopping no-products-icon"></i>
               <h3 class="no-products-title">No products match your filters</h3>
               <p class="no-products-desc">Try resetting your filters or adjusting your price/rating criteria.</p>
-              <button class="btn-primary-add-cart no-products-btn" onclick="document.getElementById('resetFiltersBtn').click();">Reset All Filters</button>
+              <button class="btn-primary-action no-products-btn" onclick="document.getElementById('resetFiltersBtn').click();">Reset All Filters</button>
             </div>
           `;
           return;
         }
 
-        grid.innerHTML = products.map(p => CartManager.renderProductCard(p)).join('');
-        CartManager.syncBadges();
-      }
+        grid.innerHTML = products.map(p => SiteComponents.renderProductCard(p)).join('');
+              }
 
       // Bind Filter Events
       [dealsCheckbox, minPriceInput, maxPriceInput, inStockCheckbox, sortSelect].forEach(el => {

@@ -14,7 +14,6 @@ const LucideIcons = {
   search: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,
   user: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
   heart: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`,
-  shoppingCart: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>`,
   layoutGrid: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>`,
   flame: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"/></svg>`,
   ticket: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>`,
@@ -36,27 +35,24 @@ const SiteComponents = {
     this.renderMobileNav();
     this.setupInteractions();
     
-    // Set page class and sticky bar helper on body
+    // Set page class on body
     document.body.classList.add(`page-${this.currentPage}`);
-    if (this.currentPage === 'product' || this.currentPage === 'cart') {
-      document.body.classList.add('has-bottom-sticky-bar');
-    }
+
+    // Clean up any legacy cart / wishlist storage
+    try {
+      localStorage.removeItem('golden_hypermarket_cart');
+      localStorage.removeItem('golden_hypermarket_wishlist');
+    } catch (e) {}
 
     // Apply saved language state on load
     const savedLang = localStorage.getItem('golden_hypermarket_lang') || 'EN';
     document.body.classList.toggle('lang-malayalam', savedLang === 'ML');
-
-    // Sync cart & wishlist badges
-    if (window.CartManager) {
-      window.CartManager.syncBadges();
-    }
   },
 
   detectPage() {
     const path = window.location.pathname.toLowerCase();
     if (path.includes('category.html')) return 'category';
     if (path.includes('product.html')) return 'product';
-    if (path.includes('cart.html')) return 'cart';
     if (path.includes('search.html')) return 'search';
     return 'home';
   },
@@ -132,12 +128,12 @@ const SiteComponents = {
                 </div>
               </div>
 
-              <!-- Center Utility: PALA SAVER Coupon Chip -->
+              <!-- Center Utility Tagline -->
               <div class="hdr-utility-center">
                 <div class="hdr-coupon-chip">
-                  <span class="hdr-icon hdr-gold-bright-color">${LucideIcons.ticket}</span>
-                  <span class="hdr-coupon-tag">PALA SAVER</span>
-                  <span>Get <strong>₹100 OFF</strong> Code: <strong>PALA100</strong></span>
+                  <span class="hdr-icon hdr-gold-bright-color">${LucideIcons.zap}</span>
+                  <span class="hdr-coupon-tag">SHOWCASE</span>
+                  <span>Pala's Heritage Superstore • <strong>Opp. St. George's Church</strong></span>
                 </div>
               </div>
 
@@ -148,14 +144,6 @@ const SiteComponents = {
                   <a href="tel:+918606647777" title="Call Pala Store Helpdesk">
                     <span class="hdr-icon">${LucideIcons.phone}</span>
                     <span>Helpdesk: <strong>+91 86066 47777</strong></span>
-                  </a>
-                </div>
-                <div class="hdr-utility-divider"></div>
-                <!-- WhatsApp -->
-                <div class="hdr-utility-item">
-                  <a href="https://wa.me/918606647777" target="_blank" rel="noopener noreferrer" title="Order via WhatsApp">
-                    <span class="hdr-icon hdr-whatsapp-color">${LucideIcons.messageCircle}</span>
-                    <span>WhatsApp Order</span>
                   </a>
                 </div>
                 <div class="hdr-utility-divider"></div>
@@ -244,40 +232,27 @@ const SiteComponents = {
                 </div>
               </div>
 
-              <!-- User Actions (Right: Account, Wishlist, Cart) -->
+              <!-- User Actions (Right: Call Us, Visit Store) -->
               <div class="hdr-user-actions">
-                <!-- Account -->
-                <a href="cart.html#account" class="hdr-action-btn" id="userAccountBtn" title="My Account & Orders">
+                <!-- Call Us -->
+                <a href="tel:+918606647777" class="hdr-action-btn hdr-btn-call" title="Call Store Helpdesk">
                   <div class="hdr-action-icon-box">
-                    ${LucideIcons.user}
+                    ${LucideIcons.phone}
                   </div>
                   <div class="hdr-action-text hide-on-tablet">
-                    <span class="hdr-action-sub">Welcome</span>
-                    <span class="hdr-action-main">Account</span>
+                    <span class="hdr-action-sub">Helpdesk</span>
+                    <span class="hdr-action-main">Call Us</span>
                   </div>
                 </a>
 
-                <!-- Wishlist -->
-                <a href="cart.html#wishlist" class="hdr-action-btn" id="wishlistBtn" aria-label="View Wishlist" title="Saved Wishlist">
+                <!-- Visit Store -->
+                <a href="index.html#storeInfo" class="hdr-action-btn hdr-btn-visit" title="Visit Store in Pala">
                   <div class="hdr-action-icon-box">
-                    ${LucideIcons.heart}
-                    <span class="hdr-action-badge wishlist-badge-count is-hidden">0</span>
+                    ${LucideIcons.mapPin}
                   </div>
                   <div class="hdr-action-text hide-on-tablet">
-                    <span class="hdr-action-sub">Saved</span>
-                    <span class="hdr-action-main">Wishlist</span>
-                  </div>
-                </a>
-
-                <!-- Cart -->
-                <a href="cart.html" class="hdr-action-btn" id="cartBtn" aria-label="View Shopping Cart" title="Go to Shopping Cart">
-                  <div class="hdr-action-icon-box">
-                    ${LucideIcons.shoppingCart}
-                    <span class="hdr-action-badge cart-badge-count is-hidden">0</span>
-                  </div>
-                  <div class="hdr-action-text">
-                    <span class="hdr-action-sub">My Cart</span>
-                    <span class="hdr-action-main hdr-cart-total header-cart-total">₹0</span>
+                    <span class="hdr-action-sub">Location</span>
+                    <span class="hdr-action-main">Visit Store</span>
                   </div>
                 </a>
               </div>
@@ -387,7 +362,7 @@ const SiteComponents = {
                 <p>Get exclusive weekend discounts, festival offers, and fresh arrival alerts directly.</p>
               </div>
             </div>
-            <form class="newsletter-form" id="newsletterForm" onsubmit="event.preventDefault(); CartManager.showToast('Thank you for subscribing! Weekend deals will be sent to your email.', 'success'); this.reset();">
+            <form class="newsletter-form" id="newsletterForm" onsubmit="event.preventDefault(); SiteComponents.showToast('Thank you for subscribing! Weekend deals will be sent to your email.', 'success'); this.reset();">
               <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
               <button type="submit" class="newsletter-submit-btn">
                 <span>Subscribe</span>
@@ -439,10 +414,9 @@ const SiteComponents = {
             <div class="footer-col">
               <h4 class="footer-heading">Customer Care</h4>
               <ul class="footer-link-list">
-                <li><a href="cart.html">Store Pickup</a></li>
-                <li><a href="index.html#storeInfo">Visit Us</a></li>
-                <li><a href="category.html?cat=all&deals=1">Weekend Deals Flyer</a></li>
-                <li><a href="cart.html">View Shopping Cart</a></li>
+                <li><a href="index.html#storeInfo">Visit Store & Timings</a></li>
+                <li><a href="category.html?cat=grocery">Catalogue Overview</a></li>
+                <li><a href="category.html?cat=all&deals=1">Weekend Deals</a></li>
                 <li><a href="tel:+918606647777">Helpdesk: +91 86066 47777</a></li>
                 <li><a href="tel:04822212345">Landline: 04822 212345</a></li>
                 <li><a href="mailto:care@goldenhypermarketpala.com">Email: care@goldenhypermarketpala.com</a></li>
@@ -497,11 +471,9 @@ const SiteComponents = {
     nav.setAttribute('aria-label', 'Mobile Navigation Quick Bar');
 
     const p = this.currentPage;
-    const isCartActive = p === 'cart';
     const isHomeActive = p === 'home';
     const isCatActive = p === 'category';
     const isSearchActive = p === 'search';
-    const isAccountActive = window.location.hash === '#account';
 
     nav.innerHTML = `
       <a href="index.html" class="mob-tab-item ${isHomeActive ? 'active' : ''}" aria-label="Home">
@@ -516,16 +488,13 @@ const SiteComponents = {
         <span class="mob-tab-icon">${LucideIcons.search}</span>
         <span>Search</span>
       </a>
-      <a href="cart.html" class="mob-tab-item ${isCartActive ? 'active' : ''}" id="mobileCartBtn" aria-label="Shopping Cart">
-        <div class="mob-cart-icon">
-          <span class="mob-tab-icon">${LucideIcons.shoppingCart}</span>
-          <span class="badge-count cart-badge-count mob-badge is-hidden">0</span>
-        </div>
-        <span>Cart</span>
+      <a href="index.html#storeInfo" class="mob-tab-item" id="mobTabStore" aria-label="Store Location">
+        <span class="mob-tab-icon">${LucideIcons.mapPin}</span>
+        <span>Store</span>
       </a>
-      <a href="cart.html#account" class="mob-tab-item ${isAccountActive ? 'active' : ''}" id="mobTabAccount" aria-label="Account">
-        <span class="mob-tab-icon">${LucideIcons.user}</span>
-        <span>Account</span>
+      <a href="tel:+918606647777" class="mob-tab-item" id="mobTabCall" aria-label="Call Store">
+        <span class="mob-tab-icon">${LucideIcons.phone}</span>
+        <span>Call</span>
       </a>
     `;
 
@@ -573,12 +542,6 @@ const SiteComponents = {
           <span class="hdr-icon">${LucideIcons.chevronRight}</span>
         </a>
 
-        <!-- Coupon Chip (Moved into Drawer) -->
-        <div class="drawer-coupon-chip">
-          <span class="coupon-tag">PALA SAVER</span>
-          <span class="coupon-text">Get <strong>₹100 OFF</strong> Code: <strong>PALA100</strong></span>
-        </div>
-
         <!-- Category Accordion Section -->
         <div class="hdr-drawer-section-title">Shop by Department</div>
         <div class="drawer-accordion" id="drawerAccordion">
@@ -625,17 +588,13 @@ const SiteComponents = {
             <span class="hdr-icon">${LucideIcons.globe}</span>
             <span id="drawerLangLabel">${savedLang === 'ML' ? 'Switch to English' : 'മലയാളത്തിലേക്ക് മാറ്റുക (ML)'}</span>
           </button>
-          <a href="cart.html#account" class="drawer-link-btn" id="drawerAccountBtn">
-            <span class="hdr-icon">${LucideIcons.user}</span>
-            <span>My Account & Orders</span>
+          <a href="tel:+918606647777" class="drawer-link-btn" id="drawerCallBtn">
+            <span class="hdr-icon">${LucideIcons.phone}</span>
+            <span>Call Store (+91 86066 47777)</span>
           </a>
-          <a href="cart.html#wishlist" class="drawer-link-btn" id="drawerWishlistBtn">
-            <span class="hdr-icon">${LucideIcons.heart}</span>
-            <span>My Saved Wishlist</span>
-          </a>
-          <a href="https://wa.me/918606647777" target="_blank" rel="noopener noreferrer" class="drawer-link-btn wa-link">
-            <span class="hdr-icon">${LucideIcons.messageCircle}</span>
-            <span>WhatsApp Order (+91 86066 47777)</span>
+          <a href="index.html#storeInfo" class="drawer-link-btn" id="drawerStoreBtn">
+            <span class="hdr-icon">${LucideIcons.mapPin}</span>
+            <span>Visit Our Store in Pala</span>
           </a>
         </div>
       </div>
@@ -986,9 +945,7 @@ const SiteComponents = {
         const loc = chip.getAttribute('data-loc');
         if (locText) locText.textContent = loc;
         localStorage.setItem('golden_hypermarket_location', loc);
-        if (window.CartManager) {
-          CartManager.showToast(`Selected area: ${loc}`, 'success');
-        }
+        this.showToast(`Selected area: ${loc}`, 'success');
         closeLocModal();
       });
     });
@@ -1005,9 +962,7 @@ const SiteComponents = {
       localStorage.setItem('golden_hypermarket_lang', next);
       if (langLabel) langLabel.textContent = next === 'ML' ? 'English' : 'മലയാളം';
       if (drawerLangLabel) drawerLangLabel.textContent = next === 'ML' ? 'Switch to English' : 'മലയാളത്തിലേക്ക് മാറ്റുക (ML)';
-      if (window.CartManager) {
-        CartManager.showToast(`Language switched to ${next === 'ML' ? 'Malayalam (മലയാളം)' : 'English'}`, 'info');
-      }
+      this.showToast(`Language switched to ${next === 'ML' ? 'Malayalam (മലയാളം)' : 'English'}`, 'info');
       document.body.classList.toggle('lang-malayalam', next === 'ML');
     };
 
@@ -1099,7 +1054,87 @@ const SiteComponents = {
 
   quickSearch(term) {
     window.location.href = `search.html?q=${encodeURIComponent(term)}`;
+  },
+
+  // Toast notifications for user feedback
+  showToast(message, type = 'info') {
+    let container = document.getElementById('golden-toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'golden-toast-container';
+      container.className = 'golden-toast-container';
+      document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `golden-toast golden-toast-${type}`;
+    const icon = type === 'success' ? 'fa-circle-check' : (type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-info');
+    toast.innerHTML = `
+      <i class="fa-solid ${icon}"></i>
+      <span class="toast-msg">${message}</span>
+    `;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add('fade-out');
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  },
+
+  // Product card renderer for catalogue/showcase mode (no cart/wishlist buttons)
+  renderProductCard(product) {
+    if (!product) return '';
+    const discount = (product.oldPrice && product.oldPrice > product.price)
+      ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
+      : 0;
+
+    const catIconMap = {
+      grocery: 'fa-wheat-awn',
+      produce: 'fa-carrot',
+      fruits: 'fa-apple-whole',
+      'meat-fish': 'fa-fish',
+      dairy: 'fa-egg',
+      bakery: 'fa-bread-slice',
+      household: 'fa-spray-can-sparkles',
+      beverages: 'fa-mug-hot',
+      electronics: 'fa-blender',
+      fashion: 'fa-shirt'
+    };
+    const catIcon = catIconMap[product.category] || 'fa-basket-shopping';
+
+    const hasImage = Boolean(product.image && typeof product.image === 'string' && product.image.trim() !== '' && !product.image.includes('placeholder'));
+
+    return `
+      <a href="product.html?id=${product.id}" class="product-card" data-product-id="${product.id}" title="${product.name}">
+        <div class="product-img-wrap">
+          ${discount > 0 ? `<div class="card-discount-badge">${discount}% OFF</div>` : ''}
+          ${hasImage ? `
+            <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'product-img-placeholder\\'><i class=\\'fa-solid ${catIcon}\\'></i></div>';">
+          ` : `
+            <div class="product-img-placeholder">
+              <i class="fa-solid ${catIcon}"></i>
+            </div>
+          `}
+        </div>
+        <div class="product-meta">
+          <h3 class="product-title">${product.name}</h3>
+          <div class="product-weight">${product.weight}</div>
+          <div class="product-pricing">
+            <div class="price-stack">
+              <span class="curr-price">₹${product.price}</span>
+              ${discount > 0 ? `<span class="old-price">₹${product.oldPrice}</span>` : ''}
+            </div>
+          </div>
+        </div>
+      </a>
+    `;
   }
+};
+
+// Global helper definitions for catalogue site
+window.renderProductCard = function(product) {
+  return SiteComponents.renderProductCard(product);
 };
 
 // Auto-initialize components on DOM ready

@@ -55,8 +55,8 @@
                 Save up to 40% on staples, spices, and fresh produce in Pala.
               </p>
               <div class="slide-cta-group">
-                <a href="category.html?cat=all&deals=1" class="btn btn-primary">
-                  <span>Shop Weekend Deals</span>
+                <a href="#weeklyDeals" class="btn btn-primary">
+                  <span>View Offers</span>
                   <i class="fa-solid fa-arrow-right"></i>
                 </a>
               </div>
@@ -632,67 +632,30 @@
       </div>
     </section>
 
-    <!-- ================= 9. WHATSAPP & APP DOWNLOAD BANNER ================= -->
-    <section class="section app-order-banner-section" aria-label="WhatsApp and Mobile App Ordering">
+    <!-- ================= 9. VISIT GOLDEN HYPERMARKET SHOWCASE BANNER ================= -->
+    <section class="section visit-showcase-banner-section" aria-label="Visit Golden Hypermarket Pala">
       <div class="container">
-        <div class="app-banner-card">
-          <div class="app-banner-content">
-            <div class="app-badge">
-              <i class="fa-brands fa-whatsapp"></i> PALA WHATSAPP PICKUP SERVICE
+        <div class="visit-showcase-card">
+          <div class="visit-showcase-content">
+            <div class="visit-showcase-badge">
+              <i class="fa-solid fa-store"></i> VISIT GOLDEN HYPERMARKET
             </div>
-            <h2 class="app-headline">Send Your Grocery List on WhatsApp, we pack it, you pick it up</h2>
-            <p class="app-subtext">
-              Type or snap a photo of your handwritten grocery list and send it to our Pala store team. We pack the freshest items ready for you to pick up at the store with zero waiting time.
+            <h2 class="visit-showcase-headline">Experience Pala's Premier In-Store Shopping</h2>
+            <p class="visit-showcase-subtext">
+              Opp. St. George's Church, Lalam Puthenpally, Pala • Open 7 Days: 8:00 AM – 10:00 PM. Explore 3 expansive floors of fresh produce, authentic Kerala groceries, seafood, bakery, and home essentials with ample multi-level parking.
             </p>
-            <div class="app-features-list">
-              <div class="app-feat-item"><i class="fa-solid fa-check"></i> Order ready for pickup in 1 hour</div>
-              <div class="app-feat-item"><i class="fa-solid fa-check"></i> Pay at the store</div>
-              <div class="app-feat-item"><i class="fa-solid fa-check"></i> Fresh fish, chicken and meat cut to order</div>
+            <div class="visit-showcase-features">
+              <div class="visit-feat-item"><i class="fa-solid fa-location-dot"></i> Opp. St. George's Church, Pala</div>
+              <div class="visit-feat-item"><i class="fa-solid fa-clock"></i> 8:00 AM – 10:00 PM (Daily)</div>
+              <div class="visit-feat-item"><i class="fa-solid fa-square-parking"></i> Multi-level Parking</div>
             </div>
-            <div class="app-btn-group">
-              <a href="https://wa.me/918606647777?text=Hi%20Golden%20Hypermarket%20Pala,%20I%20would%20like%20to%20place%20an%20order" target="_blank" rel="noopener noreferrer" class="btn btn-wa-large">
-                <i class="fa-brands fa-whatsapp"></i>
-                <div class="btn-text">
-                  <span class="sub">Order Now on WhatsApp</span>
-                  <span class="main">+91 86066 47777</span>
-                </div>
+            <div class="visit-showcase-actions">
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-showcase-primary">
+                <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
               </a>
-              <a href="#app-download" class="btn btn-store-badge">
-                <i class="fa-brands fa-google-play"></i>
-                <div class="btn-text">
-                  <span class="sub">Get it on</span>
-                  <span class="main">Google Play</span>
-                </div>
+              <a href="#storeInfo" class="btn-showcase-secondary">
+                <i class="fa-solid fa-circle-info"></i> Store Hours & Details
               </a>
-              <a href="#app-download" class="btn btn-store-badge">
-                <i class="fa-brands fa-apple"></i>
-                <div class="btn-text">
-                  <span class="sub">Download on</span>
-                  <span class="main">App Store</span>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="app-banner-visual">
-            <div class="phone-mockup-wrap">
-              <div class="mockup-header-notch"></div>
-              <div class="mockup-screen">
-                <div class="mockup-chat-header">
-                  <img src="assets/images/logo.png" alt="Golden Logo" class="chat-avatar">
-                  <div>
-                    <strong>Golden Hypermarket Pala</strong>
-                    <span class="online-status">Online • Typically replies in 2 mins</span>
-                  </div>
-                </div>
-                <div class="chat-bubble-user">
-                  <p>Hi! Please pack: 10kg Pavizham Jaya rice, 1L Kera Drops coconut oil, 1kg Kumbalanga & 2 fresh coconuts for pickup this afternoon.</p>
-                  <span class="chat-time">10:15 AM <i class="fa-solid fa-check-double"></i></span>
-                </div>
-                <div class="chat-bubble-store">
-                  <p>Order confirmed! Your items are handpicked and packed ready for pickup at our Pala store with ₹100 Pala Saver discount applied! 🛒⚡</p>
-                  <span class="chat-time">10:17 AM</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -776,7 +739,7 @@
                   </div>
                   <div class="landmark-pin store-main-pin" title="Golden Hypermarket Pala">
                     <div class="pulse-ring"></div>
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="fa-solid fa-store"></i>
                     <strong>Golden Hypermarket</strong>
                   </div>
                   <div class="road road-main">Main Highway (Pala - Erattupetta Road)</div>
@@ -803,7 +766,7 @@
             <p>Get exclusive weekend discounts, festival offers, and fresh arrival alerts.</p>
           </div>
         </div>
-        <form class="newsletter-form" id="newsletterForm" onsubmit="event.preventDefault(); CartManager.showToast('Subscribed! Thank you for joining Golden Hypermarket Pala.', 'success'); this.reset();">
+        <form class="newsletter-form" id="newsletterForm" onsubmit="event.preventDefault(); SiteComponents.showToast('Subscribed! Thank you for joining Golden Hypermarket Pala.', 'success'); this.reset();">
           <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
           <button type="submit" class="newsletter-submit-btn">
             <span>Subscribe</span>
@@ -855,10 +818,10 @@
         <div class="footer-col">
           <h4 class="footer-heading">Customer Care</h4>
           <ul class="footer-link-list">
-            <li><a href="cart.html">Store Pickup</a></li>
+            <li><a href="#storeInfo">Store Location & Hours</a></li>
             <li><a href="#storeInfo">Visit Us</a></li>
             <li><a href="category.html?cat=all&deals=1">Weekend Deals Flyer</a></li>
-            <li><a href="cart.html">View Shopping Cart</a></li>
+            <li><a href="category.html?cat=all">Browse Catalogue</a></li>
             <li><a href="tel:+918606647777">Helpdesk: +91 86066 47777</a></li>
             <li><a href="tel:04822212345">Landline: 04822 212345</a></li>
             <li><a href="mailto:care@goldenhypermarketpala.com">Email: care@goldenhypermarketpala.com</a></li>
@@ -924,7 +887,6 @@
 
   <!-- Scripts -->
   <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
   <script src="js/components.js"></script>
   <script src="js/carousel.js"></script>
   <script src="js/app.js"></script>

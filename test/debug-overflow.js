@@ -45,7 +45,6 @@ server.listen(8091, async () => {
     '/index.html',
     '/category.html?cat=dairy',
     '/product.html?id=1',
-    '/cart.html',
     '/search.html?q=rice'
   ];
   for (const p of pagesToTest) {

@@ -11,7 +11,7 @@ const PAGES = [
   { name: 'index', url: 'http://localhost:8080/index.html' },
   { name: 'category', url: 'http://localhost:8080/category.html?cat=dairy' },
   { name: 'product', url: 'http://localhost:8080/product.html?id=1' },
-  { name: 'cart', url: 'http://localhost:8080/cart.html' }
+
 ];
 
 const VIEWPORTS = [

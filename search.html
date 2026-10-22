@@ -83,7 +83,6 @@
 
   <!-- Scripts -->
   <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
   <script src="js/components.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -122,18 +121,17 @@
                 We couldn't find exact matches. Try searching for general terms like <em>Rice, Coconut Oil, Ghee, Fish, Chicken, Mango, Tea, Banana</em>.
               </p>
               <div class="search-empty-actions">
-                <a href="category.html?cat=grocery" class="btn-primary-add-cart btn-search-grocery">Browse Grocery</a>
-                <a href="category.html?cat=produce" class="btn-primary-add-cart btn-search-produce">Fresh Vegetables</a>
-                <a href="category.html?cat=all&deals=1" class="btn-primary-add-cart btn-search-deals">Weekend Deals</a>
+                <a href="category.html?cat=grocery" class="btn-primary-action btn-search-grocery">Browse Grocery</a>
+                <a href="category.html?cat=produce" class="btn-primary-action btn-search-produce">Fresh Vegetables</a>
+                <a href="category.html?cat=all&deals=1" class="btn-primary-action btn-search-deals">Weekend Deals</a>
               </div>
             </div>
           `;
           return;
         }
 
-        grid.innerHTML = list.map(p => CartManager.renderProductCard(p)).join('');
-        CartManager.syncBadges();
-      }
+        grid.innerHTML = list.map(p => SiteComponents.renderProductCard(p)).join('');
+              }
 
       function applySort() {
         const val = sortSelect.value;

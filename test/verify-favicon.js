@@ -33,7 +33,7 @@ server.listen(8080, async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
 
-  const pagesToTest = ['index.html', 'category.html', 'product.html', 'cart.html', 'search.html'];
+  const pagesToTest = ['index.html', 'category.html', 'product.html', 'search.html'];
 
   for (const p of pagesToTest) {
     await page.goto(`http://localhost:8080/${p}`, { waitUntil: 'domcontentloaded' });

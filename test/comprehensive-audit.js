@@ -38,7 +38,6 @@ const PAGES = [
   { name: 'index', path: '/index.html' },
   { name: 'category', path: '/category.html?cat=dairy' },
   { name: 'product', path: '/product.html?id=1' },
-  { name: 'cart', path: '/cart.html' },
   { name: 'search', path: '/search.html?q=rice' }
 ];
 

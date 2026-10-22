@@ -70,61 +70,59 @@ function initCarouselsFromData() {
   const weeklyDealsTrack = document.getElementById('weeklyDealsTrack');
   if (weeklyDealsTrack) {
     const deals = siteData.products.filter(p => p.isDeal).slice(0, 8);
-    weeklyDealsTrack.innerHTML = deals.map(p => CartManager.renderProductCard(p)).join('');
+    weeklyDealsTrack.innerHTML = deals.map(p => SiteComponents.renderProductCard(p)).join('');
   }
 
   // 2. Fresh Fruits & Vegetables Carousel
   const fruitsTrack = document.getElementById('freshProduceTrack');
   if (fruitsTrack) {
     const produceItems = siteData.products.filter(p => p.category === 'produce' || p.category === 'fruits').slice(0, 8);
-    fruitsTrack.innerHTML = produceItems.map(p => CartManager.renderProductCard(p)).join('');
+    fruitsTrack.innerHTML = produceItems.map(p => SiteComponents.renderProductCard(p)).join('');
   }
 
   // 3. Kerala Special Staples Carousel
   const staplesTrack = document.getElementById('keralaStaplesTrack');
   if (staplesTrack) {
     const staplesItems = siteData.getProductsByCategory('grocery').slice(0, 8);
-    staplesTrack.innerHTML = staplesItems.map(p => CartManager.renderProductCard(p)).join('');
+    staplesTrack.innerHTML = staplesItems.map(p => SiteComponents.renderProductCard(p)).join('');
   }
 
   // 4. Fresh Meat & Seafood Carousel
   const meatFishTrack = document.getElementById('meatFishTrack');
   if (meatFishTrack) {
     const meatItems = siteData.getProductsByCategory('meat-fish').slice(0, 8);
-    meatFishTrack.innerHTML = meatItems.map(p => CartManager.renderProductCard(p)).join('');
+    meatFishTrack.innerHTML = meatItems.map(p => SiteComponents.renderProductCard(p)).join('');
   }
 
   // 5. Dairy, Butter & Farm Eggs Carousel
   const dairyTrack = document.getElementById('dairyTrack');
   if (dairyTrack) {
     const dairyItems = siteData.getProductsByCategory('dairy').slice(0, 8);
-    dairyTrack.innerHTML = dairyItems.map(p => CartManager.renderProductCard(p)).join('');
+    dairyTrack.innerHTML = dairyItems.map(p => SiteComponents.renderProductCard(p)).join('');
   }
 
   // 6. Bakery & Traditional Snacks Carousel
   const bakeryTrack = document.getElementById('bakeryTrack');
   if (bakeryTrack) {
     const bakeryItems = siteData.getProductsByCategory('bakery').slice(0, 8);
-    bakeryTrack.innerHTML = bakeryItems.map(p => CartManager.renderProductCard(p)).join('');
+    bakeryTrack.innerHTML = bakeryItems.map(p => SiteComponents.renderProductCard(p)).join('');
   }
 
   // 7. Kitchen Appliances & Electronics Carousel
   const electronicsTrack = document.getElementById('electronicsTrack');
   if (electronicsTrack) {
     const electronicsItems = siteData.getProductsByCategory('electronics').slice(0, 8);
-    electronicsTrack.innerHTML = electronicsItems.map(p => CartManager.renderProductCard(p)).join('');
+    electronicsTrack.innerHTML = electronicsItems.map(p => SiteComponents.renderProductCard(p)).join('');
   }
 
   // 8. Household & Cleaning Essentials Carousel
   const householdTrack = document.getElementById('householdTrack');
   if (householdTrack) {
     const householdItems = siteData.getProductsByCategory('household').slice(0, 8);
-    householdTrack.innerHTML = householdItems.map(p => CartManager.renderProductCard(p)).join('');
+    householdTrack.innerHTML = householdItems.map(p => SiteComponents.renderProductCard(p)).join('');
   }
 
-  // Sync cart buttons
-  CartManager.syncBadges();
-}
+  }
 
 /* ================= FOOTER ACCORDION FOR MOBILE ================= */
 function initFooterAccordion() {

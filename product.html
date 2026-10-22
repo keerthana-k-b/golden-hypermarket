@@ -93,25 +93,17 @@
             </div>
           </div>
 
-          <!-- Action Stepper and Buttons -->
-          <div class="detail-actions-row">
-            <div class="detail-qty-stepper">
-              <button id="btnDetailMinus" aria-label="Decrease quantity"><i class="fa-solid fa-minus"></i></button>
-              <span id="detailQtyDisplay">1</span>
-              <button id="btnDetailPlus" aria-label="Increase quantity"><i class="fa-solid fa-plus"></i></button>
+          <!-- Showcase In-Store Tag & Visit Store Button -->
+          <div class="detail-showcase-actions">
+            <div class="product-available-badge">
+              <i class="fa-solid fa-circle-check"></i> Available in store
             </div>
-
-            <button class="btn-primary-add-cart" id="btnDetailAddToCart">
-              <i class="fa-solid fa-cart-plus"></i> Add to Cart
-            </button>
-
-            <a href="https://wa.me/918606647777" target="_blank" class="btn-whatsapp-instant" id="btnDetailWhatsApp">
-              <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+            <a href="index.html#storeInfo" class="btn-visit-store-lg">
+              <i class="fa-solid fa-location-dot"></i> Visit Store in Pala
             </a>
-
-            <button class="btn-wishlist-toggle-round" id="btnDetailWishlist" aria-label="Add to Wishlist">
-              <i class="fa-regular fa-heart"></i>
-            </button>
+            <a href="tel:+918606647777" class="btn-call-store-lg">
+              <i class="fa-solid fa-phone"></i> Inquire: +91 86066 47777
+            </a>
           </div>
 
           <!-- In-Store Assurances in Pala -->
@@ -119,8 +111,8 @@
             <div class="pala-badge-item">
               <i class="fa-solid fa-clock"></i>
               <div>
-                <strong>Store Pickup Ready in 1 Hr</strong>
-                <span>Order via WhatsApp & Pick Up</span>
+                <strong>Store Hours</strong>
+                <span>Open 7 Days • 8 AM – 10 PM</span>
               </div>
             </div>
             <div class="pala-badge-item">
@@ -133,8 +125,8 @@
             <div class="pala-badge-item">
               <i class="fa-solid fa-store"></i>
               <div>
-                <strong>Pay at Store Counter</strong>
-                <span>Cash, UPI or Card on pickup</span>
+                <strong>Shop In-Store</strong>
+                <span>Cash, UPI or Card at counter</span>
               </div>
             </div>
           </div>
@@ -217,32 +209,13 @@
     </div>
   </main>
 
-  <!-- Mobile Sticky Bottom Bar (Price & Add to Cart) -->
-  <aside class="mobile-product-sticky-bar" id="mobileProductStickyBar" aria-label="Quick Add to Cart Bar">
-    <div class="sticky-price-block">
-      <span class="sticky-price-label">Price:</span>
-      <div class="sticky-price-val">
-        <span class="sticky-curr" id="stickyCurrPrice">₹0</span>
-        <span class="sticky-old is-hidden" id="stickyOldPrice">₹0</span>
-      </div>
-    </div>
-    <div class="sticky-cta-block">
-      <button type="button" class="sticky-wishlist-btn" id="stickyWishlistBtn" aria-label="Add to Wishlist">
-        <i class="fa-regular fa-heart"></i>
-      </button>
-      <button type="button" class="sticky-add-cart-btn" id="stickyAddToCartBtn">
-        <i class="fa-solid fa-cart-plus"></i>
-        <span>Add to Cart</span>
-      </button>
-    </div>
-  </aside>
+
 
   <!-- Injected Footer Container -->
   <div id="site-footer-container"></div>
 
   <!-- Scripts -->
   <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
   <script src="js/components.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -365,84 +338,6 @@
       document.getElementById('specWeight').textContent = product.weight;
       document.getElementById('specCat').textContent = category.name;
 
-      // WhatsApp Buy Link
-      const waMsg = encodeURIComponent(`Hi Golden Hypermarket Pala, I would like to order: *${product.name}* (${product.weight}) - ₹${product.price} for pickup at your Pala store.`);
-      document.getElementById('btnDetailWhatsApp').href = `https://wa.me/918606647777?text=${waMsg}`;
-
-      // Quantity Stepper Logic
-      let currentQty = CartManager.getItemQty(product.id) || 1;
-      const qtyDisplay = document.getElementById('detailQtyDisplay');
-      const btnMinus = document.getElementById('btnDetailMinus');
-      const btnPlus = document.getElementById('btnDetailPlus');
-      const btnAddToCart = document.getElementById('btnDetailAddToCart');
-      const btnWishlist = document.getElementById('btnDetailWishlist');
-
-      qtyDisplay.textContent = currentQty;
-
-      btnMinus.addEventListener('click', () => {
-        if (currentQty > 1) {
-          currentQty--;
-          qtyDisplay.textContent = currentQty;
-        }
-      });
-
-      btnPlus.addEventListener('click', () => {
-        currentQty++;
-        qtyDisplay.textContent = currentQty;
-      });
-
-      btnAddToCart.addEventListener('click', () => {
-        CartManager.setQty(product.id, currentQty);
-        CartManager.showToast(`Updated <strong>${product.name}</strong> (${currentQty} items) in cart!`, 'success');
-      });
-
-      // Wishlist toggle
-      const syncWishlistBtn = () => {
-        const inWishlist = CartManager.isInWishlist(product.id);
-        if (inWishlist) {
-          btnWishlist.classList.add('active');
-          btnWishlist.innerHTML = '<i class="fa-solid fa-heart"></i>';
-        } else {
-          btnWishlist.classList.remove('active');
-          btnWishlist.innerHTML = '<i class="fa-regular fa-heart"></i>';
-        }
-        if (stickyWishlistBtn) {
-          stickyWishlistBtn.classList.toggle('active', inWishlist);
-          stickyWishlistBtn.innerHTML = inWishlist ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>';
-        }
-      };
-
-      // Sticky Bottom Bar Price & CTA
-      const stickyCurr = document.getElementById('stickyCurrPrice');
-      const stickyOld = document.getElementById('stickyOldPrice');
-      const stickyAddBtn = document.getElementById('stickyAddToCartBtn');
-      const stickyWishlistBtn = document.getElementById('stickyWishlistBtn');
-
-      if (stickyCurr) stickyCurr.textContent = `₹${product.price}`;
-      if (stickyOld && product.oldPrice && product.oldPrice > product.price) {
-        stickyOld.textContent = `₹${product.oldPrice}`;
-        stickyOld.classList.remove('is-hidden');
-      }
-
-      if (stickyAddBtn) {
-        stickyAddBtn.addEventListener('click', () => {
-          btnAddToCart.click();
-        });
-      }
-
-      if (stickyWishlistBtn) {
-        stickyWishlistBtn.addEventListener('click', () => {
-          btnWishlist.click();
-        });
-      }
-
-      syncWishlistBtn();
-
-      btnWishlist.addEventListener('click', () => {
-        CartManager.toggleWishlist(product.id);
-        syncWishlistBtn();
-      });
-
       // Tab switching
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -461,9 +356,8 @@
 
       if (relatedGrid) {
         const related = siteData.getProductsByCategory(category.id).filter(p => p.id !== product.id).slice(0, 4);
-        relatedGrid.innerHTML = related.map(p => CartManager.renderProductCard(p)).join('');
-        CartManager.syncBadges();
-      }
+        relatedGrid.innerHTML = related.map(p => SiteComponents.renderProductCard(p)).join('');
+              }
     });
   </script>
 </body>

@@ -87,31 +87,23 @@ async function testTouchBehavior() {
       const homeTab = document.querySelector('.mobile-bottom-nav a[href="index.html"]');
       const catTab = document.getElementById('mobTabCategories');
       const searchTab = document.getElementById('mobTabSearch');
-      const cartTab = document.getElementById('mobileCartBtn');
-      const accountTab = document.getElementById('mobTabAccount');
+      const storeTab = document.getElementById('mobTabStore');
+      const callTab = document.getElementById('mobTabCall');
 
       return {
         hasHome: !!homeTab,
         hasCat: !!catTab,
         hasSearch: !!searchTab && searchTab.getAttribute('href') === 'search.html',
-        hasCart: !!cartTab && cartTab.getAttribute('href') === 'cart.html',
-        hasAccount: !!accountTab && accountTab.getAttribute('href').includes('cart.html#account')
+        hasStore: !!storeTab && storeTab.getAttribute('href').includes('storeInfo'),
+        hasCall: !!callTab && callTab.getAttribute('href').startsWith('tel:')
       };
     });
 
     logTest('Bottom Tab Home links to index.html', tabsCheck.hasHome);
     logTest('Bottom Tab Categories triggers drawer', tabsCheck.hasCat);
     logTest('Bottom Tab Search links to search.html', tabsCheck.hasSearch);
-    logTest('Bottom Tab Cart links to cart.html', tabsCheck.hasCart);
-    logTest('Bottom Tab Account links to account/cart', tabsCheck.hasAccount);
-
-    // Tap Cart Tab to navigate
-    await Promise.all([
-      page.waitForURL('**/cart.html', { timeout: 8000 }),
-      page.tap('#mobileCartBtn')
-    ]);
-    const isOnCart = page.url().includes('cart.html');
-    logTest('Tapping Bottom Tab Cart navigates to cart.html', isOnCart, page.url());
+    logTest('Bottom Tab Store links to storeInfo', tabsCheck.hasStore);
+    logTest('Bottom Tab Call links to tel phone', tabsCheck.hasCall);
 
     // ============================================================
     // 3. BOTTOM SHEET FILTERS (category.html)
@@ -292,7 +284,6 @@ async function testTouchBehavior() {
       { name: 'index', url: 'http://localhost:8080/index.html', minPadding: 80 },
       { name: 'category', url: 'http://localhost:8080/category.html?cat=dairy', minPadding: 80 },
       { name: 'product', url: 'http://localhost:8080/product.html?id=1', minPadding: 140 },
-      { name: 'cart', url: 'http://localhost:8080/cart.html', minPadding: 140 },
       { name: 'search', url: 'http://localhost:8080/search.html?q=milk', minPadding: 80 }
     ];
 
