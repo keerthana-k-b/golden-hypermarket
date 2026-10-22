@@ -215,7 +215,7 @@ Golden Hypermarket follows an 8-point structural grid with 4-point micro increme
 
 1. **Row 1 (Top Utility Bar, Height: 38px)**:
    - Background: `var(--primary-green-dark)` (`#062a1d`).
-   - Content: Delivery location picker, store hours (`8:00 AM - 10:00 PM`), express delivery tag, helpdesk phone, WhatsApp order link, language toggle (`മലയാളം / English`).
+   - Content: Store visit location ("Visit us: Pala, Kottayam"), store hours (`8:00 AM - 10:00 PM`), helpdesk phone, WhatsApp order link, language toggle (`മലയാളം / English`).
 2. **Row 2 (Main Header, Height: 76px)**:
    - Sticky bar on scroll with glassmorphism or white card background.
    - Left: Golden Hypermarket logo with tagline (`SINCE 1964 • PALA, KERALA`).

@@ -181,9 +181,9 @@ const CartManager = {
     }
 
     const discountSavings = Math.max(0, totalOriginalPrice - subtotal);
-    // Free delivery on orders >= 499 in Pala municipal limits
-    const deliveryFee = subtotal >= 499 || subtotal === 0 ? 0 : 35;
-    const finalTotal = subtotal + deliveryFee;
+    // In-store pickup model: zero fee
+    const pickupFee = 0;
+    const finalTotal = subtotal;
 
     return {
       totalItems,
@@ -191,7 +191,7 @@ const CartManager = {
       subtotal,
       totalOriginalPrice,
       discountSavings,
-      deliveryFee,
+      pickupFee,
       finalTotal,
       items: itemsDetails
     };
@@ -342,18 +342,18 @@ const CartManager = {
     }, 2800);
   },
 
-  // Generate WhatsApp Order Text
+  // Generate WhatsApp Order Text for In-Store Pickup
   generateWhatsAppOrderMessage(customerDetails = {}) {
     const summary = this.getSummary();
     if (summary.items.length === 0) return '';
 
-    let text = `*🛍️ NEW ORDER - GOLDEN HYPERMARKET, PALA*\n`;
+    let text = `*🛍️ NEW STORE PICKUP ORDER - GOLDEN HYPERMARKET, PALA*\n`;
     text += `━━━━━━━━━━━━━━━━━━━━━\n`;
     
     if (customerDetails.name) text += `*Customer:* ${customerDetails.name}\n`;
     if (customerDetails.phone) text += `*Phone:* ${customerDetails.phone}\n`;
-    if (customerDetails.address) text += `*Delivery Address:* ${customerDetails.address}, Pala\n`;
-    text += `*Delivery Slot:* ${customerDetails.slot || 'Standard (Within 2 Hours)'}\n`;
+    text += `*Pickup Location:* Golden Hypermarket, Pala (Opp. St. George Church, Lalam)\n`;
+    text += `*Preferred Pickup Time:* ${customerDetails.pickupTime || 'Ready in 1 Hour (Quick Pickup)'}\n`;
     text += `━━━━━━━━━━━━━━━━━━━━━\n*ITEMS ORDERED:*\n`;
 
     summary.items.forEach((item, index) => {
@@ -362,10 +362,10 @@ const CartManager = {
 
     text += `━━━━━━━━━━━━━━━━━━━━━\n`;
     text += `*Subtotal:* ₹${summary.subtotal}\n`;
-    text += `*Delivery Fee:* ${summary.deliveryFee === 0 ? 'FREE' : '₹' + summary.deliveryFee}\n`;
+    text += `*Store Pickup:* FREE\n`;
     text += `*Total Amount:* ₹${summary.finalTotal}\n`;
-    text += `*Payment:* Cash on Delivery / UPI on Delivery\n`;
-    text += `━━━━━━━━━━━━━━━━━━━━━\n_Please confirm my order. Thank you!_`;
+    text += `*Payment:* Pay at store counter (Cash / UPI / Card)\n`;
+    text += `━━━━━━━━━━━━━━━━━━━━━\n_Please pack my order for pickup. Thank you!_`;
 
     return encodeURIComponent(text);
   },

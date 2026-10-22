@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Details | Golden Hypermarket Pala</title>
-  <meta name="description" content="View product specifications, fresh pricing, and order online with fast home delivery in Pala, Kottayam from Golden Hypermarket.">
+  <meta name="description" content="View product specifications, fresh pricing, and order online for quick in-store pickup in Pala, Kottayam from Golden Hypermarket.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,13 +114,13 @@
             </button>
           </div>
 
-          <!-- Delivery Assurances in Pala -->
-          <div class="pala-delivery-badge-box">
+          <!-- In-Store Assurances in Pala -->
+          <div class="pala-pickup-badge-box">
             <div class="pala-badge-item">
-              <i class="fa-solid fa-truck-fast"></i>
+              <i class="fa-solid fa-clock"></i>
               <div>
-                <strong>Express 2-Hr Delivery</strong>
-                <span>Pala & Surrounding Areas</span>
+                <strong>Store Pickup Ready in 1 Hr</strong>
+                <span>Order via WhatsApp & Pick Up</span>
               </div>
             </div>
             <div class="pala-badge-item">
@@ -131,10 +131,10 @@
               </div>
             </div>
             <div class="pala-badge-item">
-              <i class="fa-solid fa-hand-holding-dollar"></i>
+              <i class="fa-solid fa-store"></i>
               <div>
-                <strong>Cash on Delivery / UPI</strong>
-                <span>Pay when you receive</span>
+                <strong>Pay at Store Counter</strong>
+                <span>Cash, UPI or Card on pickup</span>
               </div>
             </div>
           </div>
@@ -157,7 +157,7 @@
           <div class="product-promise-box">
             <strong class="product-promise-title"><i class="fa-solid fa-circle-info"></i> Pala Quality Promise:</strong>
             <p class="product-promise-text">
-              All items are strictly inspected at our central receiving hub in Pala. If you are not 100% satisfied with the quality or freshness, we offer instant doorstep replacement or refund.
+              All items are strictly inspected at our central receiving hub in Pala. If you are not 100% satisfied with the quality or freshness, we offer instant in-store replacement or refund.
             </p>
           </div>
         </div>
@@ -366,7 +366,7 @@
       document.getElementById('specCat').textContent = category.name;
 
       // WhatsApp Buy Link
-      const waMsg = encodeURIComponent(`Hi Golden Hypermarket Pala, I would like to order: *${product.name}* (${product.weight}) - ₹${product.price}. Please deliver to my address in Pala.`);
+      const waMsg = encodeURIComponent(`Hi Golden Hypermarket Pala, I would like to order: *${product.name}* (${product.weight}) - ₹${product.price} for pickup at your Pala store.`);
       document.getElementById('btnDetailWhatsApp').href = `https://wa.me/918606647777?text=${waMsg}`;
 
       // Quantity Stepper Logic

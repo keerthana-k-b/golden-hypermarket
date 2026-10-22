@@ -1028,7 +1028,7 @@ const siteData = {
       rating: 4.8,
       reviews: 420,
       stock: 'In Stock',
-      description: 'Graded, high protein fresh poultry eggs delivered straight from certified local farms.',
+      description: 'Graded, high protein fresh poultry eggs sourced straight from certified local farms.',
       isDeal: false,
       isFeatured: true
     },
@@ -1536,7 +1536,7 @@ const siteData = {
       rating: 4.7,
       reviews: 95,
       stock: 'In Stock',
-      description: 'Slim gel pocket technology delivering fresh aroma for up to 30 days per unit.',
+      description: 'Slim gel pocket technology releasing fresh aroma for up to 30 days per unit.',
       isDeal: false,
       isFeatured: false
     },
@@ -1990,7 +1990,7 @@ const siteData = {
       rating: 4.8,
       reviews: 195,
       stock: 'In Stock',
-      description: 'High air delivery with double ball bearings and rust resistant aluminium powder coated blades.',
+      description: 'High air output with double ball bearings and rust resistant aluminium powder coated blades.',
       isDeal: false,
       isFeatured: false
     },

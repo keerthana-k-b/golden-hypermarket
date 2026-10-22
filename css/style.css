@@ -167,27 +167,37 @@ button {
 }
 
 .btn-primary {
-  background: var(--gold-gradient);
-  color: var(--primary-green-dark);
+  background: var(--gold-gradient, linear-gradient(135deg, #f7c948 0%, #d49b28 100%));
+  color: var(--primary-green-dark, #062a1d);
+  font-weight: 700;
+  border: none;
   box-shadow: 0 4px 14px rgba(212, 155, 40, 0.3);
+  text-decoration: none;
 }
 
 .btn-primary:hover {
+  background: var(--gold-gradient-hover, linear-gradient(135deg, #f9d368 0%, #dfa732 100%));
+  color: var(--primary-green-dark, #062a1d);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(212, 155, 40, 0.45);
   filter: brightness(1.05);
 }
 
+.btn-secondary,
 .btn-outline-light {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(8px);
+  font-weight: 600;
+  text-decoration: none;
 }
 
+.btn-secondary:hover,
 .btn-outline-light:hover {
   background: rgba(255, 255, 255, 0.22);
   border-color: #ffffff;
+  color: #ffffff;
   transform: translateY(-2px);
 }
 
@@ -827,7 +837,7 @@ button {
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 3rem 3.5rem;
+  padding: 3rem 2.5rem 3rem 80px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s ease;
@@ -842,43 +852,86 @@ button {
   z-index: 2;
 }
 
-/* Slide Background Overlays - Soft text gradient & bright photography */
+/* Slide Backgrounds: Photo on the right half only, smooth dark green gradient from left */
 .slide-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
+  background-color: var(--primary-green-dark, #062a1d);
   z-index: 1;
+  overflow: hidden;
 }
 
+/* Slide 1: Pure deep green to dark green gradient with subtle gold pattern (no photo) */
 .slide-bg-1 {
-  background: linear-gradient(90deg, rgba(6, 42, 29, 0.92) 0%, rgba(6, 42, 29, 0.75) 42%, rgba(6, 42, 29, 0.25) 70%, rgba(6, 42, 29, 0.05) 100%),
-              url('https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=1400&q=80');
+  background-color: #062a1d;
+  background-image: 
+    radial-gradient(ellipse at 80% 50%, rgba(200, 155, 60, 0.16) 0%, transparent 60%),
+    radial-gradient(circle at 18% 30%, rgba(200, 155, 60, 0.08) 0%, transparent 45%),
+    repeating-linear-gradient(45deg, rgba(200, 155, 60, 0.035) 0px, rgba(200, 155, 60, 0.035) 1px, transparent 1px, transparent 28px),
+    repeating-linear-gradient(-45deg, rgba(200, 155, 60, 0.035) 0px, rgba(200, 155, 60, 0.035) 1px, transparent 1px, transparent 28px),
+    linear-gradient(135deg, #041b12 0%, #062a1d 55%, #0a3d2b 100%);
   background-size: cover;
-  background-position: center right;
 }
 
+/* Slide 2: Fresh Vegetable Board on right half only */
 .slide-bg-2 {
-  background: linear-gradient(90deg, rgba(6, 42, 29, 0.92) 0%, rgba(6, 42, 29, 0.75) 42%, rgba(6, 42, 29, 0.25) 70%, rgba(6, 42, 29, 0.05) 100%),
-              url('https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=1400&q=80');
-  background-size: cover;
-  background-position: center right;
+  background-color: #062a1d;
 }
 
-.slide-bg-3 {
-  background: linear-gradient(90deg, rgba(6, 42, 29, 0.92) 0%, rgba(6, 42, 29, 0.75) 42%, rgba(6, 42, 29, 0.25) 70%, rgba(6, 42, 29, 0.05) 100%),
-              url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1400&q=80');
+.slide-bg-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 54%;
+  height: 100%;
+  background-image: url('../assets/images/hero-vegetables.jpg');
   background-size: cover;
-  background-position: center right;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.slide-bg-2::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #062a1d 0%, #062a1d 46%, rgba(6, 42, 29, 0.88) 56%, rgba(6, 42, 29, 0.3) 72%, rgba(6, 42, 29, 0) 90%);
+  pointer-events: none;
+}
+
+/* Slide 3: Kerala Spice Flat-lay on right half only */
+.slide-bg-3 {
+  background-color: #062a1d;
+}
+
+.slide-bg-3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 54%;
+  height: 100%;
+  background-image: url('../assets/images/hero-spices.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.slide-bg-3::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #062a1d 0%, #062a1d 46%, rgba(6, 42, 29, 0.88) 56%, rgba(6, 42, 29, 0.3) 72%, rgba(6, 42, 29, 0) 90%);
+  pointer-events: none;
 }
 
 .slide-content {
   position: relative;
   z-index: 2;
-  max-width: 580px;
+  max-width: 540px;
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
@@ -934,26 +987,28 @@ button {
 }
 
 .offer-pill {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   text-shadow: none;
 }
 
 .pill-number {
   font-family: 'Outfit', sans-serif;
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: var(--gold-light);
+  letter-spacing: 0.3px;
 }
 
 .pill-label {
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .slide-cta-group {
@@ -967,44 +1022,47 @@ button {
   box-shadow: 0 0 20px rgba(247, 201, 72, 0.45);
 }
 
-/* Slider Controls */
+/* Slider Controls: Centered Vertically at Far Edges - Round Dark Green with White Arrows */
 .slider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 44px;
   height: 44px;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(8px);
+  background: #062a1d;
   color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1rem;
   z-index: 10;
   transition: all var(--transition-fast);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
 }
 
 .slider-arrow:hover {
-  background: var(--gold-primary);
-  color: var(--primary-green-dark);
-  transform: translateY(-50%) scale(1.1);
+  background: #093e2b;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
 .prev-arrow {
-  left: 1.25rem;
+  left: 16px;
 }
 
 .next-arrow {
-  right: 1.25rem;
+  right: 16px;
 }
 
 .slider-dots {
   position: absolute;
   bottom: 1.25rem;
-  left: 3.5rem;
+  left: 80px;
   display: flex;
   gap: 0.5rem;
   z-index: 10;
@@ -1074,15 +1132,19 @@ button {
 }
 
 .side-banner-gold .side-banner-btn {
-  background: #25d366;
-  color: #ffffff;
+  background: var(--gold-gradient, linear-gradient(135deg, #f7c948 0%, #d49b28 100%));
+  color: var(--primary-green-dark, #062a1d);
+  font-weight: 700;
   border: none;
-  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.35);
+  box-shadow: 0 4px 14px rgba(212, 155, 40, 0.35);
+  text-decoration: none;
 }
 
 .side-banner-gold .side-banner-btn:hover {
-  background: #20ba5a;
-  transform: scale(1.02);
+  background: var(--gold-gradient-hover, linear-gradient(135deg, #f9d368 0%, #dfa732 100%));
+  color: var(--primary-green-dark, #062a1d);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212, 155, 40, 0.45);
 }
 
 /* Card 2: Refreshing Light Green / Mint */
@@ -1110,15 +1172,19 @@ button {
 }
 
 .side-banner-green .side-banner-btn {
-  background: var(--primary-green);
+  background: var(--primary-green-dark, #062a1d);
   color: #ffffff;
+  font-weight: 700;
   border: none;
-  box-shadow: 0 3px 10px rgba(11, 70, 51, 0.25);
+  box-shadow: 0 4px 14px rgba(6, 42, 29, 0.25);
+  text-decoration: none;
 }
 
 .side-banner-green .side-banner-btn:hover {
-  background: var(--primary-green-dark);
-  transform: scale(1.02);
+  background: var(--primary-green, #0b4633);
+  color: var(--gold-light, #f7c948);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(6, 42, 29, 0.35);
 }
 
 .side-banner-badge {
@@ -2031,7 +2097,7 @@ button {
   display: none;
 }
 
-/* Product Card - Lulu / Premium Hypermarket Style */
+/* Product Card - Premium Hypermarket Style */
 .product-card {
   min-width: 220px;
   max-width: 235px;
@@ -2920,16 +2986,71 @@ button {
 }
 
 /* ================= 11. FOOTER & NEWSLETTER ================= */
-.main-footer {
-  background: var(--primary-green-dark);
-  color: #ffffff;
-  margin-top: 1rem;
+#site-footer-container {
+  background: var(--primary-green-dark, #062a1d) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
 }
 
-.newsletter-strip {
-  background: linear-gradient(90deg, #0b4633 0%, #126348 100%);
-  border-bottom: 1px solid rgba(212, 155, 40, 0.25);
+#site-footer-container,
+.site-footer,
+.main-footer,
+#mainFooter,
+footer {
+  background: var(--primary-green-dark, #062a1d) !important;
+  color: #ffffff !important;
+  margin-top: 1rem;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  animation: none !important;
+  transform: none !important;
+  position: relative !important;
+  z-index: 10;
+}
+
+/* Ensure no stuck pseudo-element overlays or animations on footer roots */
+#site-footer-container::before,
+#site-footer-container::after,
+.site-footer::before,
+.site-footer::after,
+.main-footer::before,
+.main-footer::after,
+#mainFooter::before,
+#mainFooter::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* All links inside the footer: light grey links that turn gold on hover */
+.site-footer a,
+.main-footer a,
+#mainFooter a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color var(--transition-fast, 0.18s ease), transform var(--transition-fast, 0.18s ease);
+}
+
+.site-footer a:hover,
+.site-footer a:focus,
+.main-footer a:hover,
+.main-footer a:focus,
+#mainFooter a:hover,
+#mainFooter a:focus {
+  color: var(--gold-light, #f7c948) !important;
+}
+
+/* Newsletter Strip (Both .newsletter-strip on index and .footer-newsletter-strip in components.js) */
+.newsletter-strip,
+.footer-newsletter-strip {
+  background: #083424 !important;
+  border-bottom: 1px solid rgba(212, 155, 40, 0.25) !important;
   padding: 2rem 0;
+  width: 100%;
 }
 
 .newsletter-container {
@@ -2939,7 +3060,8 @@ button {
   gap: 1.5rem;
 }
 
-.newsletter-left {
+.newsletter-left,
+.newsletter-content {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -2947,19 +3069,21 @@ button {
 
 .newsletter-icon {
   font-size: 2.2rem;
-  color: var(--gold-light);
+  color: var(--gold-light, #f7c948) !important;
 }
 
-.newsletter-left h3 {
+.newsletter-left h3,
+.newsletter-text h3 {
   font-family: 'Outfit', sans-serif;
   font-size: 1.25rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
-.newsletter-left p {
+.newsletter-left p,
+.newsletter-text p {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #cbd5e1 !important;
   margin-top: 2px;
 }
 
@@ -2979,11 +3103,13 @@ button {
   font-size: 0.88rem;
   color: var(--text-main);
   background: transparent;
+  border: none;
+  outline: none;
 }
 
 .newsletter-submit-btn {
   background: var(--gold-gradient);
-  color: var(--primary-green-dark);
+  color: #062a1d !important;
   font-weight: 800;
   padding: 0.65rem 1.4rem;
   border-radius: var(--radius-full);
@@ -2992,6 +3118,8 @@ button {
   gap: 0.4rem;
   font-size: 0.88rem;
   transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
 }
 
 .newsletter-submit-btn:hover {
@@ -3001,6 +3129,8 @@ button {
 
 .footer-links-section {
   padding: 3.5rem 0 2.5rem;
+  background: var(--primary-green-dark, #062a1d) !important;
+  width: 100%;
 }
 
 .footer-grid {
@@ -3022,26 +3152,26 @@ button {
   background: #ffffff;
   border-radius: 50%;
   padding: 3px;
-  border: 1px solid var(--gold-light);
+  border: 1px solid var(--gold-light, #f7c948);
 }
 
 .footer-brand h3 {
   font-family: 'Outfit', sans-serif;
   font-size: 1.15rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #ffffff !important;
   line-height: 1.1;
 }
 
 .footer-brand span {
   font-size: 0.65rem;
-  color: var(--gold-light);
+  color: var(--gold-light, #f7c948) !important;
   letter-spacing: 1px;
 }
 
 .footer-about-text {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #cbd5e1 !important;
   line-height: 1.55;
   margin-bottom: 1.25rem;
 }
@@ -3060,15 +3190,15 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: #ffffff !important;
   font-size: 0.95rem;
   transition: all var(--transition-fast);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .social-icon-btn:hover {
-  background: var(--gold-primary);
-  color: var(--primary-green-dark);
+  background: var(--gold-primary, #d49b28);
+  color: #062a1d !important;
   transform: translateY(-3px);
 }
 
@@ -3076,7 +3206,7 @@ button {
   font-family: 'Outfit', sans-serif;
   font-size: 1.05rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 1.15rem;
   position: relative;
   padding-bottom: 0.5rem;
@@ -3089,8 +3219,14 @@ button {
   left: 0;
   width: 32px;
   height: 2px;
-  background: var(--gold-primary);
+  background: var(--gold-primary, #d49b28) !important;
   border-radius: 2px;
+}
+
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-link-list li {
@@ -3099,19 +3235,21 @@ button {
 
 .footer-link-list li a {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.75);
-  transition: all var(--transition-fast);
+  color: #cbd5e1 !important;
+  transition: all var(--transition-fast, 0.18s ease);
   display: inline-block;
+  text-decoration: none;
 }
 
-.footer-link-list li a:hover {
-  color: var(--gold-light);
+.footer-link-list li a:hover,
+.footer-link-list li a:focus {
+  color: var(--gold-light, #f7c948) !important;
   transform: translateX(4px);
 }
 
 .footer-contact-info p {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #cbd5e1 !important;
   margin-bottom: 0.65rem;
   display: flex;
   align-items: flex-start;
@@ -3120,11 +3258,11 @@ button {
 }
 
 .footer-contact-info i {
-  color: var(--gold-light);
+  color: var(--gold-light, #f7c948) !important;
   margin-top: 3px;
 }
 
-.footer-delivery-tags {
+.footer-pickup-tags {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -3140,15 +3278,17 @@ button {
   border-radius: var(--radius-sm);
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--gold-light);
+  color: var(--gold-light, #f7c948) !important;
   border: 1px solid rgba(212, 155, 40, 0.25);
   width: fit-content;
 }
 
+/* Slightly darker solid copyright bar */
 .footer-bottom-bar {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.25rem 0;
-  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 1.25rem 0 !important;
+  background: #031810 !important;
+  width: 100%;
 }
 
 .footer-bottom-container {
@@ -3157,7 +3297,16 @@ button {
   justify-content: space-between;
   gap: 1rem;
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: #94a3b8 !important;
+}
+
+.copyright-text {
+  color: #94a3b8 !important;
+  margin: 0;
+}
+
+.copyright-text strong {
+  color: #ffffff !important;
 }
 
 .payment-icons-row {
@@ -3168,15 +3317,20 @@ button {
 }
 
 .pay-chip {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   padding: 3px 8px;
   border-radius: var(--radius-sm);
   font-size: 0.72rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #e2e8f0 !important;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+}
+
+.pay-chip i {
+  color: var(--gold-light, #f7c948);
 }
 
 /* ================= MOBILE BOTTOM FLOATING NAV ================= */
@@ -3863,8 +4017,8 @@ button {
   border-color: var(--deal-red);
 }
 
-/* Pala Delivery Assurance Box */
-.pala-delivery-badge-box {
+/* Pala Store Assurance Box */
+.pala-pickup-badge-box {
   border-top: 1px solid var(--border-light);
   padding-top: 1.25rem;
   display: grid;
@@ -4281,7 +4435,7 @@ button {
     gap: 4px;
     align-items: flex-start;
   }
-  .pala-delivery-badge-box {
+  .pala-pickup-badge-box {
     grid-template-columns: 1fr;
   }
 }
@@ -6076,8 +6230,19 @@ button {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
   }
 
+  .slide-bg-2::before,
+  .slide-bg-3::before {
+    width: 58% !important;
+    background-position: center right !important;
+  }
+
+  .slide-bg-2::after,
+  .slide-bg-3::after {
+    background: linear-gradient(90deg, #062a1d 0%, #062a1d 38%, rgba(6, 42, 29, 0.88) 58%, rgba(6, 42, 29, 0.25) 85%, transparent 100%) !important;
+  }
+
   .hero-slide {
-    padding: 1rem 1.25rem !important;
+    padding: 1rem 42px 1rem 42px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: flex-start !important;
@@ -6140,9 +6305,25 @@ button {
     justify-content: center !important;
   }
 
-  /* Hide arrows on mobile (swipe support) */
+  /* Arrows: round dark green buttons with white arrows, always visible on every slide */
   .slider-arrow {
-    display: none !important;
+    display: flex !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.78rem !important;
+    background: #062a1d !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+    z-index: 10 !important;
+  }
+
+  .prev-arrow {
+    left: 6px !important;
+  }
+
+  .next-arrow {
+    right: 6px !important;
   }
 
   /* Dots positioned below slide content */
@@ -6660,14 +6841,14 @@ button {
 
   .footer-col:not(.brand-col) .footer-link-list,
   .footer-col:not(.brand-col) .footer-contact-info,
-  .footer-col:not(.brand-col) .footer-delivery-tags {
+  .footer-col:not(.brand-col) .footer-pickup-tags {
     display: none;
     margin-top: 10px !important;
   }
 
   .footer-col.open .footer-link-list,
   .footer-col.open .footer-contact-info,
-  .footer-col.open .footer-delivery-tags {
+  .footer-col.open .footer-pickup-tags {
     display: block !important;
   }
 
@@ -6677,6 +6858,12 @@ button {
     align-items: center !important;
     font-size: 0.88rem !important;
     padding: 6px 0 !important;
+    color: #cbd5e1 !important;
+  }
+  .footer-link-list li a:hover,
+  .footer-link-list li a:focus,
+  .footer-link-list li a:active {
+    color: var(--gold-light, #f7c948) !important;
   }
 
   .social-icon-btn {
@@ -6712,6 +6899,24 @@ button {
     min-height: 38px !important;
     display: inline-flex !important;
     align-items: center !important;
+  }
+
+  /* Ensure footer background extends cleanly to bottom on mobile without body light bleed */
+  html body,
+  html body.has-bottom-sticky-bar,
+  html body.page-product,
+  html body.page-cart {
+    padding-bottom: 0 !important;
+  }
+
+  .footer-bottom-bar {
+    padding-bottom: calc(75px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  body.has-bottom-sticky-bar .footer-bottom-bar,
+  body.page-product .footer-bottom-bar,
+  body.page-cart .footer-bottom-bar {
+    padding-bottom: calc(140px + env(safe-area-inset-bottom, 0px)) !important;
   }
 }
 

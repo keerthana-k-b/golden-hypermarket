@@ -118,24 +118,26 @@ const SiteComponents = {
               
               <!-- Left Utility Group -->
               <div class="hdr-utility-left">
-                <!-- Delivery Location -->
-                <div class="hdr-utility-item hdr-loc-trigger" id="locationSelector" role="button" tabindex="0" title="Select Delivery Location in Pala">
+                <!-- Store Location Link -->
+                <a href="index.html#storeInfo" class="hdr-utility-item hdr-loc-link" id="locationSelector" title="Visit us: Pala, Kottayam">
                   <span class="hdr-icon loc-pin-icon">${LucideIcons.mapPin}</span>
-                  <span>Deliver to: <strong id="currentLocationText">${savedLocation}</strong></span>
-                  <span class="hdr-icon">${LucideIcons.chevronDown}</span>
-                </div>
+                  <span>Visit us: <strong id="currentLocationText">Pala, Kottayam</strong></span>
+                </a>
                 <div class="hdr-utility-divider"></div>
                 <!-- Store Hours -->
                 <div class="hdr-utility-item hdr-store-hours">
                   <span class="hours-dot"></span>
                   <span class="hdr-icon">${LucideIcons.clock}</span>
-                  <span>Store Open: <strong>8:00 AM - 10:00 PM</strong></span>
+                  <span>Open <strong>8:00 AM - 10:00 PM</strong></span>
                 </div>
-                <div class="hdr-utility-divider"></div>
-                <!-- Express Chip -->
-                <div class="hdr-utility-item hdr-express-chip">
-                  <span class="hdr-icon">${LucideIcons.zap}</span>
-                  <span>Express 2-Hr Delivery in Pala</span>
+              </div>
+
+              <!-- Center Utility: PALA SAVER Coupon Chip -->
+              <div class="hdr-utility-center">
+                <div class="hdr-coupon-chip">
+                  <span class="hdr-icon hdr-gold-bright-color">${LucideIcons.ticket}</span>
+                  <span class="hdr-coupon-tag">PALA SAVER</span>
+                  <span>Get <strong>₹100 OFF</strong> Code: <strong>PALA100</strong></span>
                 </div>
               </div>
 
@@ -182,7 +184,9 @@ const SiteComponents = {
 
               <!-- Logo (Left) -->
               <a href="index.html" class="hdr-brand-logo" aria-label="Golden Hypermarket Pala Home">
-                <img src="assets/images/logo.png" alt="Golden Hypermarket Pala" class="hdr-logo-img">
+                <div class="hdr-logo-tile">
+                  <img src="assets/images/logo.png" alt="Golden Hypermarket Pala" class="hdr-logo-img">
+                </div>
                 <div class="hdr-brand-text">
                   <span class="hdr-brand-title">GOLDEN <span class="highlight">HYPERMARKET</span></span>
                   <span class="hdr-brand-subtitle">SINCE 1964 • PALA, KERALA</span>
@@ -282,7 +286,7 @@ const SiteComponents = {
           </div>
         </header>
 
-        <!-- ROW 3: ALL CATEGORIES BUTTON + NAV LINKS (WITH OVERFLOW SCROLL) + COUPON CHIP -->
+        <!-- ROW 3: ALL CATEGORIES BUTTON + NAV LINKS (MAX 8 + MORE) -->
         <nav class="hdr-category-bar" id="categoryNavBar" aria-label="Category Navigation">
           <div class="container">
             <div class="hdr-category-inner">
@@ -317,7 +321,7 @@ const SiteComponents = {
                 </div>
               </div>
 
-              <!-- Nav Links with Horizontal Scroll if it overflows -->
+              <!-- Nav Links: Max 8 visible links + More dropdown -->
               <div class="hdr-nav-links-scroll" id="hdrNavScrollTrack">
                 <a href="category.html?cat=grocery" class="hdr-nav-link ${currentCat === 'grocery' ? 'active' : ''}">Grocery</a>
                 <a href="category.html?cat=produce" class="hdr-nav-link ${currentCat === 'produce' ? 'active' : ''}">Fresh Produce</a>
@@ -326,20 +330,32 @@ const SiteComponents = {
                 <a href="category.html?cat=dairy" class="hdr-nav-link ${currentCat === 'dairy' ? 'active' : ''}">Dairy & Eggs</a>
                 <a href="category.html?cat=bakery" class="hdr-nav-link ${currentCat === 'bakery' ? 'active' : ''}">Bakery</a>
                 <a href="category.html?cat=household" class="hdr-nav-link ${currentCat === 'household' ? 'active' : ''}">Household</a>
-                <a href="category.html?cat=beverages" class="hdr-nav-link ${currentCat === 'beverages' ? 'active' : ''}">Beverages</a>
-                <a href="category.html?cat=electronics" class="hdr-nav-link ${currentCat === 'electronics' ? 'active' : ''}">Electronics</a>
-                <a href="category.html?cat=fashion" class="hdr-nav-link ${currentCat === 'fashion' ? 'active' : ''}">Fashion</a>
                 <a href="category.html?cat=all&deals=1" class="hdr-nav-link hdr-deals-nav-link ${this.getParam('deals') === '1' ? 'active' : ''}">
                   <span class="hdr-icon">${LucideIcons.flame}</span>
                   <span>Weekend Deals</span>
                 </a>
-              </div>
 
-              <!-- Coupon Chip (Right) -->
-              <div class="hdr-coupon-chip">
-                <span class="hdr-icon hdr-gold-bright-color">${LucideIcons.ticket}</span>
-                <span class="hdr-coupon-tag">PALA SAVER</span>
-                <span>Get <strong>₹100 OFF</strong> Code: <strong>PALA100</strong></span>
+                <!-- "More" Dropdown for Remaining Categories -->
+                <div class="hdr-nav-more-wrap" id="hdrNavMoreWrap">
+                  <button type="button" class="hdr-nav-link hdr-nav-more-btn" id="hdrNavMoreBtn" aria-expanded="false" aria-haspopup="true">
+                    <span>More</span>
+                    <span class="hdr-icon">${LucideIcons.chevronDown}</span>
+                  </button>
+                  <div class="hdr-nav-more-dropdown" id="hdrNavMoreDropdown">
+                    <a href="category.html?cat=beverages" class="hdr-more-item ${currentCat === 'beverages' ? 'active' : ''}">
+                      <i class="fa-solid fa-mug-hot"></i>
+                      <span>Beverages & Tea</span>
+                    </a>
+                    <a href="category.html?cat=electronics" class="hdr-more-item ${currentCat === 'electronics' ? 'active' : ''}">
+                      <i class="fa-solid fa-blender"></i>
+                      <span>Electronics & Appliances</span>
+                    </a>
+                    <a href="category.html?cat=fashion" class="hdr-more-item ${currentCat === 'fashion' ? 'active' : ''}">
+                      <i class="fa-solid fa-shirt"></i>
+                      <span>Fashion & Apparels</span>
+                    </a>
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -394,7 +410,7 @@ const SiteComponents = {
                 </div>
               </div>
               <p class="footer-about-text">
-                Pala’s premier shopping destination for 60 years. Committed to delivering fresh farm produce, pure staples, fish, meat, electronics and household goods at the lowest prices.
+                Pala’s premier shopping destination for 60 years. Committed to offering fresh farm produce, pure staples, fish, meat, electronics and household goods at the lowest prices.
               </p>
               <div class="footer-social-icons">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
@@ -423,8 +439,8 @@ const SiteComponents = {
             <div class="footer-col">
               <h4 class="footer-heading">Customer Care</h4>
               <ul class="footer-link-list">
-                <li><a href="https://wa.me/918606647777" target="_blank" rel="noopener noreferrer">Track Pala Delivery</a></li>
-                <li><a href="index.html#storeInfo">Store Timings & Location</a></li>
+                <li><a href="cart.html">Store Pickup</a></li>
+                <li><a href="index.html#storeInfo">Visit Us</a></li>
                 <li><a href="category.html?cat=all&deals=1">Weekend Deals Flyer</a></li>
                 <li><a href="cart.html">View Shopping Cart</a></li>
                 <li><a href="tel:+918606647777">Helpdesk: +91 86066 47777</a></li>
@@ -441,8 +457,8 @@ const SiteComponents = {
                 <p><i class="fa-solid fa-clock"></i> 8:00 AM – 10:00 PM (Daily)</p>
                 <p><i class="fa-solid fa-envelope"></i> care@goldenhypermarketpala.com</p>
               </div>
-              <div class="footer-delivery-tags">
-                <span class="del-tag"><i class="fa-solid fa-truck-fast"></i> Pala 2-Hr Delivery</span>
+              <div class="footer-pickup-tags">
+                <span class="del-tag"><i class="fa-solid fa-store"></i> Quick Store Pickup</span>
                 <span class="del-tag"><i class="fa-solid fa-shield-halved"></i> 100% Quality Assured</span>
               </div>
             </div>
@@ -461,7 +477,7 @@ const SiteComponents = {
               <span class="pay-chip"><i class="fa-solid fa-wallet"></i> Paytm</span>
               <span class="pay-chip"><i class="fa-brands fa-cc-visa"></i> Visa</span>
               <span class="pay-chip"><i class="fa-brands fa-cc-mastercard"></i> Mastercard</span>
-              <span class="pay-chip"><i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery</span>
+              <span class="pay-chip"><i class="fa-solid fa-money-bill-wave"></i> Pay at Store</span>
             </div>
           </div>
         </div>
@@ -548,14 +564,14 @@ const SiteComponents = {
       </div>
 
       <div class="hdr-drawer-body">
-        <!-- Delivery Location Trigger -->
-        <div class="hdr-utility-item hdr-loc-trigger hdr-mob-loc-trigger" id="mobileLocationTrigger" role="button" tabindex="0">
+        <!-- Store Location Link -->
+        <a href="index.html#storeInfo" class="hdr-utility-item hdr-loc-trigger hdr-mob-loc-trigger" id="mobileLocationTrigger" style="text-decoration:none;color:inherit;">
           <span class="hdr-flex-gap-6">
             <span class="hdr-icon hdr-gold-color">${LucideIcons.mapPin}</span>
-            <span>Pala & Surrounding Areas</span>
+            <span>Visit us: Pala, Kottayam</span>
           </span>
-          <span class="hdr-icon">${LucideIcons.chevronDown}</span>
-        </div>
+          <span class="hdr-icon">${LucideIcons.chevronRight}</span>
+        </a>
 
         <!-- Coupon Chip (Moved into Drawer) -->
         <div class="drawer-coupon-chip">
@@ -645,12 +661,12 @@ const SiteComponents = {
         <div class="modal-header">
           <h3 class="hdr-flex-gap-8">
             <span class="hdr-icon hdr-gold-color">${LucideIcons.mapPin}</span>
-            <span>Select Your Delivery Location</span>
+            <span>Visit Us in Pala, Kottayam</span>
           </h3>
           <button class="modal-close-btn" id="closeLocationModal">&times;</button>
         </div>
         <div class="modal-body">
-          <p>Choose your delivery area in and around Pala, Kottayam:</p>
+          <p>Our flagship store is located at Lalam Puthenpally, Pala, welcoming customers across Kottayam:</p>
           <div class="location-chips">
             <button class="loc-chip active" data-loc="Pala Town (686575)">Pala Town</button>
             <button class="loc-chip" data-loc="Lalam Puthenpally (686575)">Lalam Puthenpally</button>
@@ -828,6 +844,25 @@ const SiteComponents = {
       });
     }
 
+    // "More" Categories Dropdown Toggle
+    const hdrNavMoreBtn = document.getElementById('hdrNavMoreBtn');
+    const hdrNavMoreWrap = document.getElementById('hdrNavMoreWrap');
+    if (hdrNavMoreBtn && hdrNavMoreWrap) {
+      hdrNavMoreBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = hdrNavMoreWrap.classList.contains('open');
+        hdrNavMoreWrap.classList.toggle('open');
+        hdrNavMoreBtn.setAttribute('aria-expanded', !isOpen);
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('#hdrNavMoreWrap')) {
+          hdrNavMoreWrap.classList.remove('open');
+          hdrNavMoreBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
     // Mobile Drawer Toggle
     const mobileMenuOpen = document.getElementById('mobileMenuOpen');
     const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -904,6 +939,12 @@ const SiteComponents = {
     const locText = document.getElementById('currentLocationText');
 
     const openLocModal = () => {
+      const storeInfoEl = document.getElementById('storeInfo');
+      if (storeInfoEl) {
+        closeDrawer();
+        storeInfoEl.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
       if (locModal) locModal.classList.remove('is-hidden');
       closeDrawer();
     };
@@ -912,8 +953,25 @@ const SiteComponents = {
       if (locModal) locModal.classList.add('is-hidden');
     };
 
-    if (locTrigger) locTrigger.addEventListener('click', openLocModal);
-    if (mobileLocTrigger) mobileLocTrigger.addEventListener('click', openLocModal);
+    if (locTrigger) {
+      locTrigger.addEventListener('click', (e) => {
+        const storeInfoEl = document.getElementById('storeInfo');
+        if (storeInfoEl) {
+          e.preventDefault();
+          storeInfoEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+    if (mobileLocTrigger) {
+      mobileLocTrigger.addEventListener('click', (e) => {
+        closeDrawer();
+        const storeInfoEl = document.getElementById('storeInfo');
+        if (storeInfoEl) {
+          e.preventDefault();
+          storeInfoEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
     if (closeLocBtn) closeLocBtn.addEventListener('click', closeLocModal);
     if (locModal) {
       locModal.addEventListener('click', (e) => {
@@ -929,7 +987,7 @@ const SiteComponents = {
         if (locText) locText.textContent = loc;
         localStorage.setItem('golden_hypermarket_location', loc);
         if (window.CartManager) {
-          CartManager.showToast(`Delivery location updated to ${loc}`, 'success');
+          CartManager.showToast(`Selected area: ${loc}`, 'success');
         }
         closeLocModal();
       });

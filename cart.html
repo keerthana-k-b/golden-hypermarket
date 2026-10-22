@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart & Checkout | Golden Hypermarket Pala</title>
-  <meta name="description" content="Review your shopping cart and place express home delivery orders in Pala via WhatsApp or Cash on Delivery.">
+  <title>Shopping Cart & Store Pickup | Golden Hypermarket Pala</title>
+  <meta name="description" content="Review your shopping cart and order for quick in-store pickup in Pala via WhatsApp. Pay at store upon pickup.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +59,7 @@
           </div>
         </div>
 
-        <!-- Right: Order Summary & Express Checkout -->
+        <!-- Right: Order Summary & In-Store Pickup Checkout -->
         <aside class="order-summary-card" id="orderSummaryBox">
           <h3 class="summary-title"><i class="fa-solid fa-receipt"></i> Order Summary</h3>
           
@@ -69,8 +69,8 @@
           </div>
 
           <div class="summary-row">
-            <span>Pala Delivery Fee:</span>
-            <strong id="summaryDelivery">₹0</strong>
+            <span>Store Pickup:</span>
+            <strong id="summaryPickup">FREE</strong>
           </div>
 
           <div class="summary-row savings is-hidden" id="summarySavingsRow">
@@ -99,8 +99,11 @@
           <!-- Checkout Form -->
           <div class="checkout-fields-box">
             <h4 class="checkout-title">
-              <i class="fa-solid fa-truck-ramp-box"></i> Delivery Details in Pala
+              <i class="fa-solid fa-store"></i> Pickup at Golden Hypermarket, Pala
             </h4>
+            <div class="pickup-store-address-hint" style="font-size:0.85rem;color:var(--color-gray-600);margin-bottom:0.75rem;line-height:1.4;">
+              <i class="fa-solid fa-location-dot" style="color:var(--color-accent-gold);"></i> Opp. St. George's Church, Lalam Puthenpally, Pala
+            </div>
             
             <label class="checkout-field-label" for="custName">Your Full Name:</label>
             <input type="text" id="custName" class="checkout-input" placeholder="e.g. George Thomas">
@@ -108,12 +111,9 @@
             <label class="checkout-field-label" for="custPhone">WhatsApp Phone Number:</label>
             <input type="tel" id="custPhone" class="checkout-input" placeholder="e.g. 98470 12345">
 
-            <label class="checkout-field-label" for="custAddress">Delivery Address / Landmark in Pala:</label>
-            <input type="text" id="custAddress" class="checkout-input" placeholder="e.g. Near St. George Church, Lalam, Pala">
-
-            <label class="checkout-field-label" for="deliverySlot">Preferred Delivery Slot:</label>
-            <select id="deliverySlot" class="checkout-input">
-              <option value="Express (Within 2 Hours)">⚡ Express 2-Hour Delivery</option>
+            <label class="checkout-field-label" for="pickupTime">Preferred Pickup Time:</label>
+            <select id="pickupTime" class="checkout-input">
+              <option value="Ready in 1 Hour (Quick Pickup)">⚡ Ready in 1 Hour (Quick Pickup)</option>
               <option value="Morning (8:00 AM - 11:00 AM)">🌅 Morning (8:00 AM - 11:00 AM)</option>
               <option value="Afternoon (1:00 PM - 4:00 PM)">☀️ Afternoon (1:00 PM - 4:00 PM)</option>
               <option value="Evening (5:00 PM - 8:30 PM)">🌙 Evening (5:00 PM - 8:30 PM)</option>
@@ -123,11 +123,11 @@
           <!-- WhatsApp Checkout Action -->
           <button class="btn-whatsapp-checkout" id="btnPlaceOrderWhatsApp">
             <i class="fa-brands fa-whatsapp cart-wa-icon"></i>
-            <span>Place Order via WhatsApp</span>
+            <span>Send Order on WhatsApp for Pickup</span>
           </button>
 
           <p class="checkout-secure-note">
-            <i class="fa-solid fa-shield-halved"></i> Pay via Cash on Delivery or GPay / PhonePe upon delivery.
+            <i class="fa-solid fa-shield-halved"></i> Pay at the store via Cash, UPI, or Card upon pickup.
           </p>
         </aside>
 
@@ -242,19 +242,18 @@
 
       function updateSummary(summary) {
         const subtotalEl = document.getElementById('summarySubtotal');
-        const deliveryEl = document.getElementById('summaryDelivery');
+        const pickupEl = document.getElementById('summaryPickup');
         const savingsRow = document.getElementById('summarySavingsRow');
         const savingsEl = document.getElementById('summarySavings');
         const couponRow = document.getElementById('couponSavingsRow');
         const grandTotalEl = document.getElementById('summaryGrandTotal');
 
         let sub = summary.subtotal;
-        let delivery = summary.deliveryFee;
         let couponDiscount = (appliedCoupon === 'PALA100' || appliedCoupon === 'GOLDEN100') && sub > 0 ? 100 : 0;
-        let final = Math.max(0, sub + delivery - couponDiscount);
+        let final = Math.max(0, sub - couponDiscount);
 
         if (subtotalEl) subtotalEl.textContent = `₹${sub.toLocaleString('en-IN')}`;
-        if (deliveryEl) deliveryEl.textContent = delivery === 0 ? 'FREE (Orders ₹499+)' : `₹${delivery}`;
+        if (pickupEl) pickupEl.textContent = 'FREE';
         
         if (summary.discountSavings > 0) {
           savingsRow.classList.remove('is-hidden');
@@ -346,14 +345,13 @@
 
           const name = document.getElementById('custName').value.trim();
           const phone = document.getElementById('custPhone').value.trim();
-          const address = document.getElementById('custAddress').value.trim();
-          const slot = document.getElementById('deliverySlot').value;
+          const pickupTimeEl = document.getElementById('pickupTime');
+          const pickupTime = pickupTimeEl ? pickupTimeEl.value : 'Ready in 1 Hour (Quick Pickup)';
 
           const encodedMsg = CartManager.generateWhatsAppOrderMessage({
             name: name || 'Valued Pala Customer',
             phone: phone || '',
-            address: address || 'Pala Town',
-            slot: slot
+            pickupTime: pickupTime
           });
 
           window.open(`https://wa.me/918606647777?text=${encodedMsg}`, '_blank');
