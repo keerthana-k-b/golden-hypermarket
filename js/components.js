@@ -1109,38 +1109,11 @@ const SiteComponents = {
       }
     }
 
-    // Disallow dark plates or scenic lifestyle shots; show neutral category icon instead
-    const isDarkPlateOrScenic = (img) => {
-      if (!img || typeof img !== 'string') return true;
-      const patterns = [
-        'fresh-karimeen-pearl-spot',
-        'seer-fish-neymeen-steaks',
-        'fresh-sardine-mathi',
-        'fresh-mackerel-ayala',
-        'photo-1534482421-64566f976cfa',
-        'photo-1603048588665-791ca8aea617',
-        'photo-1604503468506-a8da13d82791',
-        'photo-1565680018434-b513d5e5fd47',
-        'photo-1593105544559-ecb03bf76f82',
-        'photo-1592924357228-91a4daadcfea',
-        'photo-1519708227418-c8fd9a32b7a2',
-        'photo-1474979266404-7eaacbcd87c5',
-        'photo-1576092768241-dec231879fc3',
-        'photo-1550009158-9ebf69173e03',
-        'photo-1489987707025-afc232f7ea0f',
-        'photo-1556911220-e15b29be8c8f',
-        'photo-1540420773420-3366772f4999',
-        'photo-1542838132-92c53300491e'
-      ];
-      return patterns.some(p => img.includes(p));
-    };
-
     const hasImage = Boolean(
       product.image &&
       typeof product.image === 'string' &&
       product.image.trim() !== '' &&
-      !product.image.includes('placeholder') &&
-      !isDarkPlateOrScenic(product.image)
+      !product.image.includes('placeholder')
     );
 
     return `

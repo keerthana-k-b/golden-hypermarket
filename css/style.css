@@ -815,7 +815,7 @@ button {
 
 /* ================= 4. HERO BANNER SLIDER (PREMIUM TWO-COLUMN SLIDER) ================= */
 .hero-slider-section {
-  padding: 32px 0 32px 0;
+  padding: 10px 0 10px 0;
   background-color: #FBF9F4 !important;
   width: 100%;
   box-sizing: border-box;
@@ -832,8 +832,8 @@ button {
 .hero-slider-wrapper {
   position: relative;
   width: 100%;
-  height: 360px;
-  min-height: 360px;
+  height: 440px;
+  min-height: 440px;
   background: #FBF9F4;
   overflow: visible;
 }
@@ -937,11 +937,11 @@ button {
 
 .hero-headline {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 2.2rem;
+  font-size: clamp(2.6rem, 4vw, 3.6rem);
   font-weight: 800;
   color: #1B1F1D !important;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
+  line-height: 1.12;
+  letter-spacing: -1px;
   margin-bottom: 0.55rem;
   text-transform: none;
 }
@@ -952,11 +952,28 @@ button {
 
 .hero-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.1rem !important;
   color: #525252 !important;
   line-height: 1.45;
   margin-bottom: 1.15rem;
-  max-width: 480px;
+  max-width: 500px;
+}
+
+.hero-location-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6B7280;
+  letter-spacing: 0.1px;
+}
+
+.hero-location-pin {
+  color: #1E6A43;
+  flex-shrink: 0;
 }
 
 /* Buttons */
@@ -1014,49 +1031,96 @@ button {
   color: #FFFFFF !important;
 }
 
-/* Right Column: Photo in 24px Radius Rounded Frame (fills frame, max 400px tall) */
+/* Right Column: 440px tall, position: relative */
 .hero-photo-col {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 16px 16px 16px 0;
+  justify-content: flex-end;
+  height: 440px;
+  padding: 0;
   box-sizing: border-box;
   width: 100%;
+  position: relative;
+  overflow: visible;
 }
 
-.hero-photo-frame-wrap {
+/* Wide Rounded Frame for Slides 1 & 2 (about 620x400, radius 24px) */
+.hero-photo-frame {
   position: relative;
   width: 100%;
   max-width: 620px;
-  height: 350px;
-  max-height: 400px;
+  height: 400px;
+  border-radius: 24px;
+  overflow: visible;
+  margin-left: auto;
 }
 
-.hero-photo-frame {
+.hero-wide-store-img {
   width: 100%;
   height: 100%;
   border-radius: 24px;
-  overflow: hidden;
-  background: #E5E7EB;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-.hero-photo-img {
+.hero-wide-produce-img {
   width: 100%;
   height: 100%;
+  border-radius: 24px;
   object-fit: cover;
-  object-position: center center;
+  object-position: left center;
   display: block;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* Round dark green badge (96px) overlapping top-right corner of photo, large "3" & small "FLOORS" */
+/* Floating White Card Overlapping Bottom-Left Corner */
+.hero-float-card {
+  position: absolute;
+  bottom: 16px;
+  left: -14px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7E2;
+  border-radius: 12px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  z-index: 5;
+  user-select: none;
+}
+
+.float-card-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22C55E;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.float-card-icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.float-card-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1B1F1D;
+  white-space: nowrap;
+}
+
+/* Round "3 FLOORS" Badge on Top-Right Corner of Photo */
 .hero-floors-badge {
   position: absolute;
-  top: -16px;
-  right: -16px;
-  width: 96px;
-  height: 96px;
+  top: -14px;
+  right: -14px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   background: #174F33;
   color: #FFFFFF;
@@ -1067,17 +1131,16 @@ button {
   text-align: center;
   z-index: 5;
   border: 4px solid #FBF9F4;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   user-select: none;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 .hero-floors-badge .badge-num {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   font-weight: 800;
-  line-height: 0.95;
+  line-height: 0.92;
   color: #FFFFFF;
   letter-spacing: -0.5px;
   display: block;
@@ -1085,9 +1148,9 @@ button {
 
 .hero-floors-badge .badge-text {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 800;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.4px;
   line-height: 1;
   color: rgba(255, 255, 255, 0.95);
   text-transform: uppercase;
@@ -1095,10 +1158,82 @@ button {
   margin-top: 2px;
 }
 
+/* Slide 3: Spices Cutout on Pale Circle enlarged by ~15% */
+.hero-visual-wrap {
+  position: relative;
+  width: 460px;
+  height: 440px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: visible;
+  margin-left: auto;
+}
+
+.hero-pale-circle {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background-color: #E4EFE6;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-cutout-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-height: 460px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.15));
+  display: block;
+  pointer-events: none;
+}
+
+.hero-slide-badge {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: #F2B531;
+  color: #174F33;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 5;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.hero-slide-badge .slide-badge-line1,
+.hero-slide-badge .slide-badge-line2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: #174F33;
+  display: block;
+}
+
 /* Slider Navigation Controls: moved to left column under buttons */
 .slider-controls-wrap {
   position: absolute;
-  bottom: 6px;
+  bottom: 0px;
   left: 0;
   width: calc(45% - 16px);
   display: flex;
@@ -1302,32 +1437,82 @@ button {
 
   .hero-photo-col {
     width: 100% !important;
-    padding: 0 4px !important;
+    padding: 0 !important;
+    height: 250px !important;
+    justify-content: center !important;
     flex: 1 1 100% !important;
   }
 
-  .hero-photo-frame-wrap {
+  .hero-photo-frame {
     max-width: 100% !important;
-    height: 195px !important;
+    height: 230px !important;
+    border-radius: 18px !important;
+  }
+
+  .hero-wide-store-img,
+  .hero-wide-produce-img {
+    border-radius: 18px !important;
+  }
+
+  .hero-float-card {
+    bottom: 10px !important;
+    left: 10px !important;
+    padding: 6px 12px !important;
+  }
+
+  .hero-float-card .float-card-text {
+    font-size: 0.72rem !important;
+  }
+
+  .hero-visual-wrap {
+    width: 260px !important;
+    height: 250px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+  }
+
+  .hero-pale-circle {
+    width: 240px !important;
+    height: 240px !important;
+    right: 10px !important;
+  }
+
+  .hero-cutout-img {
+    max-height: 240px !important;
+    right: 10px !important;
   }
 
   .hero-floors-badge {
-    width: 64px !important;
-    height: 64px !important;
-    top: -10px !important;
-    right: -10px !important;
+    width: 60px !important;
+    height: 60px !important;
+    top: -8px !important;
+    right: -8px !important;
     border-width: 3px !important;
   }
 
+  .hero-slide-badge {
+    width: 58px !important;
+    height: 58px !important;
+    top: 6px !important;
+    left: 8px !important;
+    border-width: 2px !important;
+  }
+
   .hero-floors-badge .badge-num {
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
     line-height: 0.95 !important;
   }
 
   .hero-floors-badge .badge-text {
-    font-size: 0.52rem !important;
+    font-size: 0.48rem !important;
     letter-spacing: 1px !important;
     line-height: 1 !important;
+  }
+
+  .hero-slide-badge .slide-badge-line1,
+  .hero-slide-badge .slide-badge-line2 {
+    font-size: 0.52rem !important;
+    letter-spacing: 0.8px !important;
   }
 
   .slider-controls-wrap {
@@ -2686,63 +2871,60 @@ button {
 
 .brand-badge-card {
   background: #ffffff;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  height: 76px;
-  min-height: 76px;
-  padding: 10px 16px;
+  border: 1px solid var(--border-light, #E5E7E2);
+  border-radius: var(--radius-md, 12px);
+  height: 72px;
+  min-height: 72px;
+  padding: 12px 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .brand-badge-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--primary-green, #1E6A43);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #D1D5DB;
   background: #ffffff;
 }
 
-.brand-badge-card img {
-  height: 44px;
+.brand-badge-card img,
+.brand-badge-card svg {
   max-height: 44px;
+  max-width: 120px;
   width: auto;
-  max-width: 124px;
+  height: auto;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.72;
-  transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 auto;
   display: block;
-}
-
-.brand-badge-card img[alt="Double Horse"] {
-  height: 52px;
-  max-height: 52px;
-}
-
-.brand-badge-card:hover img {
-  filter: grayscale(0%);
+  filter: none;
   opacity: 1;
-  transform: scale(1.06);
+}
+
+.brand-badge-card:hover img,
+.brand-badge-card:hover svg {
+  transform: none;
 }
 
 .brand-tag {
   font-family: 'Outfit', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
-  color: #64748b;
+  color: #174F33;
   letter-spacing: 0.3px;
-  transition: color 0.25s ease, transform 0.25s ease;
+  display: inline-block;
+  line-height: 1.2;
 }
 
 .brand-badge-card:hover .brand-tag {
-  color: var(--primary-green, #2A7F4F);
-  transform: scale(1.05);
+  color: var(--primary-green, #1E6A43);
+  transform: none;
 }
 
 /* ================= 9. WHATSAPP & APP DOWNLOAD BANNER ================= */
@@ -6457,9 +6639,9 @@ footer {
     width: 100% !important;
   }
 
-  /* 3. PROMO BANNERS (Mobile: Stacked cards with flush photos) */
+  /* 3. PROMO BANNERS (Tablet Grid) */
   .promo-banners-section {
-    padding: 40px 0 !important;
+    padding: 36px 0 !important;
   }
 
   .promo-two-col-grid {
@@ -6467,47 +6649,6 @@ footer {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
     width: 100% !important;
-  }
-
-  .promo-banner-card {
-    height: auto !important;
-    min-height: 185px !important;
-    max-height: none !important;
-    padding: 20px 18px !important;
-  }
-
-  .promo-banner-content {
-    flex: 1 1 58% !important;
-    max-width: 58% !important;
-  }
-
-  .promo-visual-flush {
-    width: 40% !important;
-  }
-
-  .promo-banner-title,
-  .promo-banner-title-dark {
-    font-size: 1.15rem !important;
-    margin-bottom: 4px !important;
-  }
-
-  .promo-banner-desc,
-  .promo-banner-desc-dark {
-    font-size: 0.78rem !important;
-    margin-bottom: 12px !important;
-  }
-
-  .promo-banner-btn {
-    font-size: 0.78rem !important;
-    padding: 0.48rem 0.95rem !important;
-  }
-
-  .promo-fresh-badge {
-    width: 44px !important;
-    height: 44px !important;
-    font-size: 0.5rem !important;
-    top: 10px !important;
-    right: 10px !important;
   }
 
   /* 3. PROMO BANNERS (Stack in one column) */
@@ -6757,25 +6898,28 @@ footer {
   .brand-badge-card {
     height: 60px !important;
     min-height: 60px !important;
-    padding: 6px 8px !important;
+    padding: 8px 12px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    box-sizing: border-box !important;
   }
 
-  .brand-badge-card img {
-    height: 36px !important;
-    max-height: 36px !important;
-    max-width: 85px !important;
-  }
-
-  .brand-badge-card img[alt="Double Horse"] {
-    height: 42px !important;
-    max-height: 42px !important;
+  .brand-badge-card img,
+  .brand-badge-card svg {
+    max-height: 38px !important;
+    max-width: 95px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: none !important;
+    opacity: 1 !important;
   }
 
   .brand-tag {
-    font-size: 0.8rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: #174F33 !important;
     text-align: center !important;
   }
 
@@ -8010,5 +8154,126 @@ footer {
   .btn-showcase-secondary {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* ================= PROMO BANNERS MOBILE FIX (@media (max-width: 767px)) ================= */
+@media (max-width: 767px) {
+  /* Page bottom padding (about 80px) so fixed bottom tab bar never covers the last banner */
+  body {
+    padding-bottom: 80px !important;
+  }
+
+  .promo-banners-section {
+    padding: 32px 0 !important;
+  }
+
+  .promo-two-col-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
+  /* Remove fixed 220px height (height:auto, min-height:0, max-height:none) */
+  .promo-banner-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  /* Stack each banner vertically: photo first, full width, height 150px, object-fit: cover, top corners rounded */
+  .promo-banner-visual,
+  .promo-visual-flush {
+    order: 1 !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    height: 150px !important;
+    min-height: 150px !important;
+    max-height: 150px !important;
+    border-radius: 16px 16px 0 0 !important;
+    overflow: hidden !important;
+    flex: 0 0 150px !important;
+    margin: 0 !important;
+  }
+
+  .promo-banner-visual img,
+  .promo-visual-flush img,
+  .promo-banner-img {
+    width: 100% !important;
+    height: 150px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+  }
+
+  /* Then the text block with 20px padding underneath */
+  .promo-banner-content {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 auto !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    align-items: flex-start !important;
+  }
+
+  .promo-banner-tag {
+    font-size: 0.72rem !important;
+    letter-spacing: 1.2px !important;
+    margin-bottom: 6px !important;
+    display: inline-block !important;
+  }
+
+  .promo-banner-title,
+  .promo-banner-title-dark {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    margin: 0 0 8px 0 !important;
+  }
+
+  .promo-banner-desc,
+  .promo-banner-desc-dark {
+    font-size: 0.85rem !important;
+    line-height: 1.45 !important;
+    margin: 0 0 16px 0 !important;
+    max-width: 100% !important;
+  }
+
+  .promo-banner-btn {
+    font-size: 0.84rem !important;
+    padding: 0.55rem 1.25rem !important;
+    align-self: flex-start !important;
+  }
+
+  /* Keep the yellow "FRESH DAILY" badge on the top-right corner of the photo */
+  .promo-fresh-badge {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    background: #F2B531 !important;
+    color: #174F33 !important;
+    z-index: 5 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18) !important;
   }
 }
