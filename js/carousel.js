@@ -155,23 +155,62 @@ class Carousel {
   // ================= SLIDE LOGIC (HERO) ================= //
   showSlide(index) {
     if (!this.slides.length) return;
+    if (this.isTransitioning) return;
 
-    if (index >= this.slides.length) {
-      this.currentIndex = 0;
-    } else if (index < 0) {
-      this.currentIndex = this.slides.length - 1;
-    } else {
-      this.currentIndex = index;
+    let targetIndex = index;
+    if (targetIndex >= this.slides.length) {
+      targetIndex = 0;
+    } else if (targetIndex < 0) {
+      targetIndex = this.slides.length - 1;
     }
 
-    this.slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === this.currentIndex);
+    if (targetIndex === this.currentIndex) return;
+
+    // Reduced motion: instant switch without transition animation
+    if (this.reducedMotion) {
+      this.slides.forEach((slide, i) => {
+        slide.classList.remove('slide-leaving', 'slide-incoming');
+        slide.classList.toggle('active', i === targetIndex);
+      });
+      this.dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === targetIndex);
+        dot.setAttribute('aria-selected', i === targetIndex ? 'true' : 'false');
+      });
+      this.currentIndex = targetIndex;
+      return;
+    }
+
+    const currentSlide = this.slides[this.currentIndex];
+    const nextSlide = this.slides[targetIndex];
+
+    this.isTransitioning = true;
+
+    // Immediately update pagination dots to target slide
+    this.dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === targetIndex);
+      dot.setAttribute('aria-selected', i === targetIndex ? 'true' : 'false');
     });
 
-    this.dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === this.currentIndex);
-      dot.setAttribute('aria-selected', i === this.currentIndex ? 'true' : 'false');
-    });
+    // Step 1: Outgoing slide text fades out (0.25s).
+    // Incoming slide crossfades photo only; text remains strictly hidden (opacity 0).
+    currentSlide.classList.add('slide-leaving');
+    nextSlide.classList.add('slide-incoming');
+
+    // Wait exactly 250ms for outgoing text to completely fade out
+    setTimeout(() => {
+      // Step 2: At 250ms, outgoing text is 100% invisible.
+      // Activate next slide so incoming text fades in (0.25s).
+      currentSlide.classList.remove('active', 'slide-leaving');
+      nextSlide.classList.remove('slide-incoming');
+      void nextSlide.offsetWidth;
+      nextSlide.classList.add('active');
+      this.currentIndex = targetIndex;
+
+      // Allow 250ms for incoming text to fade in before next transition is allowed
+      setTimeout(() => {
+        this.isTransitioning = false;
+      }, 250);
+    }, 250);
   }
 
   // ================= TRACK SCROLL LOGIC (PRODUCTS / CATEGORY) ================= //

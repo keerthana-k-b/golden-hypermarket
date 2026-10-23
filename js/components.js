@@ -112,7 +112,7 @@ const SiteComponents = {
           <div class="container">
             <div class="hdr-utility-inner">
               
-              <!-- Left Utility Group -->
+              <!-- Left Utility Group (Location & Hours) -->
               <div class="hdr-utility-left">
                 <!-- Store Location Link -->
                 <a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer" class="hdr-utility-item hdr-loc-link" id="locationSelector" title="Visit us: Pala, Kottayam (Get Directions)">
@@ -128,18 +128,9 @@ const SiteComponents = {
                 </div>
               </div>
 
-              <!-- Center Utility Tagline -->
-              <div class="hdr-utility-center">
-                <div class="hdr-coupon-chip">
-                  <span class="hdr-icon hdr-gold-bright-color">${LucideIcons.zap}</span>
-                  <span class="hdr-coupon-tag">SHOWCASE</span>
-                  <span>Pala's Heritage Superstore • <strong>Opp. St. George's Church</strong></span>
-                </div>
-              </div>
-
-              <!-- Right Utility Group -->
+              <!-- Right Utility Group (Phone & Language) -->
               <div class="hdr-utility-right">
-                <!-- Helpdesk -->
+                <!-- Phone -->
                 <div class="hdr-utility-item hdr-helpdesk-link">
                   <a href="tel:+918606647777" title="Call Pala Store Helpdesk">
                     <span class="hdr-icon">${LucideIcons.phone}</span>

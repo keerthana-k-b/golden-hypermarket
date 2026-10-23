@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -36,141 +36,130 @@
 
     <!-- ================= HERO BANNER SLIDER ================= -->
     <section class="hero-slider-section" aria-label="Featured Offers and Announcements">
-      <div class="container hero-container">
+      <div class="hero-max-container">
         
         <div class="hero-slider-wrapper" id="heroSlider">
           
           <!-- Slide 1 -->
           <div class="hero-slide active" data-slide="0">
-            <div class="hero-split-panel">
-              <div class="hero-text-panel">
+            <div class="hero-two-col">
+              <div class="hero-text-col">
                 <span class="hero-label">NOW OPEN IN PALA</span>
-                <h1 class="hero-headline">Pala's premium hypermarket</h1>
+                <h1 class="hero-headline">Pala's <span class="hero-highlight-green">premium</span> hypermarket</h1>
                 <p class="hero-desc">Fresh produce, groceries and household essentials across 3 floors.</p>
-                <div class="hero-cta-wrap">
-                  <a href="#storeInfo" class="hero-gold-btn">Visit the Store</a>
+                <div class="hero-btn-group">
+                  <a href="#shopByCategory" class="hero-btn-filled">Explore Departments</a>
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer" class="hero-btn-outlined">Get Directions</a>
                 </div>
               </div>
-              <div class="hero-image-panel">
-                <img src="assets/images/golden-store.jpg" alt="Golden Hypermarket Pala store building" class="hero-store-img">
+              <div class="hero-photo-col">
+                <div class="hero-photo-frame-wrap">
+                  <div class="hero-photo-frame">
+                    <img src="assets/images/golden-store.jpg" alt="Golden Hypermarket Pala storefront" class="hero-photo-img">
+                  </div>
+                  <div class="hero-floors-badge" aria-label="3 Floors">
+                    <span>3 FLOORS</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Slide 2 -->
           <div class="hero-slide" data-slide="1">
-            <div class="hero-split-panel">
-              <div class="hero-text-panel">
-                <span class="hero-label">NOW OPEN IN PALA</span>
-                <h2 class="hero-headline">Pala's premium hypermarket</h2>
-                <p class="hero-desc">Fresh produce, groceries and household essentials across 3 floors.</p>
-                <div class="hero-cta-wrap">
-                  <a href="#storeInfo" class="hero-gold-btn">Visit the Store</a>
+            <div class="hero-two-col">
+              <div class="hero-text-col">
+                <span class="hero-label">FRESH EVERY DAY</span>
+                <h1 class="hero-headline">Farm-fresh fruits &amp; vegetables</h1>
+                <p class="hero-desc">Picked daily from trusted farms around Pala.</p>
+                <div class="hero-btn-group">
+                  <a href="category.html?cat=produce" class="hero-btn-filled">Shop Fresh Produce</a>
                 </div>
               </div>
-              <div class="hero-image-panel">
-                <img src="assets/images/golden-store.jpg" alt="Golden Hypermarket Pala store building" class="hero-store-img">
+              <div class="hero-photo-col">
+                <div class="hero-photo-frame-wrap">
+                  <div class="hero-photo-frame">
+                    <img src="assets/images/hero-vegetables.jpg" alt="Farm fresh vegetables and fruits" class="hero-photo-img">
+                  </div>
+                  <div class="hero-floors-badge" aria-label="3 Floors">
+                    <span>3 FLOORS</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Slide 3 -->
           <div class="hero-slide" data-slide="2">
-            <div class="hero-split-panel">
-              <div class="hero-text-panel">
-                <span class="hero-label">NOW OPEN IN PALA</span>
-                <h2 class="hero-headline">Pala's premium hypermarket</h2>
-                <p class="hero-desc">Fresh produce, groceries and household essentials across 3 floors.</p>
-                <div class="hero-cta-wrap">
-                  <a href="#storeInfo" class="hero-gold-btn">Visit the Store</a>
+            <div class="hero-two-col">
+              <div class="hero-text-col">
+                <span class="hero-label">KERALA FLAVOURS</span>
+                <h1 class="hero-headline">Authentic Kerala staples &amp; spices</h1>
+                <p class="hero-desc">Rice, spices and everyday essentials your family trusts.</p>
+                <div class="hero-btn-group">
+                  <a href="category.html?cat=grocery" class="hero-btn-filled">Shop Staples &amp; Spices</a>
                 </div>
               </div>
-              <div class="hero-image-panel">
-                <img src="assets/images/golden-store.jpg" alt="Golden Hypermarket Pala store building" class="hero-store-img">
+              <div class="hero-photo-col">
+                <div class="hero-photo-frame-wrap">
+                  <div class="hero-photo-frame">
+                    <img src="assets/images/hero-spices.jpg" alt="Authentic Kerala spices and groceries" class="hero-photo-img">
+                  </div>
+                  <div class="hero-floors-badge" aria-label="3 Floors">
+                    <span>3 FLOORS</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Slider Navigation Arrows -->
-          <button class="slider-arrow prev-arrow" id="heroPrevBtn" aria-label="Previous Slide">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button class="slider-arrow next-arrow" id="heroNextBtn" aria-label="Next Slide">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-
-          <!-- Slider Pagination Dots -->
-          <div class="slider-dots" id="heroDotsContainer" role="tablist">
-            <button class="slider-dot active" data-index="0" role="tab" aria-label="Slide 1"></button>
-            <button class="slider-dot" data-index="1" role="tab" aria-label="Slide 2"></button>
-            <button class="slider-dot" data-index="2" role="tab" aria-label="Slide 3"></button>
+          <!-- Slider Navigation (Small round arrows & small dots below) -->
+          <div class="slider-controls-wrap">
+            <button class="slider-arrow prev-arrow" id="heroPrevBtn" aria-label="Previous Slide">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <div class="slider-dots" id="heroDotsContainer" role="tablist" aria-label="Hero slider pagination">
+              <button class="slider-dot active" data-index="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+              <button class="slider-dot" data-index="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+              <button class="slider-dot" data-index="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+            </div>
+            <button class="slider-arrow next-arrow" id="heroNextBtn" aria-label="Next Slide">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
           </div>
 
         </div>
 
-        <!-- Hero Side Quick Promo Banner Cards -->
-        <div class="hero-side-banners">
-          <div class="side-banner-card side-banner-gold">
-            <div class="side-banner-badge">IN-STORE SHOPPING</div>
-            <h3>Visit Our Store</h3>
-            <p>Shop across 3 floors with free parking in Pala.</p>
-            <div class="side-banner-callout">
-              <span>Open Daily 8 AM - 10 PM</span>
+        <!-- Fixed Row of 4 Trust Items Below the Slider (Not Part of Slider) -->
+        <div class="hero-trust-row" aria-label="Store Trust Highlights">
+          <div class="trust-grid">
+            <div class="trust-item">
+              <div class="trust-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.9a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
+              </div>
+              <span class="trust-title">3 Floors of Shopping</span>
             </div>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer" class="side-banner-btn">
-              <span>Get Directions</span>
-              <i class="fa-solid fa-location-dot"></i>
-            </a>
-          </div>
-
-          <div class="side-banner-card side-banner-green">
-            <div class="side-banner-badge">WEEKEND OFFER</div>
-            <h3>Fresh Fish & Meat</h3>
-            <p>Cleaned, cut & hygienically packed fresh daily cuts.</p>
-            <div class="side-banner-callout">
-              <span>Daily Fresh Catch</span>
+            <div class="trust-item">
+              <div class="trust-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              </div>
+              <span class="trust-title">Fresh Every Day</span>
             </div>
-            <a href="category.html?cat=meat-fish" class="side-banner-btn">
-              <span>Order Fresh Cuts</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Trust Badges Strip Under Hero -->
-      <div class="hero-features-bar">
-        <div class="container features-grid">
-          <div class="feature-item">
-            <div class="feature-icon"><i class="fa-solid fa-square-parking"></i></div>
-            <div class="feature-info">
-              <h4>Free Parking</h4>
-              <p>Multi-level parking in Pala</p>
+            <div class="trust-item">
+              <div class="trust-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-parking"><circle cx="12" cy="12" r="10"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+              </div>
+              <span class="trust-title">Free Parking</span>
             </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
-            <div class="feature-info">
-              <h4>100% Fresh Produce</h4>
-              <p>Direct from high-range farms</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon"><i class="fa-solid fa-tags"></i></div>
-            <div class="feature-info">
-              <h4>Guaranteed Best Prices</h4>
-              <p>Super saver deals every week</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
-            <div class="feature-info">
-              <h4>Dedicated Local Support</h4>
-              <p>Pala Helpdesk: 86066 47777</p>
+            <div class="trust-item">
+              <div class="trust-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <span class="trust-title">Open 8 AM – 10 PM</span>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
