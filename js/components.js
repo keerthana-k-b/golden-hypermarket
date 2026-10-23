@@ -379,10 +379,26 @@ const SiteComponents = {
                 Pala’s premier shopping destination for 60 years. Committed to offering fresh farm produce, pure staples, fish, meat, electronics and household goods at the lowest prices.
               </p>
               <div class="footer-social-icons">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon-btn"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://wa.me/918606647777" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/goldenhypermarketpala/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </a>
+                <a href="#" aria-label="Facebook" class="social-icon-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.361H7.332v3.209h2.753v8.196h3.312z"/>
+                  </svg>
+                </a>
+                <a href="#" aria-label="YouTube" class="social-icon-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M21.582 7.176a2.76 2.76 0 0 0-1.942-1.954C17.927 4.75 12 4.75 12 4.75s-5.927 0-7.64.472A2.76 2.76 0 0 0 2.418 7.176C2 8.9 2 12 2 12s0 3.1.418 4.824a2.76 2.76 0 0 0 1.942 1.954c1.713.472 7.64.472 7.64.472s5.927 0 7.64-.472a2.76 2.76 0 0 0 1.942-1.954c.418-1.724.418-4.824.418-4.824s0-3.1-.418-4.824zM9.75 14.85V9.15l5.25 2.85-5.25 2.85z"/>
+                  </svg>
+                </a>
+                <a href="#" aria-label="WhatsApp" class="social-icon-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12.004 2c-5.517 0-9.998 4.477-9.998 9.994 0 1.763.459 3.484 1.332 5.001L2 22l5.163-1.321a9.96 9.96 0 0 0 4.841 1.258h.004c5.516 0 9.996-4.477 9.996-9.995 0-2.67-1.04-5.18-2.928-7.067A9.927 9.927 0 0 0 12.004 2zm5.836 14.174c-.244.686-1.42 1.309-1.955 1.393-.518.082-1.196.117-3.484-.83-2.924-1.21-4.81-4.186-4.956-4.38-.145-.194-1.189-1.583-1.189-3.02 0-1.436.75-2.143 1.018-2.435.267-.292.583-.365.777-.365.195 0 .39.002.56.01.18.009.421-.069.658.5.244.584.829 2.02.902 2.167.073.146.122.317.025.512-.097.195-.146.317-.292.487-.146.17-.308.38-.44.51-.146.147-.298.307-.128.6.17.292.756 1.246 1.621 2.016 1.112.99 2.05 1.296 2.342 1.442.292.146.463.122.634-.073.17-.195.731-.853.926-1.145.195-.292.39-.244.658-.146.268.097 1.706.804 2.0.95.292.146.487.219.56.34.073.122.073.707-.171 1.393z"/>
+                  </svg>
+                </a>
               </div>
             </div>
 
@@ -1072,6 +1088,10 @@ const SiteComponents = {
       produce: 'fa-carrot',
       fruits: 'fa-apple-whole',
       'meat-fish': 'fa-fish',
+      meat: 'fa-drumstick-bite',
+      poultry: 'fa-drumstick-bite',
+      fish: 'fa-fish',
+      seafood: 'fa-fish',
       dairy: 'fa-egg',
       bakery: 'fa-bread-slice',
       household: 'fa-spray-can-sparkles',
@@ -1079,9 +1099,49 @@ const SiteComponents = {
       electronics: 'fa-blender',
       fashion: 'fa-shirt'
     };
-    const catIcon = catIconMap[product.category] || 'fa-basket-shopping';
+    let catIcon = catIconMap[product.category] || 'fa-basket-shopping';
+    if (product.category === 'meat-fish') {
+      const nameLower = (product.name || '').toLowerCase();
+      if (nameLower.includes('chicken') || nameLower.includes('mutton') || nameLower.includes('meat') || nameLower.includes('beef')) {
+        catIcon = 'fa-drumstick-bite';
+      } else {
+        catIcon = 'fa-fish';
+      }
+    }
 
-    const hasImage = Boolean(product.image && typeof product.image === 'string' && product.image.trim() !== '' && !product.image.includes('placeholder'));
+    // Disallow dark plates or scenic lifestyle shots; show neutral category icon instead
+    const isDarkPlateOrScenic = (img) => {
+      if (!img || typeof img !== 'string') return true;
+      const patterns = [
+        'fresh-karimeen-pearl-spot',
+        'seer-fish-neymeen-steaks',
+        'fresh-sardine-mathi',
+        'fresh-mackerel-ayala',
+        'photo-1534482421-64566f976cfa',
+        'photo-1603048588665-791ca8aea617',
+        'photo-1604503468506-a8da13d82791',
+        'photo-1565680018434-b513d5e5fd47',
+        'photo-1593105544559-ecb03bf76f82',
+        'photo-1592924357228-91a4daadcfea',
+        'photo-1519708227418-c8fd9a32b7a2',
+        'photo-1474979266404-7eaacbcd87c5',
+        'photo-1576092768241-dec231879fc3',
+        'photo-1550009158-9ebf69173e03',
+        'photo-1489987707025-afc232f7ea0f',
+        'photo-1556911220-e15b29be8c8f',
+        'photo-1540420773420-3366772f4999',
+        'photo-1542838132-92c53300491e'
+      ];
+      return patterns.some(p => img.includes(p));
+    };
+
+    const hasImage = Boolean(
+      product.image &&
+      typeof product.image === 'string' &&
+      product.image.trim() !== '' &&
+      !product.image.includes('placeholder') &&
+      !isDarkPlateOrScenic(product.image)
+    );
 
     return `
       <a href="product.html?id=${product.id}" class="product-card" data-product-id="${product.id}" title="${product.name}">

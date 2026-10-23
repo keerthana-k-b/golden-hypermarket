@@ -1252,7 +1252,7 @@ nav.hdr-category-bar .hdr-nav-links-scroll .hdr-nav-link:focus-visible,
 @media (min-width: 1024px) {
   /* Utility Bar */
   .hdr-utility-bar {
-    max-height: 40px;
+    max-height: 34px;
     height: auto;
     background: #174F33 !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -1262,7 +1262,7 @@ nav.hdr-category-bar .hdr-nav-links-scroll .hdr-nav-link:focus-visible,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 40px;
+    min-height: 32px;
     padding: 0 1.5rem;
     max-width: 1366px;
     margin: 0 auto;
@@ -1353,9 +1353,9 @@ nav.hdr-category-bar .hdr-nav-links-scroll .hdr-nav-link:focus-visible,
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    min-height: 72px;
+    min-height: 56px;
     height: auto;
-    padding: 0.65rem 1.5rem;
+    padding: 0.35rem 1.5rem;
     max-width: 1366px;
     margin: 0 auto;
     gap: 1.25rem;
@@ -1382,8 +1382,8 @@ nav.hdr-category-bar .hdr-nav-links-scroll .hdr-nav-link:focus-visible,
   }
 
   .hdr-logo-tile {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: #ffffff;
     border: 2px solid #1E6A43;
@@ -1392,7 +1392,7 @@ nav.hdr-category-bar .hdr-nav-links-scroll .hdr-nav-link:focus-visible,
     justify-content: center;
     flex-shrink: 0;
     overflow: hidden;
-    padding: 3px;
+    padding: 2px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   }
 
@@ -1614,8 +1614,8 @@ nav.hdr-category-bar .hdr-nav-links-scroll .hdr-nav-link:focus-visible,
   .hdr-category-bar {
     background: #ffffff;
     border-bottom: 1px solid #e2e8f0;
-    height: 50px;
-    min-height: 50px;
+    height: 42px;
+    min-height: 42px;
     padding: 0;
     overflow: visible;
   }
@@ -1624,7 +1624,7 @@ nav.hdr-category-bar .hdr-nav-links-scroll .hdr-nav-link:focus-visible,
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 50px;
+    height: 42px;
     max-width: 1366px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -1647,10 +1647,10 @@ nav.hdr-category-bar .hdr-nav-links-scroll .hdr-nav-link:focus-visible,
     background: #1E6A43;
     color: #ffffff;
     font-weight: 800;
-    font-size: 0.88rem;
-    padding: 0 1.25rem;
-    height: 38px;
-    border-radius: 12px;
+    font-size: 0.82rem;
+    padding: 0 1rem;
+    height: 32px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
     transition: all 0.18s ease;
