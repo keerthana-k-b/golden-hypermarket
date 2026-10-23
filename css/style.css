@@ -1667,99 +1667,159 @@ button {
 }
 
 
+/* ================= SECTION HEADERS & 72PX SPACING ================= */
+.section {
+  padding: 72px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Background Alternation: White page background with #F6F7F4 alternate sections */
+#shopByCategory {
+  background-color: #F6F7F4 !important;
+}
+
+.promo-banners-section {
+  background-color: #ffffff !important;
+}
+
+#freshFruitsVegetables {
+  background-color: #F6F7F4 !important;
+}
+
+#meatFishSection {
+  background-color: #ffffff !important;
+}
+
+#dairySection {
+  background-color: #F6F7F4 !important;
+}
+
+#householdSection {
+  background-color: #ffffff !important;
+}
+
+#weeklyDeals {
+  background-color: #F6F7F4 !important;
+}
+
+#keralaSpecialStaples {
+  background-color: #ffffff !important;
+}
+
+#bakerySection {
+  background-color: #F6F7F4 !important;
+}
+
+#electronicsSection {
+  background-color: #ffffff !important;
+}
+
+.brands-strip-section {
+  background-color: #F6F7F4 !important;
+}
+
+.visit-showcase-banner-section,
+.store-info-section {
+  background-color: #ffffff !important;
+}
+
 .section-header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
   gap: 1rem;
 }
 
 .section-title-wrap {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .section-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.65rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.55rem;
   font-weight: 800;
-  color: var(--primary-green-dark);
+  color: #1B1F1D;
   line-height: 1.2;
+  margin: 0;
+  text-align: left;
 }
 
-.section-subtitle {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  margin-top: 2px;
+.section-subtitle,
+.section-badge {
+  display: none !important;
 }
 
 .section-actions {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 10px;
 }
 
 .carousel-nav-btn {
   width: 32px;
   height: 32px;
   background: #ffffff;
-  border: 1px solid #E5E7E2;
+  border: 1px solid #E5E7EB;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #1B1F1D;
-  font-size: 0.8rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-size: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .carousel-nav-btn:hover {
   background: #F6F7F4;
-  color: #1B1F1D;
-  border-color: #E5E7E2;
-  transform: none;
+  border-color: #D1D5DB;
 }
 
 .view-all-link {
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: var(--primary-green);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1E6A43 !important;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  letter-spacing: 0.5px;
-  padding: 0.4rem 0.75rem;
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-  margin-left: 0.4rem;
+  gap: 5px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
 }
 
 .view-all-link:hover {
-  background: var(--primary-green-subtle);
-  color: var(--primary-green-dark);
+  color: #174F33 !important;
   transform: translateX(2px);
 }
 
-/* ================= 5. SHOP BY CATEGORY (ROUND CIRCLE TILES) ================= */
+/* ================= 5. SHOP BY CATEGORY (WHITE ROUNDED CARD) ================= */
 .category-tiles-section {
-  padding: 48px 0;
+  padding: 72px 0;
 }
 
-.category-tiles-carousel {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.25rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  padding: 0.5rem 0.25rem 1rem;
+.category-main-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E5E7EB;
+  padding: 24px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.category-tiles-carousel::-webkit-scrollbar {
-  display: none;
+.category-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .category-tile-card {
@@ -1767,239 +1827,234 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-width: 105px;
-  max-width: 115px;
-  flex-shrink: 0;
   text-decoration: none;
-  transition: transform var(--transition-fast);
+  padding: 12px 6px 14px 6px;
+  border-radius: 12px;
+  background: #ffffff;
+  transition: transform 0.2s ease, background 0.2s ease;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.category-tile-card:hover {
+  transform: translateY(-2px);
+  background: #F6F7F4;
 }
 
 .cat-circle-img-wrap {
-  width: 96px;
-  height: 96px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: #ffffff;
-  border: 2px solid #e2e8f0;
-  box-shadow: var(--shadow-sm);
-  padding: 5px;
+  background: #F6F7F4;
   overflow: hidden;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-normal);
-  position: relative;
+  flex-shrink: 0;
+  border: 1px solid #E5E7EB;
 }
 
 .cat-circle-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  transition: transform var(--transition-normal);
-}
-
-.category-tile-card:hover {
-  transform: translateY(-2px);
-}
-
-.category-tile-card:hover .cat-circle-img-wrap {
-  border-color: #D9A62E;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  background: #F6F7F4;
+  display: block;
+  transition: transform 0.25s ease;
 }
 
 .category-tile-card:hover .cat-circle-img-wrap img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .cat-tile-name {
-  font-size: 0.88rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--text-main);
-  margin-top: 0.65rem;
-  line-height: 1.2;
-}
-
-.cat-tile-ml {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
-
-/* ================= 6. PROMO BANNER GRID (3 BRIGHT LIGHT TILES) ================= */
-.promo-banners-section {
-  padding: 48px 0;
-}
-
-.promo-banners-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-
-.promo-tile-card {
-  border-radius: var(--radius-xl);
-  padding: 1.6rem 1.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  min-height: 200px;
-  background: #FFFFFF;
-  border: 1px solid #E5E7E2;
-  border-radius: 12px;
-}
-
-.promo-tile-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-/* Banner Tints: Flat solid white with thin #E5E7E2 border */
-.promo-tile-amber,
-.promo-tile-mint,
-.promo-tile-sky {
-  background: #FFFFFF;
-  border: 1px solid #E5E7E2;
-}
-
-.promo-content {
-  flex: 1;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.promo-chip {
-  display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 800;
-  padding: 3px 8px;
-  border-radius: var(--radius-full);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.5rem;
-}
-
-.amber-chip {
-  background: #d97706;
-  color: #ffffff;
-}
-
-.mint-chip {
-  background: #059669;
-  color: #ffffff;
-}
-
-.sky-chip {
-  background: #0284c7;
-  color: #ffffff;
-}
-
-.promo-headline {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #0f172a;
+  color: #1B1F1D;
+  margin-bottom: 8px;
   line-height: 1.25;
-  margin-bottom: 0.35rem;
+  text-align: center;
 }
 
-.promo-subtext {
-  font-size: 0.78rem;
-  color: #475569;
-  margin-bottom: 0.65rem;
-  line-height: 1.35;
-}
-
-.promo-deal-tag {
-  display: flex;
-  align-items: baseline;
-  gap: 0.4rem;
-  margin-bottom: 0.85rem;
-}
-
-.tag-bold {
-  font-weight: 800;
-  font-size: 0.88rem;
-  color: var(--deal-red);
-}
-
-.tag-sub {
-  font-size: 0.74rem;
-  color: #64748b;
-}
-
-.promo-btn {
-  padding: 0.45rem 1rem;
-  border-radius: var(--radius-full);
-  font-size: 0.82rem;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: all var(--transition-fast);
-}
-
-.promo-btn-amber {
-  background: #d97706;
-  color: #ffffff;
-}
-
-.promo-btn-amber:hover {
-  background: #b45309;
-  transform: translateX(3px);
-}
-
-.promo-btn-mint {
-  background: #059669;
-  color: #ffffff;
-}
-
-.promo-btn-mint:hover {
-  background: #047857;
-  transform: translateX(3px);
-}
-
-.promo-btn-sky {
-  background: #0284c7;
-  color: #ffffff;
-}
-
-.promo-btn-sky:hover {
-  background: #0369a1;
-  transform: translateX(3px);
-}
-
-.promo-visual {
-  width: 105px;
-  height: 105px;
-  flex-shrink: 0;
+.cat-tile-arrow {
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  padding: 4px;
+  background: #F6F7F4;
+  color: #1E6A43;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  margin-top: auto;
 }
 
-.promo-visual img {
+.cat-tile-arrow svg {
+  display: block;
+}
+
+.category-tile-card:hover .cat-tile-arrow {
+  background: #1E6A43;
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+/* ================= 6. TWO PROMO BANNERS (EQUAL HEIGHT SIDE BY SIDE) ================= */
+.promo-banners-section {
+  padding: 72px 0;
+}
+
+.promo-two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.promo-banner-card {
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 230px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Banner 1: Dark Green #1E6A43 Flat */
+.promo-banner-dark {
+  background-color: #1E6A43 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+/* Banner 2: Light #EEF3EF Flat */
+.promo-banner-light {
+  background-color: #EEF3EF !important;
+  color: #174F33 !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+.promo-banner-content {
+  flex: 1 1 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.promo-banner-tag {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.promo-banner-tag-dark {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #1E6A43;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.promo-banner-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff !important;
+  line-height: 1.25;
+  margin: 0 0 8px 0;
+}
+
+.promo-banner-title-dark {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #174F33 !important;
+  line-height: 1.25;
+  margin: 0 0 8px 0;
+}
+
+.promo-banner-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.45;
+  margin: 0 0 20px 0;
+  max-width: 310px;
+}
+
+.promo-banner-desc-dark {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0 0 20px 0;
+  max-width: 310px;
+}
+
+.promo-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.promo-btn-white {
+  background: #ffffff !important;
+  color: #1E6A43 !important;
+}
+
+.promo-btn-white:hover {
+  background: #F6F7F4 !important;
+  transform: translateX(2px);
+}
+
+.promo-btn-green {
+  background: #1E6A43 !important;
+  color: #ffffff !important;
+}
+
+.promo-btn-green:hover {
+  background: #174F33 !important;
+  transform: translateX(2px);
+}
+
+.promo-banner-visual {
+  flex: 0 0 135px;
+  width: 135px;
+  height: 135px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.promo-banner-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  transition: transform var(--transition-normal);
-}
-
-.promo-tile-card:hover .promo-visual img {
-  transform: scale(1.12);
+  display: block;
 }
 
 /* ================= RESPONSIVE MEDIA QUERIES ================= */
@@ -2068,25 +2123,63 @@ button {
   .search-submit-btn {
     padding: 0.65rem 0.9rem;
   }
-  .category-nav-bar {
-    display: none;
+  .section {
+    padding: 44px 0 !important;
   }
   .section-title {
-    font-size: 1.35rem;
+    font-size: 1.3rem !important;
+  }
+  .category-tiles-section {
+    padding: 44px 0 !important;
+  }
+  .category-main-card {
+    padding: 16px 10px !important;
+    border-radius: 14px !important;
+  }
+  .category-tiles-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 8px !important;
   }
   .cat-circle-img-wrap {
-    width: 80px;
-    height: 80px;
+    width: 48px !important;
+    height: 48px !important;
   }
-  .category-tile-card {
-    min-width: 88px;
-    max-width: 95px;
+  .cat-tile-name {
+    font-size: 0.72rem !important;
+  }
+  .cat-tile-arrow {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .cat-tile-arrow svg {
+    width: 11px !important;
+    height: 11px !important;
+  }
+  .promo-banners-section {
+    padding: 44px 0 !important;
+  }
+  .promo-two-col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .promo-banner-card {
+    padding: 20px 16px !important;
+    min-height: auto !important;
+  }
+  .promo-banner-visual {
+    flex: 0 0 100px !important;
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .promo-banner-title,
+  .promo-banner-title-dark {
+    font-size: 1.25rem !important;
   }
 }
 
 /* ================= 7. PRODUCT CAROUSELS & PRODUCT CARDS ================= */
 .product-carousel-section {
-  padding: 48px 0;
+  padding: 72px 0;
 }
 
 .section-badge {
@@ -2134,67 +2227,67 @@ button {
   display: none;
 }
 
-/* Product Card - Compact Hypermarket Catalogue Showcase Style */
+/* Product Card - Clean Hypermarket Style (White, 4:3 Image, Small Green Discount, No Buttons/Hearts) */
 .product-card {
-  min-width: 190px;
-  max-width: 190px;
-  width: 190px;
-  flex: 0 0 190px;
+  min-width: 195px;
+  max-width: 195px;
+  width: 195px;
+  flex: 0 0 195px;
   flex-shrink: 0;
   background: #ffffff;
   border-radius: 12px;
-  border: 1px solid var(--border-light, #e2e8f0);
-  padding: 10px;
+  border: 1px solid #E5E7EB;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   position: relative;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.24s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   box-sizing: border-box;
 }
 
 .product-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  border-color: #E5E7E2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: #D1D5DB;
 }
 
-/* Discount: small red pill in the image's top-left corner */
+/* Small green discount tag */
 .card-discount-badge {
   position: absolute;
-  top: 6px;
-  left: 6px;
+  top: 8px;
+  left: 8px;
   z-index: 3;
-  background: #dc2626;
-  color: #ffffff;
+  background: #1E6A43 !important;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.65rem;
-  font-weight: 800;
-  padding: 2px 7px;
-  border-radius: 999px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
   letter-spacing: 0.3px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   pointer-events: none;
   line-height: 1.2;
 }
 
 .product-card > .card-discount-badge {
-  top: 16px;
-  left: 16px;
+  top: 8px;
+  left: 8px;
 }
 
-/* Image box: aspect-ratio 4/3, about 130px tall, object-fit: contain, padding 8px */
+/* Image box: 4:3 aspect ratio, white background, object-fit contain */
 .product-img-wrap {
   width: 100%;
   aspect-ratio: 4 / 3;
-  height: 130px;
-  max-height: 130px;
+  height: auto;
+  max-height: none;
   background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 6px;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -2206,13 +2299,14 @@ button {
   height: 100%;
   object-fit: contain;
   transition: transform 0.25s ease;
+  display: block;
 }
 
 .product-card:hover .product-img-wrap img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
-/* Clean neutral placeholder with category icon */
+/* Clean neutral placeholder */
 .product-img-placeholder {
   width: 100%;
   height: 100%;
@@ -2222,7 +2316,7 @@ button {
   background: #f8fafc;
   border-radius: 8px;
   color: #94a3b8;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 /* Product Meta, Name, Weight, Price */
@@ -2230,22 +2324,22 @@ button {
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
-/* Remove Malayalam subtitle and brand from product card */
 .product-card .product-brand,
 .product-card .product-title-ml {
   display: none !important;
 }
 
-/* Name: one or two lines max (line-clamp 2), font 0.9rem */
+/* Name */
 .product-title {
-  font-size: 0.9rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.92rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #1B1F1D;
   line-height: 1.3;
-  margin: 0 0 3px 0;
+  margin: 0 0 4px 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -2254,16 +2348,17 @@ button {
   min-height: 2.6em;
 }
 
-/* Weight in small grey text */
+/* Weight */
 .product-weight {
+  font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #64748b;
-  margin-bottom: 6px;
+  color: #64748B;
+  margin-bottom: 8px;
   line-height: 1.2;
 }
 
-/* Price in bold on the same row as the old price */
+/* Price */
 .product-pricing {
   margin-top: auto;
   padding-top: 2px;
@@ -2279,17 +2374,29 @@ button {
 .curr-price {
   font-size: 1.05rem;
   font-weight: 800;
-  color: #1F6B42;
-  font-family: 'Outfit', sans-serif;
+  color: #1E6A43;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   line-height: 1.2;
 }
 
 .old-price {
   font-size: 0.8rem;
-  color: #94a3b8;
+  color: #94A3B8;
   text-decoration: line-through;
   font-weight: 500;
+  font-family: 'Inter', sans-serif;
   line-height: 1.2;
+}
+
+/* No buttons, no hearts */
+.product-card button,
+.product-card .btn-add-cart,
+.product-card .wishlist-heart,
+.product-card .card-wishlist-btn,
+.product-card [class*="wishlist"],
+.product-card [class*="heart"],
+.product-card [class*="cart"] {
+  display: none !important;
 }
 
 /* Available In Store Badge on Product Detail Page */
@@ -2823,8 +2930,9 @@ button {
 }
 
 /* ================= 11. FOOTER & NEWSLETTER ================= */
+/* ================= 11. FOOTER & NEWSLETTER (#174F33 WITH WHITE TEXT) ================= */
 #site-footer-container {
-  background: var(--primary-green, #2A7F4F) !important;
+  background: #174F33 !important;
   margin: 0 !important;
   padding: 0 !important;
   width: 100% !important;
@@ -2835,22 +2943,17 @@ button {
 .main-footer,
 #mainFooter,
 footer {
-  background: var(--primary-green, #2A7F4F) !important;
+  background: #174F33 !important;
   color: #ffffff !important;
-  margin-top: 1rem;
+  margin-top: 0 !important;
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
   opacity: 1 !important;
   visibility: visible !important;
-  filter: none !important;
-  backdrop-filter: none !important;
-  animation: none !important;
-  transform: none !important;
   position: relative !important;
   z-index: 10;
 }
 
-/* Ensure no stuck pseudo-element overlays or animations on footer roots */
 #site-footer-container::before,
 #site-footer-container::after,
 .site-footer::before,
@@ -2863,30 +2966,12 @@ footer {
   display: none !important;
 }
 
-/* All links inside the footer: light grey links that turn gold on hover */
-.site-footer a,
-.main-footer a,
-#mainFooter a {
-  color: #cbd5e1;
-  text-decoration: none;
-  transition: color var(--transition-fast, 0.18s ease), transform var(--transition-fast, 0.18s ease);
-}
-
-.site-footer a:hover,
-.site-footer a:focus,
-.main-footer a:hover,
-.main-footer a:focus,
-#mainFooter a:hover,
-#mainFooter a:focus {
-  color: var(--gold-light, #f7c948) !important;
-}
-
-/* Newsletter Strip (Both .newsletter-strip on index and .footer-newsletter-strip in components.js) */
+/* Newsletter Strip */
 .newsletter-strip,
 .footer-newsletter-strip {
   background: #174F33 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 2.5rem 0;
   width: 100%;
 }
 
@@ -2906,67 +2991,70 @@ footer {
 
 .newsletter-icon {
   font-size: 2.2rem;
-  color: #D9A62E !important;
+  color: #ffffff !important;
 }
 
 .newsletter-left h3,
 .newsletter-text h3 {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.25rem;
   font-weight: 800;
   color: #ffffff !important;
+  margin: 0;
 }
 
 .newsletter-left p,
 .newsletter-text p {
+  font-family: 'Inter', sans-serif !important;
   font-size: 0.85rem;
-  color: #cbd5e1 !important;
-  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.85) !important;
+  margin-top: 4px;
 }
 
 .newsletter-form {
   display: flex;
   align-items: center;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 4px;
   max-width: 440px;
   width: 100%;
-  border: 1px solid #E5E7E2;
+  border: 1px solid #E5E7EB;
 }
 
 .newsletter-form input {
   flex: 1;
   padding: 0.65rem 1rem;
   font-size: 0.88rem;
-  color: var(--text-main);
+  color: #1B1F1D;
   background: transparent;
   border: none;
   outline: none;
+  font-family: 'Inter', sans-serif;
 }
 
 .newsletter-submit-btn {
-  background: #D9A62E !important;
-  color: #1B1F1D !important;
-  font-weight: 800;
+  background: #1E6A43 !important;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 700;
   padding: 0.65rem 1.4rem;
-  border-radius: 12px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   font-size: 0.88rem;
-  transition: all var(--transition-fast);
+  transition: background 0.2s ease;
   border: none;
   cursor: pointer;
   box-shadow: none !important;
 }
 
 .newsletter-submit-btn:hover {
-  background: #c59323 !important;
-  color: #1B1F1D !important;
-  transform: none;
+  background: #134029 !important;
 }
 
+/* Footer Main Links */
 .footer-links-section {
   padding: 3.5rem 0 2.5rem;
   background: #174F33 !important;
@@ -2992,26 +3080,28 @@ footer {
   background: #ffffff;
   border-radius: 50%;
   padding: 3px;
-  border: 1px solid var(--gold-light, #f7c948);
+  border: 1.5px solid #1E6A43;
 }
 
 .footer-brand h3 {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.15rem;
   font-weight: 800;
   color: #ffffff !important;
   line-height: 1.1;
+  margin: 0;
 }
 
 .footer-brand span {
   font-size: 0.65rem;
-  color: var(--gold-light, #f7c948) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
   letter-spacing: 1px;
 }
 
 .footer-about-text {
+  font-family: 'Inter', sans-serif !important;
   font-size: 0.85rem;
-  color: #cbd5e1 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
   line-height: 1.55;
   margin-bottom: 1.25rem;
 }
@@ -3025,42 +3115,33 @@ footer {
 .social-icon-btn {
   width: 36px;
   height: 36px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1) !important;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff !important;
   font-size: 0.95rem;
-  transition: all var(--transition-fast);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 .social-icon-btn:hover {
-  background: var(--gold-primary, #d49b28);
-  color: #1F6B42 !important;
-  transform: translateY(-3px);
+  background: #1E6A43 !important;
+  color: #ffffff !important;
 }
 
 .footer-heading {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.05rem;
   font-weight: 800;
   color: #ffffff !important;
   margin-bottom: 1.15rem;
-  position: relative;
-  padding-bottom: 0.5rem;
 }
 
 .footer-heading::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 32px;
-  height: 2px;
-  background: var(--gold-primary, #d49b28) !important;
-  border-radius: 2px;
+  display: none !important;
+  content: none !important;
 }
 
 .footer-link-list {
@@ -3073,23 +3154,30 @@ footer {
   margin-bottom: 0.55rem;
 }
 
+.site-footer a,
+.main-footer a,
+#mainFooter a,
 .footer-link-list li a {
+  font-family: 'Inter', sans-serif !important;
   font-size: 0.85rem;
-  color: #cbd5e1 !important;
-  transition: all var(--transition-fast, 0.18s ease);
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: color 0.2s ease;
   display: inline-block;
   text-decoration: none;
 }
 
-.footer-link-list li a:hover,
-.footer-link-list li a:focus {
-  color: var(--gold-light, #f7c948) !important;
-  transform: translateX(4px);
+.site-footer a:hover,
+.main-footer a:hover,
+#mainFooter a:hover,
+.footer-link-list li a:hover {
+  color: #ffffff !important;
+  text-decoration: underline;
 }
 
 .footer-contact-info p {
+  font-family: 'Inter', sans-serif !important;
   font-size: 0.85rem;
-  color: #cbd5e1 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
   margin-bottom: 0.65rem;
   display: flex;
   align-items: flex-start;
@@ -3098,7 +3186,7 @@ footer {
 }
 
 .footer-contact-info i {
-  color: var(--gold-light, #f7c948) !important;
+  color: #ffffff !important;
   margin-top: 3px;
 }
 
@@ -3113,19 +3201,19 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 5px 12px;
+  border-radius: 6px;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--gold-light, #f7c948) !important;
-  border: 1px solid rgba(212, 155, 40, 0.25);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   width: fit-content;
 }
 
-/* Slightly darker solid copyright bar */
+/* Footer Bottom Bar */
 .footer-bottom-bar {
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
   padding: 1.25rem 0 !important;
   background: #174F33 !important;
   width: 100%;
@@ -6293,15 +6381,15 @@ footer {
     left: 6px !important;
     font-size: 0.62rem !important;
     padding: 2px 6px !important;
-    border-radius: 999px !important;
-    background: #dc2626 !important;
+    border-radius: 4px !important;
+    background: #1E6A43 !important;
     color: #ffffff !important;
     line-height: 1.2 !important;
   }
 
   .product-card > .card-discount-badge {
-    top: 14px !important;
-    left: 14px !important;
+    top: 8px !important;
+    left: 8px !important;
   }
 
   .product-brand,

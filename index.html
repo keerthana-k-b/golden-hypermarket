@@ -163,181 +163,169 @@
       </div>
     </section>
 
-    <!-- ================= SHOP BY CATEGORY (ROUND CIRCLE TILES) ================= -->
+    <!-- ================= SHOP BY CATEGORY ================= -->
     <section class="section category-tiles-section" id="shopByCategory" aria-label="Shop by Category">
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
             <h2 class="section-title">Shop by Category</h2>
-            <p class="section-subtitle">Curated collections for your daily household needs in Pala</p>
           </div>
           <div class="section-actions">
-            <button class="carousel-nav-btn prev" id="catScrollPrev" aria-label="Scroll Categories Left">
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button class="carousel-nav-btn next" id="catScrollNext" aria-label="Scroll Categories Right">
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-            <a href="category.html?cat=grocery" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="category.html?cat=grocery" class="view-all-link">View all <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
 
-        <div class="category-tiles-carousel" id="categoryTilesRow">
-          <!-- 1. Grocery -->
-          <a href="category.html?cat=grocery" class="category-tile-card">
-            <div class="cat-circle-img-wrap">
-              <img src="https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?auto=format&fit=crop&w=300&q=80" alt="Grocery" loading="lazy">
-            </div>
-            <span class="cat-tile-name">Grocery</span>
-            <span class="cat-tile-ml">പലചരക്ക്</span>
-          </a>
+        <!-- One white rounded card (radius 16px, soft shadow) containing 10 equal tiles with clean image, label, and small arrow button -->
+        <div class="category-main-card">
+          <div class="category-tiles-grid" id="categoryTilesRow">
+            <!-- 1. Grocery -->
+            <a href="category.html?cat=grocery" class="category-tile-card">
+              <div class="cat-circle-img-wrap">
+                <img src="https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?auto=format&fit=crop&w=300&q=80" alt="Grocery" loading="lazy">
+              </div>
+              <span class="cat-tile-name">Grocery</span>
+              <span class="cat-tile-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
 
-          <!-- 2. Fruits & Veg -->
-          <a href="category.html?cat=produce" class="category-tile-card">
-            <div class="cat-circle-img-wrap">
-              <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=300&q=80" alt="Fruits & Veg" loading="lazy">
-            </div>
-            <span class="cat-tile-name">Fruits & Veg</span>
-            <span class="cat-tile-ml">പഴം & പച്ചക്കറി</span>
-          </a>
+            <!-- 2. Fruits & Veg -->
+            <a href="category.html?cat=produce" class="category-tile-card">
+              <div class="cat-circle-img-wrap">
+                <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=300&q=80" alt="Fruits & Veg" loading="lazy">
+              </div>
+              <span class="cat-tile-name">Fruits &amp; Veg</span>
+              <span class="cat-tile-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
 
-          <!-- 3. Meat & Fish -->
-          <a href="category.html?cat=meat-fish" class="category-tile-card">
-            <div class="cat-circle-img-wrap">
-              <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?auto=format&fit=crop&w=300&q=80" alt="Meat & Fish" loading="lazy">
-            </div>
-            <span class="cat-tile-name">Meat & Fish</span>
-            <span class="cat-tile-ml">ഇറച്ചി & മീൻ</span>
-          </a>
+            <!-- 3. Meat & Fish -->
+            <a href="category.html?cat=meat-fish" class="category-tile-card">
+              <div class="cat-circle-img-wrap">
+                <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?auto=format&fit=crop&w=300&q=80" alt="Meat & Fish" loading="lazy">
+              </div>
+              <span class="cat-tile-name">Meat &amp; Fish</span>
+              <span class="cat-tile-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
 
-          <!-- 4. Dairy -->
-          <a href="category.html?cat=dairy" class="category-tile-card">
-            <div class="cat-circle-img-wrap">
-              <img src="https://images.unsplash.com/photo-1528750997573-59b89d56f4f7?auto=format&fit=crop&w=300&q=80" alt="Dairy" loading="lazy">
-            </div>
-            <span class="cat-tile-name">Dairy</span>
-            <span class="cat-tile-ml">പാൽ & നെയ്യ്</span>
-          </a>
+            <!-- 4. Dairy -->
+            <a href="category.html?cat=dairy" class="category-tile-card">
+              <div class="cat-circle-img-wrap">
+                <img src="https://images.unsplash.com/photo-1528750997573-59b89d56f4f7?auto=format&fit=crop&w=300&q=80" alt="Dairy" loading="lazy">
+              </div>
+              <span class="cat-tile-name">Dairy</span>
+              <span class="cat-tile-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
 
-          <!-- 5. Bakery -->
-          <a href="category.html?cat=bakery" class="category-tile-card">
-            <div class="cat-circle-img-wrap">
-              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=300&q=80" alt="Bakery" loading="lazy">
-            </div>
-            <span class="cat-tile-name">Bakery</span>
-            <span class="cat-tile-ml">ബേക്കറി പലഹാരങ്ങൾ</span>
-          </a>
+            <!-- 5. Bakery -->
+            <a href="category.html?cat=bakery" class="category-tile-card">
+              <div class="cat-circle-img-wrap">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=300&q=80" alt="Bakery" loading="lazy">
+              </div>
+              <span class="cat-tile-name">Bakery</span>
+              <span class="cat-tile-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
 
-          <!-- 6. Household -->
-          <a href="category.html?cat=household" class="category-tile-card">
-            <div class="cat-circle-img-wrap">
-              <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=300&q=80" alt="Household" loading="lazy">
-            </div>
-            <span class="cat-tile-name">Household</span>
-            <span class="cat-tile-ml">ക്ലീനിംഗ് & സാധനങ്ങൾ</span>
-          </a>
+            <!-- 6. Household -->
+            <a href="category.html?cat=household" class="category-tile-card">
+              <div class="cat-circle-img-wrap">
+                <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=300&q=80" alt="Household" loading="lazy">
+              </div>
+              <span class="cat-tile-name">Household</span>
+              <span class="cat-tile-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
 
-          <!-- 7. Snacks -->
-          <a href="category.html?cat=bakery" class="category-tile-card">
-            <div class="cat-circle-img-wrap">
-              <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=300&q=80" alt="Snacks" loading="lazy">
-            </div>
-            <span class="cat-tile-name">Snacks</span>
-            <span class="cat-tile-ml">ചിപ്സ് & ലഘുഭക്ഷണം</span>
-          </a>
+            <!-- 7. Snacks -->
+            <a href="category.html?cat=bakery" class="category-tile-card">
+              <div class="cat-circle-img-wrap">
+                <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=300&q=80" alt="Snacks" loading="lazy">
+              </div>
+              <span class="cat-tile-name">Snacks</span>
+              <span class="cat-tile-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
 
-          <!-- 8. Beverages -->
-          <a href="category.html?cat=beverages" class="category-tile-card">
-            <div class="cat-circle-img-wrap">
-              <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=300&q=80" alt="Beverages" loading="lazy">
-            </div>
-            <span class="cat-tile-name">Beverages</span>
-            <span class="cat-tile-ml">ചായ, കാപ്പി & ജ്യൂസ്</span>
-          </a>
+            <!-- 8. Beverages -->
+            <a href="category.html?cat=beverages" class="category-tile-card">
+              <div class="cat-circle-img-wrap">
+                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=300&q=80" alt="Beverages" loading="lazy">
+              </div>
+              <span class="cat-tile-name">Beverages</span>
+              <span class="cat-tile-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
 
-          <!-- 9. Electronics -->
-          <a href="category.html?cat=electronics" class="category-tile-card">
-            <div class="cat-circle-img-wrap">
-              <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=300&q=80" alt="Electronics" loading="lazy">
-            </div>
-            <span class="cat-tile-name">Electronics</span>
-            <span class="cat-tile-ml">മിക്സി & ഉപകരണങ്ങൾ</span>
-          </a>
+            <!-- 9. Electronics -->
+            <a href="category.html?cat=electronics" class="category-tile-card">
+              <div class="cat-circle-img-wrap">
+                <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=300&q=80" alt="Electronics" loading="lazy">
+              </div>
+              <span class="cat-tile-name">Electronics</span>
+              <span class="cat-tile-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
 
-          <!-- 10. Fashion -->
-          <a href="category.html?cat=fashion" class="category-tile-card">
-            <div class="cat-circle-img-wrap">
-              <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=300&q=80" alt="Fashion" loading="lazy">
-            </div>
-            <span class="cat-tile-name">Fashion</span>
-            <span class="cat-tile-ml">വസ്ത്രങ്ങൾ & അപ്പാരൽസ്</span>
-          </a>
+            <!-- 10. Fashion -->
+            <a href="category.html?cat=fashion" class="category-tile-card">
+              <div class="cat-circle-img-wrap">
+                <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=300&q=80" alt="Fashion" loading="lazy">
+              </div>
+              <span class="cat-tile-name">Fashion</span>
+              <span class="cat-tile-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= PROMO BANNER GRID (3 LIGHT-COLOURED TILES) ================= -->
-    <section class="section promo-banners-section" aria-label="Special Promotional Offers">
+    <!-- ================= PROMO BANNERS (TWO EQUAL HEIGHT SIDE BY SIDE) ================= -->
+    <section class="section promo-banners-section" aria-label="Special Highlights">
       <div class="container">
-        <div class="promo-banners-grid">
+        <div class="promo-two-col-grid">
           
-          <!-- Promo 1: Warm Amber / Gold Tint -->
-          <div class="promo-tile-card promo-tile-amber">
-            <div class="promo-content">
-              <span class="promo-chip amber-chip">WEEKEND SAVER</span>
-              <h3 class="promo-headline">Kerala Spices & Cooking Oils</h3>
-              <p class="promo-subtext">Save up to 30% on Pavizham, Kera Drops & Double Horse staples in Pala</p>
-              <div class="promo-deal-tag">
-                <span class="tag-bold">FLAT ₹100 OFF</span>
-                <span class="tag-sub">Use Code: <strong>PALA100</strong></span>
-              </div>
-              <a href="category.html?cat=grocery" class="btn promo-btn promo-btn-amber">
-                <span>Shop Now</span>
-                <i class="fa-solid fa-arrow-right"></i>
+          <!-- Banner 1: Dark Green (#1E6A43) with white text and produce photo -->
+          <div class="promo-banner-card promo-banner-dark">
+            <div class="promo-banner-content">
+              <span class="promo-banner-tag">FARM FRESH DAILY</span>
+              <h3 class="promo-banner-title">Pala's Fresh Farm Produce</h3>
+              <p class="promo-banner-desc">Harvested daily from trusted farms across Pala &amp; Idukki high ranges.</p>
+              <a href="category.html?cat=produce" class="promo-banner-btn promo-btn-white">
+                <span>Shop Fresh Produce</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
               </a>
             </div>
-            <div class="promo-visual">
-              <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=320&q=80" alt="Spices & Oils" loading="lazy">
+            <div class="promo-banner-visual">
+              <img src="assets/images/hero-vegetables.jpg" alt="Fresh Farm Produce" class="promo-banner-img" loading="lazy">
             </div>
           </div>
 
-          <!-- Promo 2: Soft Mint / Sage Tint -->
-          <div class="promo-tile-card promo-tile-mint">
-            <div class="promo-content">
-              <span class="promo-chip mint-chip">FRESH MORNING CATCH</span>
-              <h3 class="promo-headline">Fresh Fish & Seafood Market</h3>
-              <p class="promo-subtext">Cleaned & sliced Karimeen, King Fish & Prawns prepared fresh for pickup</p>
-              <div class="promo-deal-tag">
-                <span class="tag-bold">100% CHEMICAL FREE</span>
-                <span class="tag-sub">Daily fresh morning arrival</span>
-              </div>
-              <a href="category.html?cat=meat-fish" class="btn promo-btn promo-btn-mint">
-                <span>Shop Now</span>
-                <i class="fa-solid fa-arrow-right"></i>
+          <!-- Banner 2: Light (#EEF3EF) "Visit our fresh counter" -->
+          <div class="promo-banner-card promo-banner-light">
+            <div class="promo-banner-content">
+              <span class="promo-banner-tag-dark">STORE EXPERIENCE</span>
+              <h3 class="promo-banner-title-dark">Visit our fresh counter</h3>
+              <p class="promo-banner-desc-dark">Cleaned marine catch, tender butchery cuts, and artisan bakery made fresh across 3 floors.</p>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer" class="promo-banner-btn promo-btn-green">
+                <span>Visit Store</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
               </a>
             </div>
-            <div class="promo-visual">
-              <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?auto=format&fit=crop&w=320&q=80" alt="Fresh Fish" loading="lazy">
-            </div>
-          </div>
-
-          <!-- Promo 3: Soft Sky Blue Tint -->
-          <div class="promo-tile-card promo-tile-sky">
-            <div class="promo-content">
-              <span class="promo-chip sky-chip">HOME & KITCHEN</span>
-              <h3 class="promo-headline">Kitchenware & Appliances</h3>
-              <p class="promo-subtext">Preethi mixer grinders, cookware, kettles & daily kitchen essentials</p>
-              <div class="promo-deal-tag">
-                <span class="tag-bold">UP TO 40% OFF</span>
-                <span class="tag-sub">Pala Mega Kitchen Fest</span>
-              </div>
-              <a href="category.html?cat=electronics" class="btn promo-btn promo-btn-sky">
-                <span>Shop Now</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </a>
-            </div>
-            <div class="promo-visual">
-              <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=320&q=80" alt="Kitchenware & Appliances" loading="lazy">
+            <div class="promo-banner-visual">
+              <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?auto=format&fit=crop&w=480&q=80" alt="Visit our fresh counter" class="promo-banner-img" loading="lazy">
             </div>
           </div>
 
@@ -350,9 +338,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-badge green-badge-pill"><i class="fa-solid fa-seedling"></i> 100% FARM FRESH</div>
-            <h2 class="section-title">Fresh Fruits & Vegetables</h2>
-            <p class="section-subtitle">Locally harvested from Pala, Meenachil and Idukki high ranges every morning</p>
+            <h2 class="section-title">Fresh Fruits &amp; Vegetables</h2>
           </div>
           <div class="section-actions">
             <button class="carousel-nav-btn prev" id="freshProducePrev" aria-label="Previous Produce">
@@ -361,7 +347,7 @@
             <button class="carousel-nav-btn next" id="freshProduceNext" aria-label="Next Produce">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <a href="category.html?cat=produce" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="category.html?cat=produce" class="view-all-link">View all <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
 
@@ -376,9 +362,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-badge deal-badge-pill"><i class="fa-solid fa-fish"></i> DAILY FRESH CATCH</div>
-            <h2 class="section-title">Fresh Meat & Seafood</h2>
-            <p class="section-subtitle">Cleaned, sliced, chemical-free marine fish, freshwater fish, tender chicken & mutton</p>
+            <h2 class="section-title">Fresh Meat &amp; Seafood</h2>
           </div>
           <div class="section-actions">
             <button class="carousel-nav-btn prev" id="meatFishPrev" aria-label="Previous Meat and Fish">
@@ -387,7 +371,7 @@
             <button class="carousel-nav-btn next" id="meatFishNext" aria-label="Next Meat and Fish">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <a href="category.html?cat=meat-fish" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="category.html?cat=meat-fish" class="view-all-link">View all <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
 
@@ -402,9 +386,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-badge green-badge-pill"><i class="fa-solid fa-cow"></i> PURE & NOURISHING</div>
-            <h2 class="section-title">Dairy, Butter & Farm Fresh Eggs</h2>
-            <p class="section-subtitle">Pure Malanadu ghee, Milma milk, artisan butter, paneer, and local country eggs</p>
+            <h2 class="section-title">Dairy, Butter &amp; Farm Fresh Eggs</h2>
           </div>
           <div class="section-actions">
             <button class="carousel-nav-btn prev" id="dairyPrev" aria-label="Previous Dairy">
@@ -413,7 +395,7 @@
             <button class="carousel-nav-btn next" id="dairyNext" aria-label="Next Dairy">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <a href="category.html?cat=dairy" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="category.html?cat=dairy" class="view-all-link">View all <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
 
@@ -428,9 +410,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-badge green-badge-pill"><i class="fa-solid fa-pump-soap"></i> HOME CARE</div>
-            <h2 class="section-title">Household & Cleaning Essentials</h2>
-            <p class="section-subtitle">Top detergents, dishwashers, surface cleaners, paper napkins and home storage</p>
+            <h2 class="section-title">Household &amp; Cleaning Essentials</h2>
           </div>
           <div class="section-actions">
             <button class="carousel-nav-btn prev" id="householdPrev" aria-label="Previous Household">
@@ -439,7 +419,7 @@
             <button class="carousel-nav-btn next" id="householdNext" aria-label="Next Household">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <a href="category.html?cat=household" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="category.html?cat=household" class="view-all-link">View all <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
 
@@ -454,9 +434,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-badge deal-badge-pill"><i class="fa-solid fa-fire"></i> WEEKLY DEALS</div>
             <h2 class="section-title">Weekly Super Deals</h2>
-            <p class="section-subtitle">Handpicked highest discount deals on Kerala favorites in Pala</p>
           </div>
           <div class="section-actions">
             <button class="carousel-nav-btn prev" id="weeklyDealsPrev" aria-label="Previous Deals">
@@ -465,7 +443,7 @@
             <button class="carousel-nav-btn next" id="weeklyDealsNext" aria-label="Next Deals">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <a href="category.html?cat=all&deals=1" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="category.html?cat=all&amp;deals=1" class="view-all-link">View all <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
 
@@ -480,9 +458,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-badge gold-badge-pill"><i class="fa-solid fa-award"></i> TRADITION OF PALA</div>
             <h2 class="section-title">Kerala Special Staples</h2>
-            <p class="section-subtitle">Authentic Matta rice, fragrant biryani grains, spices, podis and pure coconut oils</p>
           </div>
           <div class="section-actions">
             <button class="carousel-nav-btn prev" id="keralaStaplesPrev" aria-label="Previous Staples">
@@ -491,7 +467,7 @@
             <button class="carousel-nav-btn next" id="keralaStaplesNext" aria-label="Next Staples">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <a href="category.html?cat=grocery" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="category.html?cat=grocery" class="view-all-link">View all <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
 
@@ -506,9 +482,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-badge gold-badge-pill"><i class="fa-solid fa-bread-slice"></i> OVEN FRESH DAILY</div>
-            <h2 class="section-title">Bakery, Sweets & Traditional Snacks</h2>
-            <p class="section-subtitle">Crispy Kerala banana chips, freshly baked wholewheat breads, cakes and tea snacks</p>
+            <h2 class="section-title">Bakery, Sweets &amp; Traditional Snacks</h2>
           </div>
           <div class="section-actions">
             <button class="carousel-nav-btn prev" id="bakeryPrev" aria-label="Previous Bakery">
@@ -517,7 +491,7 @@
             <button class="carousel-nav-btn next" id="bakeryNext" aria-label="Next Bakery">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <a href="category.html?cat=bakery" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="category.html?cat=bakery" class="view-all-link">View all <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
 
@@ -532,9 +506,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-title-wrap">
-            <div class="section-badge gold-badge-pill"><i class="fa-solid fa-blender"></i> HOME ESSENTIALS</div>
-            <h2 class="section-title">Kitchen Appliances & Electronics</h2>
-            <p class="section-subtitle">Preethi mixer grinders, induction cookers, electric kettles and trusted brands</p>
+            <h2 class="section-title">Kitchen Appliances &amp; Electronics</h2>
           </div>
           <div class="section-actions">
             <button class="carousel-nav-btn prev" id="electronicsPrev" aria-label="Previous Electronics">
@@ -543,7 +515,7 @@
             <button class="carousel-nav-btn next" id="electronicsNext" aria-label="Next Electronics">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <a href="category.html?cat=electronics" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="category.html?cat=electronics" class="view-all-link">View all <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
 
