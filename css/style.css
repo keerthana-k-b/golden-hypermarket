@@ -1369,7 +1369,7 @@ button {
 /* Mobile Media Query (< 768px) */
 @media (max-width: 768px) {
   .hero-slider-section {
-    padding: 16px 0 18px 0 !important;
+    padding: 12px 0 18px 0 !important;
   }
 
   .hero-max-container {
@@ -1412,7 +1412,7 @@ button {
 
   .hero-text-col {
     max-width: 100% !important;
-    padding: 4px 2px 8px 2px !important;
+    padding: 0 2px 8px 2px !important;
     flex: 1 1 100% !important;
     height: auto !important;
   }
@@ -1555,39 +1555,60 @@ button {
   }
 
   .hero-trust-row {
-    margin-top: 14px !important;
+    margin-top: 10px !important;
+    margin-bottom: 8px !important;
     padding-top: 0 !important;
     border-top: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .trust-card {
-    padding: 10px 14px !important;
+    padding: 8px 10px !important;
     border-radius: 12px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
   }
 
   .trust-grid {
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
+    gap: 8px 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .trust-item {
+    display: flex !important;
+    align-items: center !important;
     gap: 8px !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
   }
 
   .trust-icon {
-    width: 32px !important;
-    height: 32px !important;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    border-radius: 6px !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .trust-icon svg {
-    width: 16px !important;
-    height: 16px !important;
+    width: 14px !important;
+    height: 14px !important;
   }
 
   .trust-title {
-    font-size: 0.78rem !important;
+    font-size: 0.74rem !important;
     white-space: normal !important;
-    line-height: 1.25 !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 }
 
@@ -3686,28 +3707,10 @@ footer {
   color: #ffffff !important;
 }
 
-.payment-icons-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
+/* Payment chips removed from footer on all widths */
+.payment-icons-row,
 .pay-chip {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  padding: 3px 8px;
-  border-radius: var(--radius-sm);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #e2e8f0 !important;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.pay-chip i {
-  color: var(--gold-light, #f7c948);
+  display: none !important;
 }
 
 /* ================= MOBILE BOTTOM FLOATING NAV ================= */
@@ -7176,28 +7179,28 @@ footer {
     gap: 0.75rem !important;
   }
 
-  .pay-chip {
-    min-height: 38px !important;
-    display: inline-flex !important;
-    align-items: center !important;
+  /* Ensure bottom tab bar never covers footer or page content */
+  html body,
+  body {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
   }
 
-  /* Ensure footer background extends cleanly to bottom on mobile without body light bleed */
-  html body,
-  html body.has-bottom-sticky-bar,
-  html body.page-product,
-  html body.page-cart {
-    padding-bottom: 0 !important;
+  .site-footer,
+  .main-footer,
+  #mainFooter {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
   }
 
   .footer-bottom-bar {
-    padding-bottom: calc(75px + env(safe-area-inset-bottom, 0px)) !important;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+    margin-bottom: calc(-80px - env(safe-area-inset-bottom, 0px)) !important;
   }
 
   body.has-bottom-sticky-bar .footer-bottom-bar,
   body.page-product .footer-bottom-bar,
   body.page-cart .footer-bottom-bar {
-    padding-bottom: calc(140px + env(safe-area-inset-bottom, 0px)) !important;
+    padding-bottom: calc(148px + env(safe-area-inset-bottom, 0px)) !important;
+    margin-bottom: calc(-148px - env(safe-area-inset-bottom, 0px)) !important;
   }
 }
 
@@ -7277,12 +7280,12 @@ footer {
 @media (max-width: 768px) {
   /* Offset page bottom to avoid fixed bottom nav (60px) + sticky bars (64px) */
   body {
-    padding-bottom: 84px !important;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
   }
   body.has-bottom-sticky-bar,
   body.page-product,
   body.page-cart {
-    padding-bottom: 148px !important;
+    padding-bottom: calc(148px + env(safe-area-inset-bottom, 0px)) !important;
   }
 
   /* ---------------- CATEGORY PAGE ---------------- */

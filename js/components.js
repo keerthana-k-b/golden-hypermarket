@@ -10,6 +10,7 @@ const LucideIcons = {
   messageCircle: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>`,
   globe: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
   chevronDown: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>`,
+  chevronRight: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>`,
   menu: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`,
   search: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,
   user: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
@@ -172,8 +173,8 @@ const SiteComponents = {
                 </div>
               </a>
 
-              <!-- Search Bar in ONE Row (Max Width 640px, Height 46px, Fully Rounded) -->
-              <div class="hdr-search-container">
+              <!-- Desktop Search Bar in ONE Row (Max Width 640px, Height 46px, Fully Rounded) -->
+              <div class="hdr-search-container desktop-only-search">
                 <form class="hdr-search-form" id="headerSearchForm" action="search.html" method="GET">
                   <!-- Department Dropdown -->
                   <div class="hdr-search-dept-wrap">
@@ -251,6 +252,33 @@ const SiteComponents = {
             </div>
           </div>
         </header>
+
+        <!-- ROW 2B: MOBILE SEARCH BAR (Full width on its own line under logo row at 44px, placeholder 'Search products', magnifier only, scrolls away) -->
+        <div class="hdr-mobile-search-row" id="mobileSearchRow">
+          <div class="container">
+            <form class="hdr-search-form" id="mobileSearchForm" action="search.html" method="GET">
+              <div class="hdr-search-input-wrap">
+                <span class="hdr-search-icon-inside" aria-hidden="true">${LucideIcons.search}</span>
+                <input 
+                  type="text" 
+                  name="q"
+                  id="mobileSearchInput" 
+                  class="hdr-search-input" 
+                  placeholder="Search products" 
+                  autocomplete="off"
+                  aria-label="Search products"
+                  value="${currentQ}"
+                >
+                <button type="button" class="hdr-search-clear is-hidden" id="clearMobileSearchBtn" aria-label="Clear Search Input">
+                  ${LucideIcons.x}
+                </button>
+              </div>
+              <button type="submit" class="hdr-search-btn" id="mobileSearchSubmitBtn" aria-label="Search">
+                <span class="hdr-icon">${LucideIcons.search}</span>
+              </button>
+            </form>
+          </div>
+        </div>
 
         <!-- ROW 3: ALL CATEGORIES BUTTON + NAV LINKS (MAX 8 + MORE) -->
         <nav class="hdr-category-bar" id="categoryNavBar" aria-label="Category Navigation">
@@ -447,20 +475,12 @@ const SiteComponents = {
           </div>
         </div>
 
-        <!-- Bottom Copyright & Payment Methods Bar -->
+        <!-- Bottom Copyright -->
         <div class="footer-bottom-bar">
           <div class="container footer-bottom-container">
             <p class="copyright-text">
               © 2026 <strong>Golden Hypermarket, Pala</strong>. All rights reserved. Serving Central Travancore since 1964.
             </p>
-            <div class="payment-icons-row">
-              <span class="pay-chip"><i class="fa-brands fa-google-pay"></i> GPay</span>
-              <span class="pay-chip"><i class="fa-solid fa-mobile-screen-button"></i> PhonePe</span>
-              <span class="pay-chip"><i class="fa-solid fa-wallet"></i> Paytm</span>
-              <span class="pay-chip"><i class="fa-brands fa-cc-visa"></i> Visa</span>
-              <span class="pay-chip"><i class="fa-brands fa-cc-mastercard"></i> Mastercard</span>
-              <span class="pay-chip"><i class="fa-solid fa-money-bill-wave"></i> Pay at Store</span>
-            </div>
           </div>
         </div>
       </footer>
@@ -541,6 +561,24 @@ const SiteComponents = {
       </div>
 
       <div class="hdr-drawer-body">
+        <!-- Quick Store Info (Moved from top utility bar on mobile: Open 8 AM - 10 PM, phone number, Malayalam toggle) -->
+        <div class="hdr-drawer-util-card">
+          <div class="drawer-util-row">
+            <div class="drawer-util-item">
+              <span class="drawer-util-icon">${LucideIcons.clock}</span>
+              <span>Open <strong>8 AM – 10 PM</strong></span>
+            </div>
+            <a href="tel:+918606647777" class="drawer-util-item drawer-util-phone">
+              <span class="drawer-util-icon">${LucideIcons.phone}</span>
+              <span><strong>+91 86066 47777</strong></span>
+            </a>
+          </div>
+          <button type="button" class="drawer-util-lang-btn" id="drawerLangBtn" aria-label="Toggle Language">
+            <span class="drawer-util-icon">${LucideIcons.globe}</span>
+            <span id="drawerLangLabel">${savedLang === 'ML' ? 'Switch to English' : 'മലയാളം (ML)'}</span>
+          </button>
+        </div>
+
         <!-- Store Location Link -->
         <a href="https://www.google.com/maps/dir/?api=1&destination=Golden+Hypermarket+Pala+opposite+St.+George+Puthenpally+Lalam+Pala+Kerala+686575" target="_blank" rel="noopener noreferrer" class="hdr-utility-item hdr-loc-trigger hdr-mob-loc-trigger" id="mobileLocationTrigger" style="text-decoration:none;color:inherit;">
           <span class="hdr-flex-gap-6">
@@ -590,12 +628,8 @@ const SiteComponents = {
           </div>
         </div>
 
-        <!-- Drawer Footer: Language Toggle & Account Links -->
+        <!-- Drawer Footer: Location & Support Links -->
         <div class="drawer-footer-box">
-          <button type="button" class="drawer-lang-btn" id="drawerLangBtn" aria-label="Toggle Language">
-            <span class="hdr-icon">${LucideIcons.globe}</span>
-            <span id="drawerLangLabel">${savedLang === 'ML' ? 'Switch to English' : 'മലയാളത്തിലേക്ക് മാറ്റുക (ML)'}</span>
-          </button>
           <a href="tel:+918606647777" class="drawer-link-btn" id="drawerCallBtn">
             <span class="hdr-icon">${LucideIcons.phone}</span>
             <span>Call Store (+91 86066 47777)</span>
@@ -865,16 +899,31 @@ const SiteComponents = {
       });
     }
 
-    // Mobile Bottom Tab "Search" focuses input on mobile
+    // Mobile Search triggers (Bottom tab & Header sticky search button)
     const mobTabSearch = document.getElementById('mobTabSearch');
-    if (mobTabSearch) {
-      mobTabSearch.addEventListener('click', (e) => {
-        const searchInput = document.getElementById('mainSearchInput');
-        if (searchInput && window.innerWidth <= 768 && !window.location.pathname.includes('search.html')) {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          searchInput.focus();
-        }
+    const mobileSearchToggleBtn = document.getElementById('mobileSearchToggleBtn');
+    const focusMobileSearch = (e) => {
+      const searchInput = document.getElementById('mobileSearchInput') || document.getElementById('mainSearchInput');
+      if (searchInput && window.innerWidth <= 768 && !window.location.pathname.includes('search.html')) {
+        if (e) e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        searchInput.focus();
+      }
+    };
+    if (mobTabSearch) mobTabSearch.addEventListener('click', focusMobileSearch);
+    if (mobileSearchToggleBtn) mobileSearchToggleBtn.addEventListener('click', focusMobileSearch);
+
+    // Mobile Search Input & Clear Button
+    const mobileSearchInput = document.getElementById('mobileSearchInput');
+    const clearMobileSearchBtn = document.getElementById('clearMobileSearchBtn');
+    if (mobileSearchInput && clearMobileSearchBtn) {
+      mobileSearchInput.addEventListener('input', (e) => {
+        clearMobileSearchBtn.classList.toggle('is-hidden', !e.target.value.trim());
+      });
+      clearMobileSearchBtn.addEventListener('click', () => {
+        mobileSearchInput.value = '';
+        clearMobileSearchBtn.classList.add('is-hidden');
+        mobileSearchInput.focus();
       });
     }
 
